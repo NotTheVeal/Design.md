@@ -955,6 +955,401 @@ select.input {
 }
 .note strong { color: var(--text-primary); font-weight: 600; }
 
+/* =====================================================
+   FLOATING LABEL INPUTS (from Claude.ai / brandgovern)
+   ===================================================== */
+.field-float {
+  position: relative;
+  display: block;
+}
+.field-float__input {
+  display: block;
+  width: 100%;
+  background: var(--surface-base);
+  color: var(--text-body);
+  border: 1.5px solid var(--grey-3);
+  border-radius: var(--r-op);
+  padding: 22px 12px 6px;
+  font-size: 14px;
+  line-height: 20px;
+  min-height: 48px;
+  font-family: inherit;
+  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.field-float__input:hover { border-color: var(--grey-1); }
+.field-float__input:focus {
+  outline: none;
+  border-color: var(--ps-blue);
+  box-shadow: 0 0 0 2px var(--azure-blue);
+}
+.field-float__input:disabled {
+  background: var(--grey-6);
+  color: var(--grey-3);
+  border-color: var(--grey-5);
+  cursor: not-allowed;
+}
+.field-float__input--error { border-color: var(--red); }
+.field-float__input--error:focus { border-color: var(--red); box-shadow: 0 0 0 2px var(--light-red); }
+.field-float__label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-assistive);
+  pointer-events: none;
+  transform-origin: left top;
+  transition: top var(--dur-fast) var(--ease), font-size var(--dur-fast) var(--ease),
+              font-weight var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.field-float__input:focus ~ .field-float__label,
+.field-float__input:not(:placeholder-shown) ~ .field-float__label,
+.field-float--filled .field-float__label {
+  top: 8px;
+  transform: translateY(0) scale(0.8);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ps-blue);
+  letter-spacing: 0.03em;
+}
+.field-float__input:disabled ~ .field-float__label { color: var(--grey-3); }
+.field-float__input--error ~ .field-float__label { color: var(--red); }
+/* Large variant — 80px */
+.field-float--large .field-float__input {
+  min-height: 80px;
+  padding-top: 36px;
+  font-size: 16px;
+}
+.field-float--large .field-float__label { font-size: 16px; }
+.field-float--large .field-float__input:focus ~ .field-float__label,
+.field-float--large .field-float__input:not(:placeholder-shown) ~ .field-float__label,
+.field-float--large.field-float--filled .field-float__label {
+  top: 12px;
+}
+
+/* =====================================================
+   INLINE TABS (from brandgovern)
+   ===================================================== */
+.inline-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--grey-3);
+  gap: 0;
+}
+.inline-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--surface-base);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: background var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+.inline-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0; right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background var(--dur-fast) var(--ease);
+}
+.inline-tab:hover { background: var(--grey-6); }
+.inline-tab.is-active {
+  font-weight: 700;
+}
+.inline-tab.is-active::after { background: var(--ps-blue); }
+.inline-tab:disabled { color: var(--grey-4); cursor: not-allowed; background: var(--surface-base); }
+.inline-tab__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--s-2);
+  background: var(--grey-6);
+  border-radius: var(--r-ex);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-body);
+}
+.inline-tab.is-active .inline-tab__count {
+  background: var(--ps-blue);
+  color: var(--white);
+}
+.tab-panel { padding: var(--s-5) 0; }
+
+/* =====================================================
+   CAROUSEL (from brandgovern)
+   ===================================================== */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+.carousel__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--s-4);
+}
+.carousel__track-wrap {
+  position: relative;
+}
+.carousel__track {
+  display: flex;
+  gap: var(--s-4);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: var(--s-2);
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px; height: 36px;
+  border-radius: var(--r-ex);
+  background: var(--surface-base);
+  border: 1px solid var(--border-subtle);
+  display: grid; place-items: center;
+  color: var(--text-body);
+  z-index: 2;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.carousel__btn:hover { background: var(--ps-blue); color: var(--white); border-color: var(--ps-blue); }
+.carousel__btn--prev { left: -12px; }
+.carousel__btn--next { right: -12px; }
+
+.product-card {
+  flex: 0 0 180px;
+  background: var(--surface-base);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-op);
+  overflow: hidden;
+  transition: box-shadow var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.product-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 91, 166, 0.12);
+  transform: translateY(-2px);
+}
+.product-card__img {
+  height: 120px;
+  background: var(--grey-7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-divider);
+  overflow: hidden;
+}
+.product-card__img svg { opacity: 0.3; }
+.product-card__body { padding: var(--s-3); }
+.product-card__name {
+  font-size: 13px; font-weight: 600; line-height: 18px;
+  color: var(--ps-blue);
+  margin-bottom: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.product-card__sku {
+  font-size: 11px; color: var(--text-secondary);
+  margin-bottom: var(--s-2);
+}
+.product-card__price {
+  font-size: 13px; font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+.product-card__price-label {
+  font-size: 11px; font-weight: 400;
+  color: var(--text-assistive);
+}
+
+/* =====================================================
+   COMPARISON DATA (from brandgovern)
+   ===================================================== */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.comparison-table__product-header {
+  background: var(--ps-blue);
+  color: var(--white);
+  padding: var(--s-4);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  vertical-align: top;
+}
+.comparison-table__product-header .vendor {
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: var(--s-1);
+  opacity: 0.85;
+}
+.comparison-table__product-header .meta {
+  font-weight: 400;
+  font-size: 11px;
+  margin-top: var(--s-2);
+  opacity: 0.75;
+}
+.comparison-table__group-header {
+  background: var(--grey-6);
+  color: var(--text-assistive);
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: var(--s-2) var(--s-3);
+}
+.comparison-table th.comparison-table__row-label {
+  font-size: 13px; font-weight: 400;
+  color: var(--text-body);
+  text-align: left;
+  padding: var(--s-3);
+  border-bottom: 1px solid var(--border-divider);
+  width: 160px;
+  background: var(--surface-base);
+}
+.comparison-table td.comparison-table__cell {
+  text-align: center;
+  padding: var(--s-3);
+  border-bottom: 1px solid var(--border-divider);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-body);
+  background: var(--surface-base);
+}
+.comparison-table td.comparison-table__cell--winner {
+  background: var(--green-1);
+  color: var(--white);
+  font-weight: 700;
+}
+.comparison-table__img-cell {
+  padding: var(--s-4);
+  text-align: center;
+  background: var(--surface-base);
+  border-bottom: 1px solid var(--border-divider);
+}
+.comparison-product-img {
+  width: 80px; height: 80px;
+  background: var(--grey-7);
+  border: 1px solid var(--border-divider);
+  border-radius: var(--r-op);
+  margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+}
+.comparison-product-img svg { opacity: 0.3; }
+
+/* =====================================================
+   ALERTS / NOTES (brandgovern style — informational)
+   ===================================================== */
+.note-block {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-op);
+  font-size: 14px;
+  line-height: 20px;
+}
+.note-block--alert {
+  background: var(--orange-5);
+  border: 1px solid var(--orange-4);
+  color: var(--orange-3);
+}
+.note-block--note {
+  background: var(--grey-7);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-body);
+}
+.note-block__icon {
+  flex: 0 0 20px;
+  width: 20px; height: 20px;
+  border-radius: var(--r-ex);
+  border: 1.5px solid currentColor;
+  display: grid; place-items: center;
+  font-size: 11px; font-weight: 900;
+  margin-top: 1px;
+}
+.note-block__title {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+/* =====================================================
+   TOAST (standalone dismissible notification)
+   ===================================================== */
+.toast-demo {
+  position: relative;
+  min-width: 320px;
+  max-width: 480px;
+  background: var(--blue-3);
+  color: var(--white);
+  border-radius: var(--r-st);
+  padding: var(--s-4) var(--s-5);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+.toast-demo--success { background: var(--green-1); }
+.toast-demo--error   { background: var(--red); }
+.toast-demo--warning { background: var(--orange-2); }
+.toast-demo__body { flex: 1; }
+.toast-demo__title { font-weight: 700; margin-bottom: 2px; font-size: 14px; }
+.toast-demo__msg { font-size: 13px; opacity: 0.9; }
+.toast-demo__close {
+  color: rgba(255,255,255,0.75);
+  padding: var(--s-1);
+  transition: color var(--dur-fast) var(--ease);
+}
+.toast-demo__close:hover { color: var(--white); }
+
+/* =====================================================
+   HOVER STATE DEMOS
+   ===================================================== */
+.hover-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--s-4);
+}
+.hover-card {
+  background: var(--surface-base);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-st);
+  padding: var(--s-4);
+  transition: box-shadow var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+  cursor: pointer;
+}
+.hover-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 91, 166, 0.12);
+  transform: translateY(-2px);
+}
+.hover-card__label {
+  font-size: 12px; font-weight: 700;
+  color: var(--text-assistive);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--s-2);
+}
+.hover-card__value {
+  font-size: 22px; font-weight: 300;
+  color: var(--text-primary);
+}
+
 /* Page-load stagger */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(6px); }

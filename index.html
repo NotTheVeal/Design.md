@@ -321,29 +321,349 @@
           </div>
         </div>
 
-        <div class="ref__grid cols-2 mb-4">
-          <div class="card-detail">
-            <header class="card-detail__header">
-              <h3 class="card-detail__title">Inputs</h3>
-              <div class="card-detail__subtitle">40px min height · 4px radius · Focus: PS Blue border + 2px Azure outline.</div>
-            </header>
-            <div class="card-detail__content stack">
-              <label class="field">
-                <span class="field__label">Part number</span>
-                <input class="input" value="453564588521">
-                <span class="field__hint">Enter manufacturer part number or scan barcode</span>
-              </label>
-              <label class="field">
-                <span class="field__label">Requestor email</span>
-                <input class="input input--error" value="cemgr@">
-                <span class="field__error">Enter a complete email address so we can route approvals.</span>
-              </label>
-              <label class="field">
-                <span class="field__label">Disabled field</span>
-                <input class="input" value="Locked by approver" disabled>
-              </label>
+        <!-- INPUTS (floating label) -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Inputs</h3>
+            <div class="card-detail__subtitle">Floating label · 48px standard · 80px large · Focus: PS Blue border + 2px Azure outline.</div>
+          </header>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Standard · 48px</div>
+            <div class="ref__grid cols-2" style="gap:var(--s-4)">
+              <div class="stack" style="gap:var(--s-4)">
+                <div>
+                  <div class="eyebrow mb-3" style="margin-bottom:var(--s-2)">Idle &amp; Empty</div>
+                  <div class="field-float">
+                    <input class="field-float__input" placeholder=" " id="fi-idle">
+                    <label class="field-float__label" for="fi-idle">Part Number</label>
+                  </div>
+                </div>
+                <div>
+                  <div class="eyebrow" style="margin-bottom:var(--s-2)">With Value</div>
+                  <div class="field-float field-float--filled">
+                    <input class="field-float__input" placeholder=" " value="453564588521" id="fi-filled">
+                    <label class="field-float__label" for="fi-filled">Part Number</label>
+                  </div>
+                  <div class="field__hint">Enter manufacturer part number or scan barcode</div>
+                </div>
+              </div>
+              <div class="stack" style="gap:var(--s-4)">
+                <div>
+                  <div class="eyebrow" style="margin-bottom:var(--s-2)">Error</div>
+                  <div class="field-float field-float--filled">
+                    <input class="field-float__input field-float__input--error" placeholder=" " value="cemgr@" id="fi-error">
+                    <label class="field-float__label" for="fi-error">Requestor Email</label>
+                  </div>
+                  <div class="field__error">Enter a complete email address so we can route approvals.</div>
+                </div>
+                <div>
+                  <div class="eyebrow" style="margin-bottom:var(--s-2)">Disabled</div>
+                  <div class="field-float field-float--filled">
+                    <input class="field-float__input" placeholder=" " value="Locked by approver" disabled id="fi-dis">
+                    <label class="field-float__label" for="fi-dis">Approval Status</label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Large · 80px</div>
+            <div class="ref__grid cols-2" style="gap:var(--s-4)">
+              <div>
+                <div class="eyebrow" style="margin-bottom:var(--s-2)">Empty</div>
+                <div class="field-float field-float--large">
+                  <input class="field-float__input" placeholder=" " id="fi-lg-empty">
+                  <label class="field-float__label" for="fi-lg-empty">Search Devices, Parts, or Vendors</label>
+                </div>
+              </div>
+              <div>
+                <div class="eyebrow" style="margin-bottom:var(--s-2)">With Value</div>
+                <div class="field-float field-float--large field-float--filled">
+                  <input class="field-float__input" placeholder=" " value="Baxter Spectrum IQ Infusion Pump" id="fi-lg-filled">
+                  <label class="field-float__label" for="fi-lg-filled">Device</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INLINE TABS -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Inline Tabs</h3>
+            <div class="card-detail__subtitle">PS Blue 2px bottom indicator on active · count badge · hover: Grey 6 background.</div>
+          </header>
+          <div class="card-detail__content">
+            <div class="inline-tabs" role="tablist" data-inline-tabs>
+              <button class="inline-tab is-active" role="tab" aria-selected="true">
+                All Orders <span class="inline-tab__count">26</span>
+              </button>
+              <button class="inline-tab" role="tab" aria-selected="false">
+                Pending Approval <span class="inline-tab__count">7</span>
+              </button>
+              <button class="inline-tab" role="tab" aria-selected="false">
+                In Transit <span class="inline-tab__count">4</span>
+              </button>
+              <button class="inline-tab" role="tab" aria-selected="false">
+                Approved <span class="inline-tab__count">12</span>
+              </button>
+              <button class="inline-tab" role="tab" aria-selected="false" disabled>
+                Archived
+              </button>
+            </div>
+            <div class="tab-panel">
+              <div class="note">Active tab content area — tab panel would render here. Tabs use <code>role="tablist"</code> / <code>role="tab"</code> with <code>aria-selected</code> for accessibility.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ALERTS / NOTES (brandgovern style) -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Alerts &amp; Notes</h3>
+            <div class="card-detail__subtitle">Inline informational messaging. Alerts = primary info (cut-off, warnings). Notes = secondary info (requirements, timing).</div>
+          </header>
+          <div class="card-detail__content stack">
+            <div class="note-block note-block--alert">
+              <div class="note-block__icon">!</div>
+              <div>
+                <div class="note-block__title">Cut-off time: 3:00 PM EST</div>
+                Orders placed after this time will ship the following business day. Expedited shipping available for critical orders.
+              </div>
+            </div>
+            <div class="note-block note-block--alert">
+              <div class="note-block__icon">!</div>
+              <div>
+                <div class="note-block__title">Hazardous material — special handling required</div>
+                This part is subject to shipping restrictions. Allow 2 additional business days for compliance review.
+              </div>
+            </div>
+            <div class="note-block note-block--note">
+              <div class="note-block__icon">i</div>
+              <div>
+                <div class="note-block__title">Minimum order quantity: 4 units</div>
+                Your cart contains 2 units. Add 2 more to meet the vendor minimum or select a different vendor.
+              </div>
+            </div>
+            <div class="note-block note-block--note">
+              <div class="note-block__icon">i</div>
+              <div>
+                Included in purchase: installation guide, calibration certificate, and 90-day warranty card.
+              </div>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Toast Notifications</div>
+            <div class="ref__row" style="flex-wrap:wrap; align-items:flex-start">
+              <div class="toast-demo">
+                <i data-lucide="check-circle-2" width="18" height="18" style="flex:0 0 auto; margin-top:2px"></i>
+                <div class="toast-demo__body">
+                  <div class="toast-demo__title">Order submitted</div>
+                  <div class="toast-demo__msg">PO-24831 routed to GE Healthcare for approval.</div>
+                </div>
+                <button class="toast-demo__close" aria-label="Dismiss"><i data-lucide="x" width="16" height="16"></i></button>
+              </div>
+              <div class="toast-demo toast-demo--error">
+                <i data-lucide="x-circle" width="18" height="18" style="flex:0 0 auto; margin-top:2px"></i>
+                <div class="toast-demo__body">
+                  <div class="toast-demo__title">Submission failed</div>
+                  <div class="toast-demo__msg">Check required fields and try again.</div>
+                </div>
+                <button class="toast-demo__close" aria-label="Dismiss"><i data-lucide="x" width="16" height="16"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAROUSEL -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Carousel</h3>
+            <div class="card-detail__subtitle">Horizontal product scroll · prev/next arrows · cards lift on hover.</div>
+          </header>
+          <div class="card-detail__content">
+            <div class="carousel">
+              <div class="carousel__title">Recommended For You</div>
+              <div class="carousel__track-wrap">
+                <button class="carousel__btn carousel__btn--prev" aria-label="Previous" onclick="this.closest('.carousel__track-wrap').querySelector('.carousel__track').scrollBy({left:-200,behavior:'smooth'})">
+                  <i data-lucide="chevron-left" width="16" height="16"></i>
+                </button>
+                <div class="carousel__track" id="carousel-track">
+                  <div class="product-card">
+                    <div class="product-card__img"><i data-lucide="cpu" width="36" height="36"></i></div>
+                    <div class="product-card__body">
+                      <div class="product-card__name">Pressure Sensor Assembly</div>
+                      <div class="product-card__sku">CareFusion Alaris / 301</div>
+                      <div class="product-card__price"><span class="product-card__price-label">Starting at </span>$59.14</div>
+                    </div>
+                  </div>
+                  <div class="product-card">
+                    <div class="product-card__img"><i data-lucide="battery-charging" width="36" height="36"></i></div>
+                    <div class="product-card__body">
+                      <div class="product-card__name">Battery Pack Assembly</div>
+                      <div class="product-card__sku">CareFusion Alaris / 303</div>
+                      <div class="product-card__price"><span class="product-card__price-label">Starting at </span>$66.06</div>
+                    </div>
+                  </div>
+                  <div class="product-card">
+                    <div class="product-card__img"><i data-lucide="remote-control" width="36" height="36"></i></div>
+                    <div class="product-card__body">
+                      <div class="product-card__name">Remote Control for UP-895ND</div>
+                      <div class="product-card__sku">Sony Electronics</div>
+                      <div class="product-card__price"><span class="product-card__price-label">Starting at </span>$3,620.85</div>
+                    </div>
+                  </div>
+                  <div class="product-card">
+                    <div class="product-card__img"><i data-lucide="cable" width="36" height="36"></i></div>
+                    <div class="product-card__body">
+                      <div class="product-card__name">Domestic 13ft Power Cord</div>
+                      <div class="product-card__sku">Kendall · Covidien</div>
+                      <div class="product-card__price"><span class="product-card__price-label">Starting at </span>$59.14</div>
+                    </div>
+                  </div>
+                  <div class="product-card">
+                    <div class="product-card__img"><i data-lucide="monitor" width="36" height="36"></i></div>
+                    <div class="product-card__body">
+                      <div class="product-card__name">19" Monitor with VESA Mount</div>
+                      <div class="product-card__sku">ViewSonic</div>
+                      <div class="product-card__price"><span class="product-card__price-label">Starting at </span>$59.14</div>
+                    </div>
+                  </div>
+                  <div class="product-card">
+                    <div class="product-card__img"><i data-lucide="plug" width="36" height="36"></i></div>
+                    <div class="product-card__body">
+                      <div class="product-card__name">12V 4.16A AC Adapter Power Supply</div>
+                      <div class="product-card__sku">Philips Healthcare</div>
+                      <div class="product-card__price"><span class="product-card__price-label">Starting at </span>$29.69</div>
+                    </div>
+                  </div>
+                  <div class="product-card">
+                    <div class="product-card__img"><i data-lucide="activity" width="36" height="36"></i></div>
+                    <div class="product-card__body">
+                      <div class="product-card__name">Flow Sensor Replacement Kit</div>
+                      <div class="product-card__sku">Dräger Direct</div>
+                      <div class="product-card__price"><span class="product-card__price-label">Starting at </span>$142.00</div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel__btn carousel__btn--next" aria-label="Next" onclick="this.closest('.carousel__track-wrap').querySelector('.carousel__track').scrollBy({left:200,behavior:'smooth'})">
+                  <i data-lucide="chevron-right" width="16" height="16"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPARISON DATA -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Comparison Data</h3>
+            <div class="card-detail__subtitle">Side-by-side product comparison · grouped rows · green highlight for winning values.</div>
+          </header>
+          <div class="card-detail__content">
+            <div style="overflow-x:auto">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th style="background:var(--surface-base); border-bottom:1px solid var(--border-divider); width:160px"></th>
+                    <th class="comparison-table__img-cell" style="padding:0">
+                      <div style="display:flex; flex-direction:column; height:100%">
+                        <div class="comparison-table__product-header" style="flex:1">
+                          FLEXIPORT FAST BLOOD PRESSURE HOSE, 5FT BY WELCH ALLYN INC.
+                          <div class="vendor">OEM# 4500-34</div>
+                          <div class="meta">New OEM Original · Outright Purchase · Warranty: 90 Day</div>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="comparison-table__img-cell" style="padding:0">
+                      <div class="comparison-table__product-header">
+                        FLEXIPORT FAST BLOOD PRESSURE HOSE, 5FT BY WELCH ALLYN INC.
+                        <div class="vendor">Replaces Welch Allyn Inc. 4500-34</div>
+                        <div class="meta">New Aftermarket · Outright Purchase · Warranty: 30 Day</div>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td colspan="3" class="comparison-table__group-header">COST</td></tr>
+                  <tr>
+                    <th class="comparison-table__row-label">Price</th>
+                    <td class="comparison-table__cell">$38.39</td>
+                    <td class="comparison-table__cell comparison-table__cell--winner">$25.00 <small style="font-weight:400;font-size:11px">(35% Savings)</small></td>
+                  </tr>
+                  <tr><td colspan="3" class="comparison-table__group-header">QUALITY</td></tr>
+                  <tr>
+                    <th class="comparison-table__row-label">DOA</th>
+                    <td class="comparison-table__cell comparison-table__cell--winner">1.67%</td>
+                    <td class="comparison-table__cell">0.96%</td>
+                  </tr>
+                  <tr>
+                    <th class="comparison-table__row-label">QRR</th>
+                    <td class="comparison-table__cell">0.71%</td>
+                    <td class="comparison-table__cell">0.71%</td>
+                  </tr>
+                  <tr>
+                    <th class="comparison-table__row-label">% to Warranty</th>
+                    <td class="comparison-table__cell comparison-table__cell--winner">70%</td>
+                    <td class="comparison-table__cell">30%</td>
+                  </tr>
+                  <tr><td colspan="3" class="comparison-table__group-header">DELIVERY</td></tr>
+                  <tr>
+                    <th class="comparison-table__row-label">Avg. Days to Ship</th>
+                    <td class="comparison-table__cell comparison-table__cell--winner">2.75</td>
+                    <td class="comparison-table__cell">5.68</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOVER STATES -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Hover States</h3>
+            <div class="card-detail__subtitle">200ms ease for all transitions. Surfaces lift; controls shift color. Hover over each element below.</div>
+          </header>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Cards — lift on hover</div>
+            <div class="hover-grid">
+              <div class="hover-card">
+                <div class="hover-card__label">Open Orders</div>
+                <div class="hover-card__value">142</div>
+              </div>
+              <div class="hover-card">
+                <div class="hover-card__label">Pending Approvals</div>
+                <div class="hover-card__value">7</div>
+              </div>
+              <div class="hover-card">
+                <div class="hover-card__label">Fleet Uptime</div>
+                <div class="hover-card__value">98.4%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Buttons — color shift (200ms)</div>
+            <div class="ref__row">
+              <button class="btn btn--primary">Submit Order</button>
+              <button class="btn btn--secondary">View Details</button>
+              <button class="btn btn--destructive">Reject Request</button>
+              <button class="btn btn--link">Clear Filters</button>
+              <button class="btn btn--pill">Join PS Plus+</button>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Input — hover darkens border to Grey 1</div>
+            <div style="max-width:320px">
+              <div class="field-float">
+                <input class="field-float__input" placeholder=" " id="fi-hover">
+                <label class="field-float__label" for="fi-hover">Hover to see border darken</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ref__grid cols-2 mb-4">
           <div class="card-detail">
             <header class="card-detail__header">
               <h3 class="card-detail__title">Formulary Badges</h3>
