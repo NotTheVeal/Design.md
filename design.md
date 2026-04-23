@@ -63,79 +63,79 @@ typography:
   h1:
     fontFamily: "Source Sans Pro"
     fontSize: "30px"
-    fontWeight: 300
+    fontWeight: "300"
     lineHeight: "36px"
     letterSpacing: "0em"
   h2:
     fontFamily: "Source Sans Pro"
     fontSize: "24px"
-    fontWeight: 300
+    fontWeight: "300"
     lineHeight: "30px"
     letterSpacing: "0em"
   h3:
     fontFamily: "Source Sans Pro"
     fontSize: "20px"
-    fontWeight: 600
+    fontWeight: "600"
     lineHeight: "24px"
     letterSpacing: "0em"
   h1-mobile:
     fontFamily: "Source Sans Pro"
     fontSize: "26px"
-    fontWeight: 300
+    fontWeight: "300"
     lineHeight: "32px"
     letterSpacing: "0em"
   h2-mobile:
     fontFamily: "Source Sans Pro"
     fontSize: "22px"
-    fontWeight: 300
+    fontWeight: "300"
     lineHeight: "28px"
     letterSpacing: "0em"
   h3-mobile:
     fontFamily: "Source Sans Pro"
     fontSize: "18px"
-    fontWeight: 400
+    fontWeight: "400"
     lineHeight: "22px"
     letterSpacing: "0em"
   body:
     fontFamily: "Source Sans Pro"
     fontSize: "16px"
-    fontWeight: 400
+    fontWeight: "400"
     lineHeight: "22px"
     letterSpacing: "-0.01em"
   body-emphasized:
     fontFamily: "Source Sans Pro"
     fontSize: "16px"
-    fontWeight: 600
+    fontWeight: "600"
     lineHeight: "22px"
     letterSpacing: "-0.01em"
   body-sm:
     fontFamily: "Source Sans Pro"
     fontSize: "14px"
-    fontWeight: 400
+    fontWeight: "400"
     lineHeight: "18px"
     letterSpacing: "-0.01em"
   body-sm-emphasized:
     fontFamily: "Source Sans Pro"
     fontSize: "14px"
-    fontWeight: 600
+    fontWeight: "600"
     lineHeight: "18px"
     letterSpacing: "-0.01em"
   button-lg:
     fontFamily: "Source Sans Pro"
     fontSize: "16px"
-    fontWeight: 600
+    fontWeight: "600"
     lineHeight: "20px"
     letterSpacing: "0em"
   button-md:
     fontFamily: "Source Sans Pro"
     fontSize: "14px"
-    fontWeight: 600
+    fontWeight: "600"
     lineHeight: "18px"
     letterSpacing: "0em"
   button-sm:
     fontFamily: "Source Sans Pro"
     fontSize: "12px"
-    fontWeight: 600
+    fontWeight: "600"
     lineHeight: "16px"
     letterSpacing: "0em"
 
@@ -162,7 +162,7 @@ spacing:
   lg: "24px"
   xl: "40px"
 
-borderRadius:
+rounded:
   none: "0"
   sm: "2px"
   md: "4px"
@@ -172,77 +172,66 @@ borderRadius:
   pill: "20px"
   full: "9999px"
 
-borderWidth:
-  "1": "1px"
-  "2": "2px"
-
-opacity:
-  "0": "0"
-  "40": "0.4"
-  "50": "0.5"
-  "75": "0.75"
-  "100": "1"
-
 components:
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.white}"
     typography: "{typography.button-md}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.sm} {spacing.md}"
   button-primary-hover:
     backgroundColor: "{colors.primaryHover}"
     textColor: "{colors.white}"
     typography: "{typography.button-md}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.sm} {spacing.md}"
   button-primary-disabled:
     backgroundColor: "{colors.grey4}"
     textColor: "{colors.white}"
     typography: "{typography.button-md}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.sm} {spacing.md}"
   button-secondary:
     backgroundColor: "{colors.softFill}"
     textColor: "{colors.black}"
     typography: "{typography.button-md}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.sm} {spacing.md}"
   button-secondary-hover:
     backgroundColor: "{colors.grey5}"
     textColor: "{colors.black}"
     typography: "{typography.button-md}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.sm} {spacing.md}"
   button-outline:
     backgroundColor: "{colors.white}"
     textColor: "{colors.primary}"
     typography: "{typography.button-md}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.sm} {spacing.md}"
   button-outline-hover:
     backgroundColor: "{colors.lightBlue}"
     textColor: "{colors.primary}"
     typography: "{typography.button-md}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.sm} {spacing.md}"
   input-field:
     backgroundColor: "{colors.white}"
     textColor: "{colors.black}"
     typography: "{typography.body-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.sm}"
   input-field-focus:
     backgroundColor: "{colors.white}"
     textColor: "{colors.black}"
     typography: "{typography.body-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.sm}"
   input-field-disabled:
     backgroundColor: "{colors.grey6}"
     textColor: "{colors.grey2}"
     typography: "{typography.body-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.sm}"
   table-header:
     backgroundColor: "{colors.grey6}"
@@ -260,13 +249,13 @@ components:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.white}"
     typography: "{typography.body-sm-emphasized}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "6px 12px"
   tab-inactive:
     backgroundColor: "{colors.white}"
     textColor: "{colors.textSecondary}"
     typography: "{typography.body-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "6px 12px"
   accordion-header:
     backgroundColor: "{colors.white}"
@@ -278,37 +267,37 @@ components:
     backgroundColor: "{colors.lightBlue}"
     textColor: "{colors.primary}"
     typography: "{typography.body-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "2px {spacing.sm}"
   chip-active:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.white}"
     typography: "{typography.body-sm-emphasized}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "2px {spacing.sm}"
   badge-positive:
     backgroundColor: "{colors.positive}"
     textColor: "{colors.white}"
     typography: "{typography.button-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.1} {spacing.2}"
   badge-negative:
     backgroundColor: "{colors.negative}"
     textColor: "{colors.white}"
     typography: "{typography.button-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.1} {spacing.2}"
   badge-neutral:
     backgroundColor: "{colors.grey5}"
     textColor: "{colors.grey1}"
     typography: "{typography.button-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "{spacing.1} {spacing.2}"
   modal:
     backgroundColor: "{colors.white}"
     textColor: "{colors.black}"
     typography: "{typography.body-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     padding: "24px 32px"
     width: "600px"
   modal-header:
@@ -320,19 +309,19 @@ components:
     backgroundColor: "{colors.modalFill}"
     textColor: "{colors.grey1}"
     typography: "{typography.body-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     height: "62px"
   modal-line-item-selected:
     backgroundColor: "{colors.selectedFill}"
     textColor: "{colors.grey1}"
     typography: "{typography.body-sm}"
-    rounded: "{borderRadius.lg}"
+    rounded: "{rounded.lg}"
     height: "62px"
   sheet:
     backgroundColor: "{colors.white}"
     textColor: "{colors.black}"
     typography: "{typography.body-sm}"
-    rounded: "{borderRadius.none}"
+    rounded: "{rounded.none}"
     padding: "24px 32px"
     width: "480px"
   sheet-header:
@@ -480,22 +469,22 @@ Border radius uses a stepped scale from the Token Studio:
 
 | Token | Value | Usage |
 |---|---|---|
-| `borderRadius.none` | 0 | Tables, accordion headers, section containers, full-width rows, sheets |
-| `borderRadius.sm` | 2px | Subtle rounding for dense inline elements |
-| `borderRadius.md` | 4px | Small tags, compact inputs |
-| `borderRadius.lg` | 6px | Buttons, inputs, chips, cards, modals, modal line items, badges |
-| `borderRadius.xl` | 8px | Large cards, prominent containers |
-| `borderRadius.2xl` | 12px | Large surface elements |
-| `borderRadius.pill` | 20px | Pill-shaped status indicators |
-| `borderRadius.full` | 9999px | Avatar circles |
+| `rounded.none` | 0 | Tables, accordion headers, section containers, full-width rows, sheets |
+| `rounded.sm` | 2px | Subtle rounding for dense inline elements |
+| `rounded.md` | 4px | Small tags, compact inputs |
+| `rounded.lg` | 6px | Buttons, inputs, chips, cards, modals, modal line items, badges |
+| `rounded.xl` | 8px | Large cards, prominent containers |
+| `rounded.2xl` | 12px | Large surface elements |
+| `rounded.pill` | 20px | Pill-shaped status indicators |
+| `rounded.full` | 9999px | Avatar circles |
 
-Interactive controls (buttons, inputs, chips, modals) use **`borderRadius.lg` (6px)**. Structural containers (tables, accordions, sheets, page sections) use **`borderRadius.none` (0px)**. Never use radii between `lg` and `pill` — stay on the defined scale.
+Interactive controls (buttons, inputs, chips, modals) use **`rounded.lg` (6px)**. Structural containers (tables, accordions, sheets, page sections) use **`rounded.none` (0px)**. Never use radii between `lg` and `pill` — stay on the defined scale.
 
 ## Components
 
 ### Buttons
 
-**Primary** — PS Blue (`#005BA7`) background, white text, `borderRadius.lg`, `button-md` type. The single most important CTA per screen. Hover darkens to `primaryHover` (`#004884`). Disabled state uses `grey4` background.
+**Primary** — PS Blue (`#005BA7`) background, white text, `rounded.lg`, `button-md` type. The single most important CTA per screen. Hover darkens to `primaryHover` (`#004884`). Disabled state uses `grey4` background.
 
 **Secondary** — Soft grey (`softFill`) background, black text. Same shape as primary. Use alongside primary for alternative actions. Never use as a sole CTA.
 
@@ -503,11 +492,11 @@ Interactive controls (buttons, inputs, chips, modals) use **`borderRadius.lg` (6
 
 ### Input Fields
 
-White background, `inputOutline` border at rest, `primary` border on focus, `borderRadius.lg`, `body-sm` type. Disabled state uses `grey6` background and `grey2` text. Always pair with a visible label — never rely on placeholder text alone.
+White background, `inputOutline` border at rest, `primary` border on focus, `rounded.lg`, `body-sm` type. Disabled state uses `grey6` background and `grey2` text. Always pair with a visible label — never rely on placeholder text alone.
 
 ### Data Table
 
-- **Header row** — `grey6` background, `body-sm-emphasized`, left-aligned, `borderRadius.none`
+- **Header row** — `grey6` background, `body-sm-emphasized`, left-aligned, `rounded.none`
 - **Body rows** — white background, `body-sm`, bottom border in `grey5`
 - **Hover** — `grey6` row highlight, no border change, no shadow
 - **Footer** — row count (e.g., "1–32 of 48"), page number pills, rows-per-page selector
@@ -515,7 +504,7 @@ White background, `inputOutline` border at rest, `primary` border on focus, `bor
 
 ### Tabs
 
-Active tab: `primary` background, white `body-sm-emphasized` text, `borderRadius.lg`. Inactive: white/transparent, `textSecondary`, `body-sm`. Count badges appear inline in the tab label (e.g., "In Progress 48").
+Active tab: `primary` background, white `body-sm-emphasized` text, `rounded.lg`. Inactive: white/transparent, `textSecondary`, `body-sm`. Count badges appear inline in the tab label (e.g., "In Progress 48").
 
 ### Accordion
 
@@ -523,18 +512,18 @@ Active tab: `primary` background, white `body-sm-emphasized` text, `borderRadius
 
 ### Chips
 
-Idle state: `lightBlue` (`#D0EEFC`) background, `primary` text, `borderRadius.lg`. Active state: `primary` background, white text. Used for filter tags, status indicators, and category labels.
+Idle state: `lightBlue` (`#D0EEFC`) background, `primary` text, `rounded.lg`. Active state: `primary` background, white text. Used for filter tags, status indicators, and category labels.
 
 ### Badges / Status
 
-Three semantic variants — `badge-positive` (Signal Green), `badge-negative` (Alert Red), `badge-neutral` (grey). All use `button-sm` type, `borderRadius.lg`, tight padding. Use to reflect order status (Ordered, Backordered, Returned, etc.). Never repurpose semantic badge colors for non-semantic decoration.
+Three semantic variants — `badge-positive` (Signal Green), `badge-negative` (Alert Red), `badge-neutral` (grey). All use `button-sm` type, `rounded.lg`, tight padding. Use to reflect order status (Ordered, Backordered, Returned, etc.). Never repurpose semantic badge colors for non-semantic decoration.
 
 ### Modal
 
 Modals interrupt the current flow to demand focused attention. Use them for critical decisions, quick data entry, confirmations, and information display. Avoid for complex multi-step workflows or large forms — use sheets instead.
 
 **Structure:**
-- **Container** — white background (`#FFFFFF`), `borderRadius.lg` (6px), `shadow-md` elevation, semi-transparent overlay backdrop
+- **Container** — white background (`#FFFFFF`), `rounded.lg` (6px), `shadow-md` elevation, semi-transparent overlay backdrop
 - **Max widths** — 850px absolute max; 600px desktop/tablet default; 375px mobile
 - **Padding** — 32px horizontal, 24px vertical
 - **Header** — `h1` type (Source Sans Pro Light 30px), close button (X) top-right, minimum 44×44px touch target
@@ -553,7 +542,7 @@ Modals interrupt the current flow to demand focused attention. Use them for crit
 **Line items (data modals):**
 - Width: 785px within the modal container
 - Height: 62px per row, 18px gap between rows
-- Background: `modalFill` (`#FAFAFA`), `borderRadius.lg`
+- Background: `modalFill` (`#FAFAFA`), `rounded.lg`
 - Layout: flex with `justify-between`
 - Field typography: `body-sm` (14px Regular); button labels: `button-sm` (12px SemiBold)
 - Hover state: `grey6` background
@@ -585,7 +574,7 @@ Modals interrupt the current flow to demand focused attention. Use them for crit
 Sheets slide in from the right (desktop) or bottom (mobile) and overlay the page without fully blocking it. Use for complex workflows, multi-step forms, detailed editing, filter panels, and content previews where the user may need to reference the underlying page.
 
 **Structure:**
-- **Container** — white background, `borderRadius.none`, full viewport height (100vh), fixed right edge
+- **Container** — white background, `rounded.none`, full viewport height (100vh), fixed right edge
 - **Default width** — 480px (desktop); full-screen on mobile
 - **Wide sheet** — 640px for multi-column forms or detailed content
 - **Narrow sheet** — 320px for simple lists, filters, or navigation menus
@@ -618,6 +607,33 @@ Sheets slide in from the right (desktop) or bottom (mobile) and overlay the page
 - Focus trap within sheet; ESC to close; TAB/SHIFT+TAB to navigate
 - Touch targets: minimum 44×44px; color contrast: 4.5:1 text, 3:1 UI components
 - Z-index: 1100–1200 (above modals if stacking is required)
+
+## Do's and Don'ts
+
+**Do:**
+- Use `primary` (`#005BA7`) for all interactive affordances — links, buttons, active states, focused borders
+- Use `body-sm` (14px/Regular) for table and form content — optimized for data density
+- Use `grey6` to group and separate content sections visually
+- Use `rounded.none` for structural containers and `rounded.lg` for interactive controls
+- Use Light (300) for H1/H2 and SemiBold (600) for H3 to maintain clear visual hierarchy
+- Apply the hover shadow only on lift interactions, never statically on layout
+- Use Verb–Subject labels for all CTAs; signal risk level in label copy for destructive actions
+- Provide visible X close button (min 44×44px) on all modals and sheets; always support ESC to dismiss
+- Use sheets for complex workflows that need context retention; use modals for focused, single-task interactions
+- Show 2–3 action buttons maximum per modal footer; enforce primary → secondary → cancel hierarchy
+
+**Don't:**
+- Don't use PS Blue as a large background fill — it overwhelms data-dense interfaces
+- Don't use font weights outside 300–600 — extremes fail at clinical screen densities
+- Don't use border radii outside the defined `rounded` scale — stay on `none`, `sm`, `md`, `lg`, `xl`, `2xl`, `pill`, or `full`
+- Don't stack multiple primary buttons — enforce hierarchy: primary + secondary or primary + outline
+- Don't omit visible labels on form fields — placeholder text disappears on input and fails accessibility
+- Don't apply shadows to static containers — shadow signals interactivity and elevation only
+- Don't use Data Visualization, Formulary, or Plus+ Rewards palettes outside their designated contexts
+- Don't use nested modals — never stack a modal on a modal; redesign the flow
+- Don't use verb-only CTAs for high-risk actions — "Purchase" and "Reject" alone lack consequence clarity
+- Don't make destructive CTAs icon-only — always include visible label text
+- Don't open modals or sheets on page load without user action (except critical system alerts)
 
 ## CTA Language Standards
 
@@ -666,30 +682,3 @@ Never place Cancel or Close visually equal to the primary CTA. Never use destruc
 - Slang or internal terms: "Nudge" (use "Send Reminder")
 - Symbol-reliant labels: "Enter PO#" (use "Enter PO Number"), "Enter Tracking #" (use "Enter Return Tracking")
 - Generic step labels: "See More", "Show All" (use "View All [Object]")
-
-## Do's and Don'ts
-
-**Do:**
-- Use `primary` (`#005BA7`) for all interactive affordances — links, buttons, active states, focused borders
-- Use `body-sm` (14px/Regular) for table and form content — optimized for data density
-- Use `grey6` to group and separate content sections visually
-- Use `borderRadius.none` for structural containers and `borderRadius.lg` for interactive controls
-- Use Light (300) for H1/H2 and SemiBold (600) for H3 to maintain clear visual hierarchy
-- Apply the hover shadow only on lift interactions, never statically on layout
-- Use Verb–Subject labels for all CTAs; signal risk level in label copy for destructive actions
-- Provide visible X close button (min 44×44px) on all modals and sheets; always support ESC to dismiss
-- Use sheets for complex workflows that need context retention; use modals for focused, single-task interactions
-- Show 2–3 action buttons maximum per modal footer; enforce primary → secondary → cancel hierarchy
-
-**Don't:**
-- Don't use PS Blue as a large background fill — it overwhelms data-dense interfaces
-- Don't use font weights outside 300–600 — extremes fail at clinical screen densities
-- Don't use border radii outside the defined scale — stay on `none`, `sm`, `md`, `lg`, `xl`, `2xl`, `pill`, or `full`
-- Don't stack multiple primary buttons — enforce hierarchy: primary + secondary or primary + outline
-- Don't omit visible labels on form fields — placeholder text disappears on input and fails accessibility
-- Don't apply shadows to static containers — shadow signals interactivity and elevation only
-- Don't use Data Visualization, Formulary, or Plus+ Rewards palettes outside their designated contexts
-- Don't use nested modals — never stack a modal on a modal; redesign the flow
-- Don't use verb-only CTAs for high-risk actions — "Purchase" and "Reject" alone lack consequence clarity
-- Don't make destructive CTAs icon-only — always include visible label text
-- Don't open modals or sheets on page load without user action (except critical system alerts)
