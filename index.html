@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PartsSource — Operations Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;900&display=swap">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <nav class="nav-top" role="banner">
+        <div class="nav-top__logo">
+          <div class="nav-top__logo-mark">PS</div>
+          <span>PartsSource</span>
+        </div>
+        <div class="nav-top__search">
+          <i class="nav-top__search-icon" data-lucide="search" width="16" height="16"></i>
+          <input type="text" placeholder="Search parts, devices, orders, RFQs" aria-label="Search">
+        </div>
+        <div class="nav-top__right">
+          <a class="nav-top__item" href="#"><i data-lucide="phone" width="16" height="16"></i><span>888.644.9565</span></a>
+          <span class="nav-top__divider"></span>
+          <a class="nav-top__item" href="#"><i data-lucide="life-buoy" width="16" height="16"></i><span>Help</span></a>
+          <a class="nav-top__item" href="#" aria-label="Cart"><i data-lucide="shopping-cart" width="18" height="18"></i></a>
+          <div class="nav-top__avatar" aria-label="Account">AT</div>
+        </div>
+      </nav>
+    </header>
+
+    <aside class="app-nav-l" aria-label="Primary navigation">
+      <div class="nav-l__section">
+        <div class="nav-l__label">Workspace</div>
+        <a class="nav-l__item is-active" href="#"><i data-lucide="layout-dashboard" width="18" height="18"></i><span>Dashboard</span></a>
+        <a class="nav-l__item" href="#"><i data-lucide="package" width="18" height="18"></i><span>Orders</span><span class="nav-l__item-badge">7</span></a>
+        <a class="nav-l__item" href="#"><i data-lucide="wrench" width="18" height="18"></i><span>Service Events</span></a>
+        <a class="nav-l__item" href="#"><i data-lucide="activity" width="18" height="18"></i><span>Assets</span></a>
+        <a class="nav-l__item" href="#"><i data-lucide="clipboard-list" width="18" height="18"></i><span>Formulary</span></a>
+      </div>
+      <div class="nav-l__section">
+        <div class="nav-l__label">Insight</div>
+        <a class="nav-l__item" href="#"><i data-lucide="bar-chart-3" width="18" height="18"></i><span>Reports</span></a>
+        <a class="nav-l__item" href="#"><i data-lucide="line-chart" width="18" height="18"></i><span>Analytics</span></a>
+        <a class="nav-l__item" href="#"><i data-lucide="file-text" width="18" height="18"></i><span>Invoices</span></a>
+      </div>
+      <div class="nav-l__section">
+        <div class="nav-l__label">Admin</div>
+        <a class="nav-l__item" href="#"><i data-lucide="users" width="18" height="18"></i><span>Team</span></a>
+        <a class="nav-l__item" href="#"><i data-lucide="settings" width="18" height="18"></i><span>Settings</span></a>
+      </div>
+    </aside>
+
+    <main class="app-main reveal">
+      <section class="page-head">
+        <div>
+          <div class="eyebrow">Cleveland Clinic · Main Campus</div>
+          <h1 class="page-head__title">Operations Overview</h1>
+        </div>
+        <div class="page-head__actions">
+          <button class="btn btn--secondary">
+            <i data-lucide="download" width="16" height="16"></i>
+            Export Report
+          </button>
+          <button class="btn btn--primary" id="btn-create-order">
+            <i data-lucide="plus" width="16" height="16"></i>
+            Create Order
+          </button>
+        </div>
+      </section>
+
+      <div class="alert alert--warning mb-5" role="alert">
+        <i class="alert__icon" data-lucide="alert-triangle" width="18" height="18"></i>
+        <div class="alert__body">
+          <div class="alert__title">3 repairs are overdue across Main Campus</div>
+          <div>Review the service queue to reschedule or escalate before the next rounding cycle. <a href="#" class="inline-link inline-link--warning">Address Overdue Repairs</a></div>
+        </div>
+        <button class="alert__close" aria-label="Dismiss"><i data-lucide="x" width="18" height="18"></i></button>
+      </div>
+
+      <section class="kpi-grid">
+        <div class="card-kpi">
+          <div class="card-kpi__label"><i data-lucide="package" width="14" height="14"></i> Open Orders</div>
+          <div class="card-kpi__value">142</div>
+          <div class="card-kpi__meta">
+            <span class="card-kpi__delta card-kpi__delta--up"><i data-lucide="trending-up" width="12" height="12"></i> +8</span>
+            <span class="muted">vs last week</span>
+          </div>
+        </div>
+        <div class="card-kpi">
+          <div class="card-kpi__label"><i data-lucide="clock" width="14" height="14"></i> Pending Approvals</div>
+          <div class="card-kpi__value">7</div>
+          <div class="card-kpi__meta">
+            <span class="chip-status chip-status--warning">2 over 48h</span>
+          </div>
+        </div>
+        <div class="card-kpi">
+          <div class="card-kpi__label"><i data-lucide="alert-octagon" width="14" height="14"></i> Overdue Repairs</div>
+          <div class="card-kpi__value card-kpi__value--alert">3</div>
+          <div class="card-kpi__meta">
+            <span class="chip-status chip-status--error">2 critical</span>
+          </div>
+        </div>
+        <div class="card-kpi">
+          <div class="card-kpi__label"><i data-lucide="activity" width="14" height="14"></i> Fleet Uptime</div>
+          <div class="card-kpi__value">98.4<span class="card-kpi__unit">%</span></div>
+          <div class="card-kpi__meta">
+            <span class="card-kpi__delta card-kpi__delta--up">+0.3%</span>
+            <span class="muted">vs last month</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-detail mb-5" aria-labelledby="orders-title">
+        <header class="card-detail__header hstack">
+          <div class="flex-1">
+            <h2 id="orders-title" class="card-detail__title">Active Orders</h2>
+            <div class="card-detail__subtitle">26 in progress · last refreshed 11:42 AM</div>
+          </div>
+          <div class="hstack gap-3">
+            <div class="segmented" data-segmented>
+              <button class="is-active">List</button>
+              <button>Timeline</button>
+            </div>
+            <button class="btn btn--link"><i data-lucide="external-link" width="14" height="14"></i> View All Orders</button>
+          </div>
+        </header>
+
+        <div class="filter-bar">
+          <div class="filter-bar__search">
+            <div class="input-search">
+              <i class="input-search__icon" data-lucide="search" width="16" height="16"></i>
+              <input class="input" type="text" placeholder="Filter by PO #, device, or vendor">
+            </div>
+          </div>
+          <span class="filter-bar__divider"></span>
+          <div class="chip-group" data-chip-group>
+            <button class="chip-filter is-selected">All <span class="chip-filter__count">26</span></button>
+            <button class="chip-filter">Pending Approval <span class="chip-filter__count">7</span></button>
+            <button class="chip-filter">Approved <span class="chip-filter__count">12</span></button>
+            <button class="chip-filter">In Transit <span class="chip-filter__count">4</span></button>
+            <button class="chip-filter">Delayed <span class="chip-filter__count">3</span></button>
+          </div>
+          <div class="filter-bar__right">
+            <button class="btn btn--secondary btn--small"><i data-lucide="sliders-horizontal" width="14" height="14"></i> Refine Filters</button>
+          </div>
+        </div>
+
+        <div class="table" role="region" aria-label="Active orders">
+          <table>
+            <thead>
+              <tr>
+                <th>PO Number</th>
+                <th>Device / Part</th>
+                <th>Vendor</th>
+                <th>Status</th>
+                <th>ETA</th>
+                <th class="right">Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="po">PO-24831</td>
+                <td><div class="device">GE Carescape B650</div><div class="sub">Monitor module · SN 4482-11C</div></td>
+                <td class="sub">GE Healthcare</td>
+                <td><span class="chip-status chip-status--success"><span class="chip-status__dot"></span>Approved</span></td>
+                <td class="num">Apr 28, 2026</td>
+                <td class="right num">$4,825.00</td>
+                <td class="right"><button class="btn btn--link">View Details</button></td>
+              </tr>
+              <tr>
+                <td class="po">PO-24829</td>
+                <td><div class="device">Philips IntelliVue MX450</div><div class="sub">Battery pack · Qty 4</div></td>
+                <td class="sub">Philips OEM</td>
+                <td><span class="chip-status chip-status--info"><span class="chip-status__dot"></span>Shipped</span></td>
+                <td class="num">Apr 26, 2026</td>
+                <td class="right num">$612.00</td>
+                <td class="right"><button class="btn btn--link">Track Shipment</button></td>
+              </tr>
+              <tr>
+                <td class="po">PO-24825</td>
+                <td><div class="device">Baxter Spectrum IQ</div><div class="sub">Pole clamp assembly</div></td>
+                <td class="sub">MedEquip Supply</td>
+                <td><span class="chip-status chip-status--warning"><span class="chip-status__dot"></span>Pending Approval</span></td>
+                <td class="num muted">—</td>
+                <td class="right num">$148.00</td>
+                <td class="right"><button class="btn btn--primary btn--small" id="btn-approve">Approve Order</button></td>
+              </tr>
+              <tr>
+                <td class="po">PO-24822</td>
+                <td><div class="device">Dräger Fabius GS</div><div class="sub">Flow sensor · Replacement</div></td>
+                <td class="sub">Dräger Direct</td>
+                <td><span class="chip-status chip-status--success"><span class="chip-status__dot"></span>Received</span></td>
+                <td class="num">Apr 21, 2026</td>
+                <td class="right num">$1,240.00</td>
+                <td class="right"><button class="btn btn--link">View Details</button></td>
+              </tr>
+              <tr>
+                <td class="po">PO-24820</td>
+                <td><div class="device">Stryker 1688 AIM</div><div class="sub">Camera light source</div></td>
+                <td class="sub">Stryker Endoscopy</td>
+                <td><span class="chip-status chip-status--info"><span class="chip-status__dot"></span>In Transit</span></td>
+                <td class="num">Apr 24, 2026</td>
+                <td class="right num">$6,980.00</td>
+                <td class="right"><button class="btn btn--link">Track Shipment</button></td>
+              </tr>
+              <tr>
+                <td class="po">PO-24817</td>
+                <td><div class="device">PB 840 Ventilator</div><div class="sub">Expiratory valve · Qty 2</div></td>
+                <td class="sub">Medtronic Service</td>
+                <td><span class="chip-status chip-status--error"><span class="chip-status__dot"></span>Delayed</span></td>
+                <td class="num">Apr 30, 2026</td>
+                <td class="right num">$2,115.00</td>
+                <td class="right"><button class="btn btn--link">Review Delay</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="ref" aria-labelledby="ref-title">
+        <div class="ref__heading">
+          <div class="eyebrow">Design System · PartsSource v2.0.0</div>
+          <h2 class="page-head__title" id="ref-title">Component Reference</h2>
+        </div>
+
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Buttons</h3>
+            <div class="card-detail__subtitle">Verb–Subject labels. One primary per screen or section.</div>
+          </header>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Primary · Orange CTA ramp</div>
+            <div class="ref__row">
+              <button class="btn btn--primary">Submit Order</button>
+              <button class="btn btn--primary btn--large">Approve Request</button>
+              <button class="btn btn--primary btn--small">Add Line</button>
+              <button class="btn btn--primary" disabled>Submit Order</button>
+              <button class="btn btn--pill"><i data-lucide="sparkles" width="14" height="14"></i> Join PS Plus+</button>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Secondary · PS Blue outline</div>
+            <div class="ref__row">
+              <button class="btn btn--secondary">View Details</button>
+              <button class="btn btn--secondary btn--small">Edit Draft</button>
+              <button class="btn btn--secondary" disabled>View Details</button>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Tertiary · Inline link</div>
+            <div class="ref__row">
+              <button class="btn btn--link">Clear Filters</button>
+              <button class="btn btn--link"><i data-lucide="external-link" width="14" height="14"></i> Open Work Order</button>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Destructive · Red outline</div>
+            <div class="ref__row">
+              <button class="btn btn--destructive">Reject Request</button>
+              <button class="btn btn--destructive">Delete Draft</button>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Segmented</div>
+            <div class="segmented" data-segmented>
+              <button class="is-active">Month</button>
+              <button>Quarter</button>
+              <button>Year</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ref__grid cols-2 mb-4">
+          <div class="card-detail">
+            <header class="card-detail__header">
+              <h3 class="card-detail__title">Status Chips</h3>
+              <div class="card-detail__subtitle">Informational · 4px operational radius.</div>
+            </header>
+            <div class="card-detail__content">
+              <div class="ref__row">
+                <span class="chip-status">Neutral</span>
+                <span class="chip-status chip-status--success">Completed</span>
+                <span class="chip-status chip-status--warning">Pending</span>
+                <span class="chip-status chip-status--error">Delayed</span>
+                <span class="chip-status chip-status--info">In Transit</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-detail">
+            <header class="card-detail__header">
+              <h3 class="card-detail__title">Filter Chips</h3>
+              <div class="card-detail__subtitle">Interactive · 100px expressive radius.</div>
+            </header>
+            <div class="card-detail__content">
+              <div class="chip-group" data-chip-group>
+                <button class="chip-filter is-selected">All <span class="chip-filter__count">412</span></button>
+                <button class="chip-filter">Critical</button>
+                <button class="chip-filter">Routine PM</button>
+                <button class="chip-filter">Scheduled</button>
+                <button class="chip-filter">Closed</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Alerts</h3>
+            <div class="card-detail__subtitle">Semantic pairs. Always include an icon and a remedial action.</div>
+          </header>
+          <div class="card-detail__content stack">
+            <div class="alert alert--info"><i class="alert__icon" data-lucide="info" width="18" height="18"></i><div class="alert__body"><div class="alert__title">Formulary review available</div>Your Q2 formulary coverage report is ready. <a href="#" class="inline-link inline-link--info">Open Report</a></div></div>
+            <div class="alert alert--success"><i class="alert__icon" data-lucide="check-circle-2" width="18" height="18"></i><div class="alert__body"><div class="alert__title">Order approved</div>PO-24831 was approved and routed to GE Healthcare. ETA Apr 28.</div></div>
+            <div class="alert alert--warning"><i class="alert__icon" data-lucide="alert-triangle" width="18" height="18"></i><div class="alert__body"><div class="alert__title">Approval required</div>3 orders have been pending more than 48 hours.</div></div>
+            <div class="alert alert--error"><i class="alert__icon" data-lucide="x-circle" width="18" height="18"></i><div class="alert__body"><div class="alert__title">We couldn't submit your order</div>The part number is missing on line 2. Add a part number and try again.</div></div>
+          </div>
+        </div>
+
+        <div class="ref__grid cols-2 mb-4">
+          <div class="card-detail">
+            <header class="card-detail__header">
+              <h3 class="card-detail__title">Inputs</h3>
+              <div class="card-detail__subtitle">40px min height · 4px radius · Focus: PS Blue border + 2px Azure outline.</div>
+            </header>
+            <div class="card-detail__content stack">
+              <label class="field">
+                <span class="field__label">Part number</span>
+                <input class="input" value="453564588521">
+                <span class="field__hint">Enter manufacturer part number or scan barcode</span>
+              </label>
+              <label class="field">
+                <span class="field__label">Requestor email</span>
+                <input class="input input--error" value="cemgr@">
+                <span class="field__error">Enter a complete email address so we can route approvals.</span>
+              </label>
+              <label class="field">
+                <span class="field__label">Disabled field</span>
+                <input class="input" value="Locked by approver" disabled>
+              </label>
+            </div>
+          </div>
+          <div class="card-detail">
+            <header class="card-detail__header">
+              <h3 class="card-detail__title">Formulary Badges</h3>
+              <div class="card-detail__subtitle">Best → Poor · Reserved for coverage scoring only.</div>
+            </header>
+            <div class="card-detail__content stack">
+              <div class="ref__row">
+                <span class="badge-formulary badge-formulary--best">Best</span>
+                <span class="badge-formulary badge-formulary--very-good">Very Good</span>
+                <span class="badge-formulary badge-formulary--moderate">Moderate</span>
+                <span class="badge-formulary badge-formulary--fair">Fair</span>
+                <span class="badge-formulary badge-formulary--poor">Poor</span>
+              </div>
+              <div class="note">Example: <strong>Baxter Spectrum IQ pump kit</strong> — <span class="badge-formulary badge-formulary--best">Best</span> coverage across 4 contracted vendors.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-detail">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Palette</h3>
+            <div class="card-detail__subtitle">Reference semantic aliases in components. Raw tokens belong in the palette.</div>
+          </header>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Brand</div>
+            <div class="swatch-grid cols-4">
+              <div class="swatch"><div class="swatch__chip" style="background:#005BA6"></div><div class="swatch__name">PS Blue</div><div class="swatch__hex">#005BA6</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#004A84"></div><div class="swatch__name">Blue 2</div><div class="swatch__hex">#004A84</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#003763"></div><div class="swatch__name">Blue 3</div><div class="swatch__hex">#003763</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#009CF4"></div><div class="swatch__name">Azure Blue</div><div class="swatch__hex">#009CF4</div></div>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">CTA ramp</div>
+            <div class="swatch-grid cols-3">
+              <div class="swatch"><div class="swatch__chip" style="background:#FF9505"></div><div class="swatch__name">Orange 1 · Default</div><div class="swatch__hex">#FF9505</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#EC8000"></div><div class="swatch__name">Orange 2 · Hover</div><div class="swatch__hex">#EC8000</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#D27200"></div><div class="swatch__name">Orange 3 · Pressed</div><div class="swatch__hex">#D27200</div></div>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Grayscale</div>
+            <div class="swatch-grid cols-5">
+              <div class="swatch"><div class="swatch__chip" style="background:#000000"></div><div class="swatch__name">Black</div><div class="swatch__hex">#000000</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#4A4A4A"></div><div class="swatch__name">Grey 1</div><div class="swatch__hex">#4A4A4A</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#777777"></div><div class="swatch__name">Grey 2</div><div class="swatch__hex">#777777</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#949494"></div><div class="swatch__name">Grey 3</div><div class="swatch__hex">#949494</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#CCCCCC"></div><div class="swatch__name">Grey 4</div><div class="swatch__hex">#CCCCCC</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#DCDCDC"></div><div class="swatch__name">Grey 5</div><div class="swatch__hex">#DCDCDC</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#F1F1F1"></div><div class="swatch__name">Grey 6</div><div class="swatch__hex">#F1F1F1</div></div>
+              <div class="swatch"><div class="swatch__chip" style="background:#FAFAFA"></div><div class="swatch__name">Grey 7</div><div class="swatch__hex">#FAFAFA</div></div>
+              <div class="swatch"><div class="swatch__chip swatch__chip--outline" style="background:#FFFFFF"></div><div class="swatch__name">White</div><div class="swatch__hex">#FFFFFF</div></div>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Radii · Three values only</div>
+            <div class="radii-demo">
+              <div class="radii-demo__cell" style="border-radius: var(--r-op)"><span>4 · Operational</span></div>
+              <div class="radii-demo__cell" style="border-radius: var(--r-st)"><span>8 · Structural</span></div>
+              <div class="radii-demo__cell radii-demo__cell--pill" style="border-radius: var(--r-ex)"><span>100 · Expressive</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="app-nav-r" aria-label="Context rail">
+      <div class="card-rr">
+        <div class="card-rr__title"><i data-lucide="calendar-clock" width="14" height="14"></i> Upcoming Maintenance</div>
+        <div class="rr-pm-item">
+          <div class="rr-pm-item__date"><div class="rr-pm-item__day">24</div><div class="rr-pm-item__month">Apr</div></div>
+          <div class="rr-pm-item__body">
+            <div class="rr-pm-item__title">Quarterly calibration — ICU</div>
+            <div class="rr-pm-item__meta">12 IntelliVue MX450 · Bay 3–8</div>
+          </div>
+        </div>
+        <div class="rr-pm-item">
+          <div class="rr-pm-item__date"><div class="rr-pm-item__day">28</div><div class="rr-pm-item__month">Apr</div></div>
+          <div class="rr-pm-item__body">
+            <div class="rr-pm-item__title">Biomed PM — OR Suite 2</div>
+            <div class="rr-pm-item__meta">Stryker 1688 AIM · Anesthesia cart</div>
+          </div>
+        </div>
+        <div class="rr-pm-item">
+          <div class="rr-pm-item__date"><div class="rr-pm-item__day">02</div><div class="rr-pm-item__month">May</div></div>
+          <div class="rr-pm-item__body">
+            <div class="rr-pm-item__title">Annual inspection — Imaging</div>
+            <div class="rr-pm-item__meta">CT Scanner 3 · 4-hour window</div>
+          </div>
+        </div>
+        <button class="btn btn--link mt-3">View Full Schedule</button>
+      </div>
+
+      <div class="card-rr">
+        <div class="card-rr__title"><i data-lucide="activity" width="14" height="14"></i> Recent Activity</div>
+        <div class="rr-activity">
+          <div class="rr-activity__icon rr-activity__icon--success"><i data-lucide="check" width="14" height="14"></i></div>
+          <div class="rr-activity__body">
+            <strong>J. Rivera</strong> approved <strong>PO-24831</strong>
+            <div class="rr-activity__time">11:38 AM · 24 min ago</div>
+          </div>
+        </div>
+        <div class="rr-activity">
+          <div class="rr-activity__icon rr-activity__icon--info"><i data-lucide="truck" width="14" height="14"></i></div>
+          <div class="rr-activity__body">
+            Shipment <strong>SHP-88210</strong> scanned in at receiving
+            <div class="rr-activity__time">10:04 AM</div>
+          </div>
+        </div>
+        <div class="rr-activity">
+          <div class="rr-activity__icon rr-activity__icon--warning"><i data-lucide="alert-triangle" width="14" height="14"></i></div>
+          <div class="rr-activity__body">
+            <strong>PB 840</strong> service ticket <strong>#4817</strong> flagged delayed
+            <div class="rr-activity__time">09:12 AM</div>
+          </div>
+        </div>
+        <div class="rr-activity">
+          <div class="rr-activity__icon"><i data-lucide="file-plus" width="14" height="14"></i></div>
+          <div class="rr-activity__body">
+            <strong>A. Thomas</strong> drafted RFQ <strong>RFQ-01180</strong>
+            <div class="rr-activity__time">Yesterday · 4:52 PM</div>
+          </div>
+        </div>
+        <button class="btn btn--link mt-3">Open Activity Log</button>
+      </div>
+
+      <div class="card-rr">
+        <div class="card-rr__title"><i data-lucide="message-square" width="14" height="14"></i> Need support?</div>
+        <div class="card-rr__body">
+          Your PartsSource account team is on-call 24/7 for sourcing escalations and contract coverage questions.
+        </div>
+        <button class="btn btn--secondary btn--small btn--block"><i data-lucide="phone-call" width="14" height="14"></i> Call Account Team</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="modal-overlay" id="modal-approve" role="dialog" aria-modal="true" aria-labelledby="modal-approve-title" hidden>
+    <div class="modal">
+      <header class="modal__header">
+        <div class="flex-1">
+          <div class="eyebrow">Purchase Order · PO-24825</div>
+          <h2 class="modal__title" id="modal-approve-title">Approve Purchase Order</h2>
+          <div class="modal__subtitle">Approval routes to MedEquip Supply. Estimated arrival 3–5 business days.</div>
+        </div>
+        <button class="icon-btn" data-close aria-label="Close"><i data-lucide="x" width="20" height="20"></i></button>
+      </header>
+      <div class="modal__divider"></div>
+      <div class="modal__body">
+        <div class="ref__group-title mb-3">Line Items</div>
+        <div class="modal-line is-selected">
+          <div class="modal-line__thumb"><i data-lucide="package" width="18" height="18"></i></div>
+          <div class="modal-line__body">
+            <div class="modal-line__title">Spectrum IQ Pole Clamp Assembly · Qty 2</div>
+            <div class="modal-line__meta">MedEquip Supply · MPN 35162-PC · Biomed workshop · Main Campus</div>
+          </div>
+          <div class="modal-line__price">$148.00</div>
+        </div>
+        <div class="modal-line">
+          <div class="modal-line__thumb"><i data-lucide="truck" width="18" height="18"></i></div>
+          <div class="modal-line__body">
+            <div class="modal-line__title">Shipping &amp; handling · Ground</div>
+            <div class="modal-line__meta">3–5 business days · Tracking provided at pickup</div>
+          </div>
+          <div class="modal-line__price">$0.00</div>
+        </div>
+        <div class="modal-total">
+          <div>
+            <div class="muted eyebrow">Subtotal · Tax · Shipping</div>
+            <div class="modal-total__breakdown">
+              <span>$148.00</span>
+              <span class="muted">+ $11.47 tax</span>
+              <span class="muted">+ $0.00 shipping</span>
+            </div>
+          </div>
+          <div class="right">
+            <div class="eyebrow muted">Total</div>
+            <div class="modal-total__value">$159.47</div>
+          </div>
+        </div>
+        <label class="field mt-4">
+          <span class="field__label">Approval note <span class="muted regular">(optional)</span></span>
+          <input class="input" placeholder="e.g., Confirmed with biomed · priority order">
+        </label>
+      </div>
+      <footer class="modal__footer">
+        <button class="btn btn--destructive" data-close>Reject Request</button>
+        <span class="flex-1"></span>
+        <button class="btn btn--link" data-close>Cancel</button>
+        <button class="btn btn--primary" data-close>Approve Order</button>
+      </footer>
+    </div>
+  </div>
+
+  <div class="sheet-overlay" id="sheet-create" role="complementary" aria-labelledby="sheet-create-title" hidden>
+    <div class="sheet">
+      <header class="sheet__header">
+        <div class="flex-1">
+          <div class="eyebrow">New · Draft</div>
+          <div class="sheet__title" id="sheet-create-title">Create Purchase Order</div>
+        </div>
+        <button class="icon-btn" data-close aria-label="Close"><i data-lucide="x" width="20" height="20"></i></button>
+      </header>
+      <div class="sheet__body stack">
+        <div class="alert alert--info"><i class="alert__icon" data-lucide="info" width="18" height="18"></i><div class="alert__body">Drafts are saved automatically. Submit to route for approval.</div></div>
+
+        <label class="field">
+          <span class="field__label">Facility</span>
+          <select class="input">
+            <option>Cleveland Clinic · Main Campus</option>
+            <option>Fairview Hospital</option>
+            <option>Hillcrest Hospital</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Device</span>
+          <div class="input-search">
+            <i class="input-search__icon" data-lucide="search" width="16" height="16"></i>
+            <input class="input" value="Baxter Spectrum IQ Infusion Pump">
+          </div>
+          <span class="field__hint">Searches across your asset tag registry</span>
+        </label>
+
+        <div class="field-row">
+          <label class="field">
+            <span class="field__label">Part number</span>
+            <input class="input" value="35162-PC">
+          </label>
+          <label class="field">
+            <span class="field__label">Quantity</span>
+            <input class="input" type="number" value="2">
+          </label>
+        </div>
+
+        <label class="field">
+          <span class="field__label">Preferred vendor</span>
+          <select class="input">
+            <option>MedEquip Supply · Best coverage</option>
+            <option>Baxter OEM</option>
+            <option>Replacement Parts Industries</option>
+          </select>
+          <span class="field__hint"><span class="badge-formulary badge-formulary--best badge-formulary--sm">Best</span> Formulary coverage · 4 contracted vendors</span>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Priority</span>
+          <div class="segmented segmented--block" data-segmented>
+            <button class="is-active">Standard</button>
+            <button>Expedited</button>
+            <button>Critical</button>
+          </div>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Notes to vendor</span>
+          <textarea class="input input--textarea" rows="3"></textarea>
+        </label>
+      </div>
+      <footer class="sheet__footer">
+        <button class="btn btn--link" data-close>Save Draft</button>
+        <span class="flex-1"></span>
+        <button class="btn btn--secondary" data-close>Cancel</button>
+        <button class="btn btn--primary" data-close>Submit Order</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
