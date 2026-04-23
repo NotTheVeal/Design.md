@@ -1,719 +1,804 @@
 ---
-name: PartsSource Design System
-version: "1.3"
-description: Design tokens and visual language for PartsSource — an enterprise B2B platform for healthcare equipment parts procurement and service management.
+designMdVersion: alpha
+name: PartsSource
+version: 2.0.0
 
 colors:
-  # Brand
-  primary: "#005BA7"
-  primaryHover: "#004884"
-  white: "#FFFFFF"
-  black: "#000000"
-  # Neutrals
-  grey1: "#4A4A4A"
-  grey2: "#777777"
-  grey4: "#CCCCCC"
-  grey5: "#DCDCDC"
-  grey6: "#F1F1F1"
-  textSecondary: "#5C5C5C"
-  softFill: "#F0F0F0"
-  # Surfaces
-  modalFill: "#FAFAFA"
-  selectedFill: "#EFF9FE"
-  lightBlue: "#D0EEFC"
-  # Semantic status
-  positive: "#17AB78"
-  positiveLight: "#DCFAEF"
-  negative: "#FF0000"
-  negativeLight: "#FCC8C8"
-  warning: "#E3A92D"
-  warningLight: "#FFF4D0"
+  # --- Primary brand (blues) ---
+  ps-blue:    "#005BA6"   # Product names, links, footer, focused inputs, breadcrumbs
+  blue-2:     "#004A84"   # Darker PS Blue variant
+  blue-3:     "#003763"   # Darkest variant (navy surfaces, footer)
+  azure-blue: "#009CF4"   # Informational highlight
+
+  # --- CTA ramp (orange) ---
+  orange-1: "#FF9505"   # Primary CTA default
+  orange-2: "#EC8000"   # Primary CTA hover
+  orange-3: "#D27200"   # Primary CTA pressed
+
+  # --- Secondary / notification ---
+  orange-4:   "#FFCA82"   # Warning / notification chip
+  orange-5:   "#FFE4C0"   # Warning / notification background
+  green-1:    "#17AB78"   # Success confirmation
+  green-2:    "#8BD5BC"   # Success background / subdued
+  red:        "#FF0000"   # Error
+  light-red:  "#FACBCB"   # Error background / subdued
+  light-blue: "#D0EDFC"   # Info background / subdued
+
+  # --- Grayscale (text & UI) ---
+  black:  "#000000"
+  grey-1: "#4A4A4A"
+  grey-2: "#777777"
+  grey-3: "#949494"
+  grey-4: "#CCCCCC"
+  grey-5: "#DCDCDC"
+  grey-6: "#F1F1F1"
+  grey-7: "#FAFAFA"
+  white:  "#FFFFFF"
+
+  # --- PS Plus+ Rewards (reserved) ---
+  plus-teal: "#00CBB7"
+  plus-blue: "#005499"
+
+  # --- Formulary rating ramp (Best → Poor) ---
+  formulary-best:      "#29A10F"
+  formulary-very-good: "#03C700"
+  formulary-moderate:  "#E9E022"
+  formulary-fair:      "#F58B00"
+  formulary-poor:      "#DE3700"
+
+  # --- Data visualization (charts / dashboards) ---
+  viz-headers:             "#000000"
+  viz-neutral-01:          "#005BA6"
+  viz-neutral-accent-01:   "#009CF4"
+  viz-positive:            "#17AB78"
+  viz-negative:            "#FF0000"
+  viz-active:              "#FFCA82"
+  viz-comparison-02:       "#777777"
+  viz-comparison-light-02: "#004A84"
+  viz-neutral:             "#B0C6D3"
+
+  # --- Semantic aliases (use these in components, not raw palette tokens) ---
+  brand-primary:       "{colors.ps-blue}"
+  brand-deep:          "{colors.blue-2}"
+  brand-darkest:       "{colors.blue-3}"
+  action-default:      "{colors.orange-1}"
+  action-hover:        "{colors.orange-2}"
+  action-pressed:      "{colors.orange-3}"
+  info:                "{colors.azure-blue}"
+  info-background:     "{colors.light-blue}"
+  success:             "{colors.green-1}"
+  success-background:  "{colors.green-2}"
+  warning:             "{colors.orange-4}"
+  warning-background:  "{colors.orange-5}"
+  error:               "{colors.red}"
+  error-background:    "{colors.light-red}"
+  text-primary:        "{colors.black}"
+  text-body:           "{colors.grey-1}"
+  text-secondary:      "{colors.grey-2}"
+  text-assistive:      "{colors.grey-3}"
+  text-disabled:       "{colors.grey-3}"
+  text-on-brand:       "{colors.white}"
+  text-on-action:      "{colors.white}"
+  link:                "{colors.ps-blue}"
+  border-input:        "{colors.grey-4}"
+  border-subtle:       "{colors.grey-5}"
+  border-divider:      "{colors.grey-6}"
+  surface-base:        "{colors.white}"
+  surface-subtle:      "{colors.grey-7}"
+  surface-muted:       "{colors.grey-6}"
+  overlay-scrim:       "rgba(0, 0, 0, 0.5)"
 
 typography:
-  h1:
-    fontFamily: "Source Sans Pro"
-    fontSize: "30px"
-    fontWeight: "300"
-    lineHeight: "36px"
-    letterSpacing: "0em"
-  h2:
-    fontFamily: "Source Sans Pro"
-    fontSize: "24px"
-    fontWeight: "300"
-    lineHeight: "30px"
-    letterSpacing: "0em"
-  h3:
-    fontFamily: "Source Sans Pro"
-    fontSize: "20px"
-    fontWeight: "600"
-    lineHeight: "24px"
-    letterSpacing: "0em"
-  h1-mobile:
-    fontFamily: "Source Sans Pro"
-    fontSize: "26px"
-    fontWeight: "300"
-    lineHeight: "32px"
-    letterSpacing: "0em"
-  h2-mobile:
-    fontFamily: "Source Sans Pro"
-    fontSize: "22px"
-    fontWeight: "300"
-    lineHeight: "28px"
-    letterSpacing: "0em"
-  h3-mobile:
-    fontFamily: "Source Sans Pro"
-    fontSize: "18px"
-    fontWeight: "400"
-    lineHeight: "22px"
-    letterSpacing: "0em"
-  body:
-    fontFamily: "Source Sans Pro"
-    fontSize: "16px"
-    fontWeight: "400"
-    lineHeight: "22px"
-    letterSpacing: "-0.01em"
-  body-emphasized:
-    fontFamily: "Source Sans Pro"
-    fontSize: "16px"
-    fontWeight: "600"
-    lineHeight: "22px"
-    letterSpacing: "-0.01em"
-  body-sm:
-    fontFamily: "Source Sans Pro"
-    fontSize: "14px"
-    fontWeight: "400"
-    lineHeight: "18px"
-    letterSpacing: "-0.01em"
-  body-sm-emphasized:
-    fontFamily: "Source Sans Pro"
-    fontSize: "14px"
-    fontWeight: "600"
-    lineHeight: "18px"
-    letterSpacing: "-0.01em"
-  button-lg:
-    fontFamily: "Source Sans Pro"
-    fontSize: "16px"
-    fontWeight: "600"
-    lineHeight: "20px"
-    letterSpacing: "0em"
-  button-md:
-    fontFamily: "Source Sans Pro"
-    fontSize: "14px"
-    fontWeight: "600"
-    lineHeight: "18px"
-    letterSpacing: "0em"
-  button-sm:
-    fontFamily: "Source Sans Pro"
-    fontSize: "12px"
-    fontWeight: "600"
-    lineHeight: "16px"
-    letterSpacing: "0em"
+  fontFamily:
+    sans: "'Source Sans Pro', sans-serif"
+
+  fontWeight:
+    light:    300
+    regular:  400
+    semibold: 600
+    bold:     700
+    black:    900
+
+  # --- Desktop scale ---
+  desktop-header-00:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    34px
+    fontWeight:  "{typography.fontWeight.light}"
+    lineHeight:  40px
+  desktop-header-01:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    30px
+    fontWeight:  "{typography.fontWeight.light}"
+    lineHeight:  34px
+  desktop-header-02:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    24px
+    fontWeight:  "{typography.fontWeight.light}"
+    lineHeight:  28px
+  desktop-header-03:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    24px
+    fontWeight:  "{typography.fontWeight.regular}"
+    lineHeight:  28px
+  desktop-header-04:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    24px
+    fontWeight:  "{typography.fontWeight.semibold}"
+    lineHeight:  28px
+  desktop-body-01:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    16px
+    fontWeight:  "{typography.fontWeight.regular}"
+    lineHeight:  22px
+  desktop-body-02:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    16px
+    fontWeight:  "{typography.fontWeight.bold}"
+    lineHeight:  22px
+  desktop-micro:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    12px
+    fontWeight:  "{typography.fontWeight.regular}"
+    lineHeight:  16px
+
+  # --- Mobile scale ---
+  mobile-header-01:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    26px
+    fontWeight:  "{typography.fontWeight.light}"
+    lineHeight:  26px
+  mobile-header-02:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    22px
+    fontWeight:  "{typography.fontWeight.light}"
+    lineHeight:  24px
+  mobile-header-03:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    18px
+    fontWeight:  "{typography.fontWeight.regular}"
+    lineHeight:  20px
+  mobile-header-04:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    18px
+    fontWeight:  "{typography.fontWeight.semibold}"
+    lineHeight:  20px
+  mobile-body-01:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    14px
+    fontWeight:  "{typography.fontWeight.regular}"
+    lineHeight:  18px
+  mobile-body-02:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    14px
+    fontWeight:  "{typography.fontWeight.bold}"
+    lineHeight:  18px
+  mobile-micro:
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    12px
+    fontWeight:  "{typography.fontWeight.regular}"
+    lineHeight:  18px
 
 spacing:
-  # Token Studio numeric scale (4px base)
-  "0": "0"
-  "1": "4px"
-  "2": "8px"
-  "3": "12px"
-  "4": "16px"
-  "5": "20px"
-  "6": "24px"
-  "8": "32px"
-  "10": "40px"
-  "12": "48px"
-  "14": "56px"
-  "16": "64px"
-  "20": "80px"
-  "24": "96px"
-  # Semantic aliases
-  xs: "4px"
-  sm: "8px"
-  md: "16px"
-  lg: "24px"
-  xl: "40px"
+  # 8-step scale — only these values are allowed.
+  0:  0px
+  1:  2px    # Minimal
+  2:  4px    # Tight
+  3:  8px    # Small
+  4:  16px   # Medium
+  5:  24px   # Large
+  6:  32px   # Section
+  7:  48px   # Page
+  8:  64px   # Major section
 
-rounded:
-  none: "0"
-  sm: "2px"
-  md: "4px"
-  lg: "6px"
-  xl: "8px"
-  2xl: "12px"
-  pill: "20px"
-  full: "9999px"
+radii:
+  # Three values only. Any other radius requires design-system approval.
+  operational: 4px     # Dense, high-frequency surfaces: buttons, inputs, chips, right-rail cards, alerts
+  structural:  8px     # Primary content surfaces: detail cards, modals, tables, accordions, page containers
+  expressive:  100px   # Pill buttons, selectable chips — emphasis only
+
+breakpoints:
+  mobile-small:   360px
+  mobile-medium:  550px
+  tablet:         768px
+  tablet-large:   820px
+  desktop-small:  1150px
+  desktop-medium: 1440px
+  desktop-large:  1630px
+  desktop-xl:     1920px
+
+elevation:
+  # Shadow scale is a known gap — see the Elevation and Depth section below.
+  # Z-index and overlay tokens here are the authored primitives.
+  z-base:     0
+  z-sticky:   100
+  z-modal:    1000
+  z-sheet:    1100
+  z-popover:  1200
+  overlay-modal:  "rgba(0, 0, 0, 0.5)"
+  overlay-sheet:  "rgba(0, 0, 0, 0.5)"
+  backdrop-blur:  8px
+
+motion:
+  # Timings captured from the Modal / Sheet spec; formal motion system not yet codified.
+  duration-fast:     200ms
+  duration-medium:   300ms
+  duration-slow:     400ms
+  easing-standard:   "cubic-bezier(0.4, 0.0, 0.2, 1)"
 
 components:
+  # --- Primary CTA button (Verb–Subject labels only; see Do's and Don'ts) ---
   button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.white}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm} {spacing.md}"
+    background:  "{colors.action-default}"
+    text:        "{colors.text-on-action}"
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontWeight:  "{typography.fontWeight.semibold}"
+    fontSize:    14px
+    paddingX:    "{spacing.4}"
+    paddingY:    "{spacing.3}"
+    radius:      "{radii.operational}"
+    minHeight:   44px
   button-primary-hover:
-    backgroundColor: "{colors.primaryHover}"
-    textColor: "{colors.white}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm} {spacing.md}"
+    background:  "{colors.action-hover}"
+    text:        "{colors.text-on-action}"
+  button-primary-pressed:
+    background:  "{colors.action-pressed}"
+    text:        "{colors.text-on-action}"
+  button-primary-focus:
+    background:  "{colors.action-default}"
+    text:        "{colors.text-on-action}"
+    outline:     2px
+    outlineColor: "{colors.ps-blue}"
+    outlineOffset: 2px
   button-primary-disabled:
-    backgroundColor: "{colors.grey4}"
-    textColor: "{colors.white}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm} {spacing.md}"
+    background:  "{colors.grey-4}"
+    text:        "{colors.grey-2}"
+
+  # --- Primary CTA — large / small variants (horizontal padding by size) ---
+  button-primary-large:
+    paddingX:  "{spacing.5}"
+    paddingY:  "{spacing.3}"
+  button-primary-small:
+    paddingX:  12px
+    paddingY:  "{spacing.2}"
+
+  # --- Pill button (expressive emphasis only) ---
+  button-pill:
+    background:  "{colors.action-default}"
+    text:        "{colors.text-on-action}"
+    fontWeight:  "{typography.fontWeight.semibold}"
+    paddingX:    "{spacing.5}"
+    paddingY:    "{spacing.3}"
+    radius:      "{radii.expressive}"
+  button-pill-hover:
+    background:  "{colors.action-hover}"
+  button-pill-pressed:
+    background:  "{colors.action-pressed}"
+
+  # --- Secondary button ---
   button-secondary:
-    backgroundColor: "{colors.softFill}"
-    textColor: "{colors.black}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm} {spacing.md}"
+    background:  "{colors.surface-base}"
+    text:        "{colors.ps-blue}"
+    border:      "{colors.ps-blue}"
+    borderWidth: 1px
+    fontWeight:  "{typography.fontWeight.semibold}"
+    paddingX:    "{spacing.4}"
+    paddingY:    "{spacing.3}"
+    radius:      "{radii.operational}"
   button-secondary-hover:
-    backgroundColor: "{colors.grey5}"
-    textColor: "{colors.black}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm} {spacing.md}"
-  button-outline:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.primary}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm} {spacing.md}"
-  button-outline-hover:
-    backgroundColor: "{colors.lightBlue}"
-    textColor: "{colors.primary}"
-    typography: "{typography.button-md}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm} {spacing.md}"
-  input-field:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.black}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm}"
-  input-field-focus:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.black}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm}"
-  input-field-disabled:
-    backgroundColor: "{colors.grey6}"
-    textColor: "{colors.grey2}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm}"
-  table-header:
-    backgroundColor: "{colors.grey6}"
-    textColor: "{colors.black}"
-    typography: "{typography.body-sm-emphasized}"
-  table-row:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.black}"
-    typography: "{typography.body-sm}"
-  table-row-hover:
-    backgroundColor: "{colors.grey6}"
-    textColor: "{colors.black}"
-    typography: "{typography.body-sm}"
-  tab-active:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.white}"
-    typography: "{typography.body-sm-emphasized}"
-    rounded: "{rounded.lg}"
-    padding: "6px 12px"
-  tab-inactive:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.textSecondary}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.lg}"
-    padding: "6px 12px"
-  accordion-header:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.black}"
-    typography: "{typography.body-sm-emphasized}"
-    padding: "{spacing.md} {spacing.lg}"
-    height: "61px"
-  chip:
-    backgroundColor: "{colors.lightBlue}"
-    textColor: "{colors.primary}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.lg}"
-    padding: "2px {spacing.sm}"
-  chip-active:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.white}"
-    typography: "{typography.body-sm-emphasized}"
-    rounded: "{rounded.lg}"
-    padding: "2px {spacing.sm}"
-  badge-positive:
-    backgroundColor: "{colors.positiveLight}"
-    textColor: "{colors.grey1}"
-    typography: "{typography.button-sm}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.1} {spacing.2}"
-  badge-negative:
-    backgroundColor: "{colors.negativeLight}"
-    textColor: "{colors.grey1}"
-    typography: "{typography.button-sm}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.1} {spacing.2}"
-  badge-warning:
-    backgroundColor: "{colors.warningLight}"
-    textColor: "{colors.grey1}"
-    typography: "{typography.button-sm}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.1} {spacing.2}"
-  badge-neutral:
-    backgroundColor: "{colors.grey5}"
-    textColor: "{colors.grey1}"
-    typography: "{typography.button-sm}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.1} {spacing.2}"
-  status-dot-positive:
-    backgroundColor: "{colors.positive}"
-    size: "8px"
-    rounded: "{rounded.full}"
-  status-dot-negative:
-    backgroundColor: "{colors.negative}"
-    size: "8px"
-    rounded: "{rounded.full}"
-  status-dot-warning:
-    backgroundColor: "{colors.warning}"
-    size: "8px"
-    rounded: "{rounded.full}"
+    background:  "{colors.light-blue}"
+    text:        "{colors.ps-blue}"
+  button-secondary-pressed:
+    background:  "{colors.grey-6}"
+    text:        "{colors.blue-2}"
+  button-secondary-disabled:
+    background:  "{colors.surface-base}"
+    text:        "{colors.grey-3}"
+    border:      "{colors.grey-4}"
+
+  # --- Tertiary / link button (inline) ---
+  button-link:
+    background:  transparent
+    text:        "{colors.link}"
+    fontWeight:  "{typography.fontWeight.regular}"
+    paddingX:    "{spacing.0}"
+    paddingY:    "{spacing.0}"
+  button-link-hover:
+    text:        "{colors.blue-2}"
+    textDecoration: underline
+  button-link-pressed:
+    text:        "{colors.blue-3}"
+
+  # --- Destructive button (Reject / Remove / Decline / Delete) ---
+  button-destructive:
+    background:  "{colors.surface-base}"
+    text:        "{colors.red}"
+    border:      "{colors.red}"
+    borderWidth: 1px
+    fontWeight:  "{typography.fontWeight.semibold}"
+    paddingX:    "{spacing.4}"
+    paddingY:    "{spacing.3}"
+    radius:      "{radii.operational}"
+  button-destructive-hover:
+    background:  "{colors.light-red}"
+    text:        "{colors.red}"
+
+  # --- Segmented button (view/mode toggle) ---
+  button-segmented:
+    background:  "{colors.surface-subtle}"
+    text:        "{colors.text-body}"
+    border:      "{colors.grey-4}"
+    borderWidth: 1px
+    radius:      "{radii.operational}"
+    paddingX:    12px
+    paddingY:    "{spacing.2}"
+  button-segmented-active:
+    background:  "{colors.ps-blue}"
+    text:        "{colors.text-on-brand}"
+    border:      "{colors.ps-blue}"
+
+  # --- Input fields ---
+  input-text:
+    background:  "{colors.surface-base}"
+    text:        "{colors.text-body}"
+    border:      "{colors.border-input}"
+    borderWidth: 1px
+    radius:      "{radii.operational}"
+    paddingX:    12px
+    paddingY:    "{spacing.2}"
+    fontSize:    14px
+    fontFamily:  "{typography.fontFamily.sans}"
+    minHeight:   40px
+  input-text-focus:
+    border:      "{colors.ps-blue}"
+    outline:     2px
+    outlineColor: "{colors.azure-blue}"
+  input-text-error:
+    border:      "{colors.red}"
+  input-text-disabled:
+    background:  "{colors.grey-6}"
+    text:        "{colors.grey-3}"
+    border:      "{colors.grey-5}"
+
+  # --- Filter chip (status chip, non-selectable — operational radius) ---
+  chip-status:
+    background:  "{colors.grey-6}"
+    text:        "{colors.text-body}"
+    fontSize:    12px
+    fontWeight:  "{typography.fontWeight.semibold}"
+    paddingX:    "{spacing.3}"
+    paddingY:    "{spacing.1}"
+    radius:      "{radii.operational}"
+  chip-status-success:
+    background:  "{colors.green-2}"
+    text:        "{colors.green-1}"
+  chip-status-warning:
+    background:  "{colors.orange-5}"
+    text:        "{colors.orange-2}"
+  chip-status-error:
+    background:  "{colors.light-red}"
+    text:        "{colors.red}"
+  chip-status-info:
+    background:  "{colors.light-blue}"
+    text:        "{colors.blue-2}"
+
+  # --- Filter chip (selectable — expressive radius; see status vs. selectable chip rule in Shapes) ---
+  chip-filter:
+    background:  "{colors.surface-base}"
+    text:        "{colors.text-body}"
+    border:      "{colors.grey-4}"
+    borderWidth: 1px
+    paddingX:    "{spacing.3}"
+    paddingY:    "{spacing.1}"
+    radius:      "{radii.expressive}"
+  chip-filter-selected:
+    background:  "{colors.ps-blue}"
+    text:        "{colors.text-on-brand}"
+    border:      "{colors.ps-blue}"
+
+  # --- Cards ---
+  card-detail:           # Primary surface — structural radius (locked 8px)
+    background:  "{colors.surface-base}"
+    text:        "{colors.text-body}"
+    border:      "{colors.border-subtle}"
+    borderWidth: 1px
+    radius:      "{radii.structural}"
+    paddingX:    "{spacing.5}"
+    paddingY:    "{spacing.5}"
+    headerMarginBottom:  "{spacing.4}"
+    contentMarginBottom: "{spacing.5}"
+  card-right-rail:       # Utility surface — operational radius (locked 4px)
+    background:  "{colors.surface-base}"
+    text:        "{colors.text-body}"
+    border:      "{colors.border-subtle}"
+    borderWidth: 1px
+    radius:      "{radii.operational}"
+    paddingX:    "{spacing.4}"
+    paddingY:    "{spacing.4}"
+  card-data-small:       # KPI / summary tile — operational radius
+    background:  "{colors.surface-base}"
+    border:      "{colors.border-subtle}"
+    radius:      "{radii.operational}"
+    paddingX:    "{spacing.4}"
+    paddingY:    "{spacing.4}"
+
+  # --- Alert card (inline contextual message — operational radius) ---
+  alert-info:
+    background:  "{colors.info-background}"
+    text:        "{colors.blue-2}"
+    border:      "{colors.azure-blue}"
+    borderWidth: 1px
+    radius:      "{radii.operational}"
+    paddingX:    "{spacing.4}"
+    paddingY:    "{spacing.3}"
+  alert-success:
+    background:  "{colors.success-background}"
+    text:        "{colors.green-1}"
+    border:      "{colors.green-1}"
+    radius:      "{radii.operational}"
+    paddingX:    "{spacing.4}"
+    paddingY:    "{spacing.3}"
+  alert-warning:
+    background:  "{colors.warning-background}"
+    text:        "{colors.orange-3}"
+    border:      "{colors.orange-2}"
+    radius:      "{radii.operational}"
+    paddingX:    "{spacing.4}"
+    paddingY:    "{spacing.3}"
+  alert-error:
+    background:  "{colors.error-background}"
+    text:        "{colors.red}"
+    border:      "{colors.red}"
+    radius:      "{radii.operational}"
+    paddingX:    "{spacing.4}"
+    paddingY:    "{spacing.3}"
+
+  # --- Modal (dialog — structural radius, locked 8px) ---
   modal:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.black}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.lg}"
-    padding: "24px 32px"
-    width: "600px"
+    background:  "{colors.surface-base}"
+    text:        "{colors.text-body}"
+    radius:      "{radii.structural}"
+    paddingX:    "{spacing.6}"    # 32px horizontal
+    paddingY:    "{spacing.5}"    # 24px vertical
+    maxWidthDesktop: 850px
+    maxWidthTablet:  600px
+    maxWidthMobile:  375px
+    overlay:     "{elevation.overlay-modal}"
+    zIndex:      "{elevation.z-modal}"
   modal-header:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.black}"
-    typography: "{typography.h1}"
-    padding: "24px 32px 16px"
+    fontFamily:  "{typography.fontFamily.sans}"
+    fontSize:    30px
+    fontWeight:  "{typography.fontWeight.light}"
+    marginBottom: "{spacing.4}"
+  modal-subtitle:
+    fontSize:    14px
+    text:        "{colors.text-body}"
+  modal-divider:
+    background:  "{colors.border-divider}"
+    height:      1px
   modal-line-item:
-    backgroundColor: "{colors.modalFill}"
-    textColor: "{colors.grey1}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.lg}"
-    height: "62px"
+    width:       785px
+    minHeight:   62px
+    gap:         18px
+    radius:      "{radii.operational}"
   modal-line-item-selected:
-    backgroundColor: "{colors.selectedFill}"
-    textColor: "{colors.grey1}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.lg}"
-    height: "62px"
+    background:  "#EFF9FE"
+    border:      "#6AC7FC"
+    borderWidth: 1px
+
+  # --- Sheet / drawer (structural radius, slide from right on desktop) ---
   sheet:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.black}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.none}"
-    padding: "24px 32px"
-    width: "480px"
-  sheet-header:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.black}"
-    typography: "{typography.h3}"
-    height: "72px"
-    padding: "0 32px"
-  sheet-footer:
-    backgroundColor: "{colors.white}"
-    textColor: "{colors.black}"
-    typography: "{typography.button-md}"
-    height: "80px"
-    padding: "0 32px"
+    background:  "{colors.surface-base}"
+    text:        "{colors.text-body}"
+    widthDefault: 480px
+    widthWide:    640px
+    widthNarrow:  320px
+    paddingX:    "{spacing.6}"
+    paddingY:    "{spacing.5}"
+    headerHeight: 72px
+    footerHeight: 80px
+    overlay:     "{elevation.overlay-sheet}"
+    zIndex:      "{elevation.z-sheet}"
+    enterDuration: "{motion.duration-slow}"
+    exitDuration:  "{motion.duration-medium}"
+  sheet-mobile-bottom:
+    dragHandleWidth:  32px
+    dragHandleHeight: 4px
+    heightCollapsed:  50%
+    heightExpanded:   90%
+    heightFull:       100%
+
+  # --- Tables (outer container locked 8px; cells flat) ---
+  table:
+    background:  "{colors.surface-base}"
+    text:        "{colors.text-body}"
+    border:      "{colors.border-divider}"
+    borderWidth: 1px
+    radius:      "{radii.structural}"
+  table-row:
+    borderBottom: "{colors.border-divider}"
+    paddingX:    "{spacing.4}"
+    paddingY:    "{spacing.3}"
+  table-row-hover:
+    background:  "{colors.surface-subtle}"
+  table-header:
+    background:  "{colors.surface-subtle}"
+    fontWeight:  "{typography.fontWeight.semibold}"
+    text:        "{colors.text-primary}"
+
+  # --- Accordion (structural radius, locked 8px) ---
+  accordion:
+    background:  "{colors.surface-base}"
+    border:      "{colors.border-subtle}"
+    borderWidth: 1px
+    radius:      "{radii.structural}"
+    paddingX:    "{spacing.5}"
+    paddingY:    "{spacing.4}"
+
+  # --- Navigation / header ---
+  navigation-header:
+    background:  "{colors.blue-3}"
+    text:        "{colors.text-on-brand}"
+    height:      56px
+  navigation-sidebar-left:
+    background:  "{colors.surface-base}"
+    width:       199px
+  navigation-sidebar-right:
+    background:  "{colors.surface-base}"
+    width:       281px
+
+  # --- Formulary rating badges ---
+  formulary-badge-best:
+    background:  "{colors.formulary-best}"
+    text:        "{colors.text-on-brand}"
+    radius:      "{radii.operational}"
+    paddingX:    "{spacing.3}"
+    paddingY:    "{spacing.1}"
+  formulary-badge-very-good:
+    background:  "{colors.formulary-very-good}"
+    text:        "{colors.text-on-brand}"
+  formulary-badge-moderate:
+    background:  "{colors.formulary-moderate}"
+    text:        "{colors.text-primary}"
+  formulary-badge-fair:
+    background:  "{colors.formulary-fair}"
+    text:        "{colors.text-on-brand}"
+  formulary-badge-poor:
+    background:  "{colors.formulary-poor}"
+    text:        "{colors.text-on-brand}"
+
+iconography:
+  library: "Lucide React"
+  sizeInline: 16px
+  sizeButton: 20px
+  sizeHeader: 24px
+  minClearSpace: 8px
+
+accessibility:
+  contrastMinText:   4.5    # WCAG 2.1 AA — 4.5:1 for body text
+  contrastMinUI:     3.0    # 3:1 for graphical / UI components
+  touchTargetMin:    44px   # Mobile minimum tap target
 ---
+
+# PartsSource Design System
 
 ## Overview
 
-PartsSource is an enterprise B2B platform for healthcare equipment parts procurement and service management. The design language is utilitarian, data-dense, and trust-focused — built for clinical and supply chain professionals who need clarity and efficiency, not decoration.
+PartsSource is a procurement and service platform for medical equipment parts, trusted by thousands of hospitals. The brand promise — **_Ensuring healthcare is always on_** — is the single idea every visual and verbal decision supports. Users are clinical engineers, HTM leaders, supply-chain managers, and administrators operating under time pressure in regulated, mission-critical environments. Interfaces must be **calm, precise, and confidence-inspiring**: clear over clever, specific over vague, and operational over decorative.
 
-The visual identity centers on **PS Blue (#005BA7)**, a reliable, authoritative blue that signals precision and professionalism in a regulated industry. Interfaces are light, structured, and conservative — white backgrounds with subtle grey scaffolding, tight spacing, and restrained border radius communicate a serious tool that respects the user's workflow.
+The visual identity is built on a confident navy (**PS Blue** `#005BA6`) paired with a bright action orange (**Orange 1** `#FF9505`). Grayscale carries the heavy lifting for content; notification hues (green, red, orange, azure) signal status without decoration. Typography is a single typeface — **Source Sans Pro** — across all weights and scales. Shape is restrained to three corner radii (4px operational, 8px structural, 100px expressive) so density and emphasis read instantly. Spacing follows an 8-step scale that produces a quiet, readable rhythm even on data-dense dashboards.
 
-**Design principles:**
-- **Clarity over creativity** — data is the hero; UI scaffolding recedes
-- **Density with breathing room** — pack information efficiently, never cramped
-- **Trustworthy defaults** — every state (hover, active, disabled) feels deliberate, not accidental
-- **Consistent affordances** — blue always means interactive; grey always means supporting or disabled
+The system is consumed by web, tablet, and mobile experiences across eight breakpoints from 360px to 1920px. The default is a three-column dashboard with a fixed navy top bar, a collapsible left menu, a flexible main content area, and a right rail for alerts and context.
 
 ## Colors
 
-**Primary (`#005BA7`)** — PS Blue. The single interactive color across the entire system. Use for: primary CTAs, active tabs, links, focused input borders, breadcrumbs, and interactive icons. Hover/pressed state uses `primaryHover` (`#004884`). Never use decoratively.
+The palette is organized by **role**, not by hue. Components should reference semantic aliases (e.g., `{colors.action-default}`, `{colors.error}`), not raw palette tokens.
 
-**Neutrals** form the scaffolding of every screen:
-- `grey6` (`#F1F1F1`) and `grey5` (`#DCDCDC`) — backgrounds and subtle separators
-- `grey4` (`#CCCCCC`) — borders and dividers
-- `grey2` (`#777777`) and `textSecondary` (`#5C5C5C`) — supporting text and metadata
-- `grey1` (`#4A4A4A`) — subheadings, emphasized secondary text, badge labels
-- `black` (`#000000`) — primary text
-- `white` (`#FFFFFF`) — page and card backgrounds
+**Primary brand.** `ps-blue` (`#005BA6`) is the single brand hue — product names, links, breadcrumbs, focused input borders, and the footer. `blue-2` (`#004A84`) and `blue-3` (`#003763`) are darker variants used for the navigation header background and deep data-visualization tones. `azure-blue` (`#009CF4`) is reserved for informational accents, never for primary brand signaling.
 
-**Surface colors:**
-- `modalFill` (`#FAFAFA`) — modal content area background
-- `selectedFill` (`#EFF9FE`) — selected row highlight in modals and selection lists
-- `lightBlue` (`#D0EEFC`) — chip idle background; tint complementary to PS Blue
+**Call-to-action ramp.** All primary CTAs use the orange ramp: `orange-1` default, `orange-2` hover, `orange-3` pressed. These three tokens are the entire vocabulary for high-emphasis action — do not introduce other orange values for interactive state.
 
-**Semantic status colors:**
+**Notification / semantic.** Green for success (`green-1` foreground, `green-2` background). Red for error (`red` foreground, `light-red` background). Orange 4/5 for warning and notification. Azure Blue + Light Blue for informational alerts. These pairs are the only approved mappings for alert variants.
 
-| Token | Value | Usage |
-|---|---|---|
-| `positive` | `#17AB78` | Status dots, filled indicators — Signal Green |
-| `positiveLight` | `#DCFAEF` | Badge background for success states |
-| `negative` | `#FF0000` | Status dots, filled indicators — Alert Red |
-| `negativeLight` | `#FCC8C8` | Badge background for error/destructive states |
-| `warning` | `#E3A92D` | Status dots, filled indicators — Amber |
-| `warningLight` | `#FFF4D0` | Badge background for caution states |
+**Grayscale.** Black and eight greys step from primary text (`black`) down through secondary text, assistive text, input borders, component outlines, muted surfaces, subtle surfaces, and finally `white`. Avoid sampling arbitrary hex values between these stops.
 
-> **WCAG note:** `positive`, `negative`, and `warning` are mid-luminance colors. Use them as solid fills (status dots, icons, charts) only — never as text colors or as badge backgrounds with white text. Badges use the corresponding `*Light` background with `grey1` text to meet WCAG AA (4.5:1).
+**PS Plus+ Rewards.** `plus-teal` and `plus-blue` are **reserved** for the Plus+ loyalty program — do not repurpose for general UI.
 
-**Border-only tokens** (cannot be expressed as component sub-tokens in this format — apply directly in CSS):
-- `inputOutline` `#D2D2D2` — input border at rest
-- `selectedBorder` `#6AC7FC` — selected row border in modals
-- `grey3` `#949494` — de-emphasized icon and placeholder color
+**Formulary rating.** The five-stop Best → Poor ramp is used exclusively for formulary coverage scoring. Do not overload for other statuses.
 
-**Primitive color scale** (Token Studio source of truth — for reference and data visualization use):
+**Data visualization.** A separate role-based palette (neutral, accent, positive, negative, active, comparison, neutral-background) drives charts. Several hex values overlap with the main palette but carry distinct semantic roles in chart context.
 
-| Token | Value | Name |
-|---|---|---|
-| `blue-50` | `#D0EEFC` | Light Blue |
-| `blue-100` | `#DCEAED` | Airway |
-| `blue-200` | `#009CF4` | Cyan |
-| `blue-500` | `#005BA7` | PS Blue |
-| `blue-700` | `#004884` | Blue 2 |
-| `blue-800` | `#003763` | Blue 3 |
-| `blue-900` | `#002F48` | Midnight |
-| `teal-400` | `#03D0BF` | Teal |
-| `teal-500` | `#87AFB8` | Jetstream |
-| `green-100` | `#DCFAEF` | Light Green |
-| `green-300` | `#8BD5BC` | Green 2 |
-| `green-500` | `#17AB78` | Signal Green |
-| `red-100` | `#FCC8C8` | Light Red |
-| `red-500` | `#FF0000` | Alert Red |
-| `amber-100` | `#FFF4D0` | Light Amber |
-| `amber-400` | `#E3A92D` | Amber |
-| `amber-500` | `#FF9505` | Orange |
-| `neutral-0` | `#FFFFFF` | White |
-| `neutral-50` | `#FAFAFA` | Grey 7 |
-| `neutral-100` | `#F1F1F1` | Grey 6 |
-| `neutral-200` | `#DCDCDC` | Grey 5 |
-| `neutral-300` | `#CCCCCC` | Grey 4 |
-| `neutral-400` | `#949494` | Grey 3 |
-| `neutral-500` | `#777777` | Grey 2 |
-| `neutral-700` | `#4A4A4A` | Grey 1 |
-| `neutral-1000` | `#000000` | Black |
-
-**Color rules:**
-- Blue on white for all primary interactive elements and links
-- Dark grey on white for body copy; secondary grey for metadata
-- `grey6` backgrounds to group and separate content sections
-- Never use blue as a large background fill — it is an accent, not a surface color
-- Never use `positive`, `negative`, or `warning` as text colors — they do not meet WCAG AA at any standard UI text size
-- Never repurpose Data Visualization, Formulary, or Plus+ Rewards palette colors outside their designated contexts
+**Contrast.** Every text/background pair must meet WCAG 2.1 AA — **4.5:1** for body text and **3.0:1** for graphical and UI components. The linter enforces this at token resolution time.
 
 ## Typography
 
-PartsSource uses **Source Sans Pro** exclusively — a humanist sans-serif designed for legibility at small sizes, ideal for dense data tables and form interfaces. Inter is available for UI chrome only.
+**Source Sans Pro** is the only typeface used across the product. Five weights are loaded: 300 (Light), 400 (Regular), 600 (SemiBold), 700 (Bold), and 900 (Black). Reserve **Bold** and **Black** for emphasis and display numerics; body copy is Regular, headings are Light at larger sizes and SemiBold when an emphasized heading is needed.
 
-**Heading scale — Desktop:**
+Two scales are defined: **desktop** (from `desktop-header-00` at 34/40 down to `desktop-micro` at 12/16) and **mobile** (from `mobile-header-01` at 26/26 down to `mobile-micro` at 12/18). Applications should switch scales at the tablet breakpoint — use mobile scale below 768px, desktop scale at and above. Base body size is **14px** on mobile, **16px** on desktop, with line heights in the 1.4–1.5 ratio range for comfortable reading.
 
-| Token | Size | Weight | Line Height | Usage |
-|---|---|---|---|---|
-| `h1` | 30px | 300 Light | 36px | Page titles, major section headers, modal titles |
-| `h2` | 24px | 300 Light | 30px | Section titles, modal headers |
-| `h3` | 20px | 600 SemiBold | 24px | Panel headers, card titles, sheet titles, emphasized section labels |
+Copy itself follows the **Verb–Subject** standard for CTAs (e.g., "Submit Order", "View Details"), avoids vague nouns ("Report"), avoids marketing euphemisms ("seamless", "next-gen"), and explains error messages in three parts: what happened, why, and what to do next. See the Do's and Don'ts section below for the full copy rules.
 
-**Heading scale — Mobile/Tablet (≤768px):**
+## Layout and Spacing
 
-| Token | Size | Weight | Line Height |
-|---|---|---|---|
-| `h1-mobile` | 26px | 300 Light | 32px |
-| `h2-mobile` | 22px | 300 Light | 28px |
-| `h3-mobile` | 18px | 400 Regular | 22px |
+**Spacing scale.** Eight values (2px, 4px, 8px, 16px, 24px, 32px, 48px, 64px) cover every padding, margin, and gap in the system. No other values are allowed — arbitrary paddings fragment the rhythm that makes dense dashboards readable.
 
-**Body and UI scale:**
+**Component paddings.**
 
-| Token | Size | Weight | Line Height | Usage |
-|---|---|---|---|---|
-| `body` | 16px | 400 Regular | 22px | Default prose, descriptions, modal body content |
-| `body-emphasized` | 16px | 600 SemiBold | 22px | Highlighted body content |
-| `body-sm` | 14px | 400 Regular | 18px | Table cells, form labels, metadata, modal field text |
-| `body-sm-emphasized` | 14px | 600 SemiBold | 18px | Table headers, section titles |
-| `button-lg` | 16px | 600 SemiBold | 20px | Large CTAs |
-| `button-md` | 14px | 600 SemiBold | 18px | Standard buttons |
-| `button-sm` | 12px | 600 SemiBold | 16px | Compact actions, inline controls, badges |
+- **Button horizontal padding** by size: Large 24px, Medium 16px, Small 12px.
+- **Card header** has a 16px bottom margin; **card content area** has a 24px bottom margin before actions.
+- **List items** use 16px padding per item.
+- **Modal** uses 32px horizontal / 24px vertical padding (matches desktop max width 850px, tablet 600px, mobile 375px).
+- **Sheet** uses the same 32/24 padding, with header 64–72px fixed and footer 72–80px sticky.
 
-H1 and H2 use **Light (300)** to create visual openness at large sizes. H3 uses **SemiBold (600)** because it sits close to body text size and needs weight to read as a heading. Never use weights lighter than 300 or heavier than 600.
+**Overall structure.** Default layout is a three-column dashboard: a 56px navy top bar, a 199px collapsible left sidebar, a flexible main content area, and a 281px right sidebar for alerts and context.
 
-## Layout
+**Breakpoints.** Eight stops from `mobile-small` (360px) through `desktop-xl` (1920px). Adapt by collapsing columns, not by scaling; large screens should increase content width, not introduce additional columns.
 
-Interfaces are organized into **sections** (full-width rows) and **panels** (contained cards or inset regions). Tables are the primary layout pattern for list-type data; accordions group related data under collapsible section headers.
+**Touch targets.** 44px minimum on mobile — this applies to close buttons, chip dismiss affordances, and any interactive element intended for touch.
 
-**Spacing scale (4px base):**
+## Elevation and Depth
 
-| Alias | Value | Token Studio | Usage |
-|---|---|---|---|
-| `xs` | 4px | `spacing.1` | Icon padding, badge padding |
-| `sm` | 8px | `spacing.2` | Inline gaps between sibling elements |
-| `md` | 16px | `spacing.4` | Internal component padding, form row gaps |
-| `lg` | 24px | `spacing.6` | Section internal padding, modal/sheet section gaps |
-| `xl` | 40px | `spacing.10` | Separation between major page sections |
+PartsSource does not yet publish a formal shadow token set — this is a known gap in the current export. The elevation primitives that **are** codified come from the modal and sheet specs:
 
-**Density targets:**
-- Table rows: 44–48px height
-- Accordion headers: 61px height
-- Form fields: ~36px height
-- Button (medium): ~34px height
-- Modal line items: 62px height
+- **Z-index layers.** Base content 0; sticky headers 100; modals 1000+; sheets 1100–1200 when stacked above a modal; popovers 1200.
+- **Overlay scrim.** `rgba(0, 0, 0, 0.5)` for both modal and sheet backdrops (spec allows 0.4–0.6). Click-to-dismiss on non-critical dialogs.
+- **Optional backdrop blur.** `blur(8px)` on the overlay is permitted for depth perception but should be used sparingly — it is a nice-to-have, not a standard.
+- **Motion.** Modal fade-in overlay is 200–300ms; modal content scale/slide on entry matches. Sheet slide-in from right is 300–400ms with cubic-bezier easing; slide-out is 250–300ms. Use `transform` and `opacity` only — avoid triggering layout reflow.
 
-**Responsive breakpoints:**
-- Mobile/Tablet: ≤768px — mobile heading scale, single-column layouts, bottom sheets instead of side sheets
-- Desktop: >768px — desktop heading scale, multi-column layouts with sidebar panels
-
-## Elevation & Depth
-
-Depth is used sparingly — only to communicate layering for interactive or floating elements.
-
-| Token | Value | Usage |
-|---|---|---|
-| hover | `0px 4px 11px rgba(110,110,110,0.25)` | Row or card hover lift |
-| shadow-sm | `0px 1px 4px rgba(0,47,72,0.08)` | Subtle surface lift |
-| shadow-md | `0px 2px 10px rgba(0,47,72,0.10)` | Modals, popovers, dropdowns |
-| shadow-lg | `0px 6px 20px rgba(0,47,72,0.18)` | Overlays, bottom sheets |
-
-Never apply shadows to static layout containers or table structures. Shadow signals interactivity and layering only.
+A future pass should add a proper shadow scale (e.g., `shadow-1`, `shadow-2`, `shadow-3`) authored with design; until then, component elevation is implied by background contrast against the page and by the z-index stack.
 
 ## Shapes
 
-Border radius uses a stepped scale from the Token Studio:
+PartsSource limits corner radius to **three values**. This restraint is load-bearing: it reinforces hierarchy, supports dense enterprise workflows, and prevents styling drift.
 
-| Token | Value | Usage |
-|---|---|---|
-| `rounded.none` | 0 | Tables, accordion headers, section containers, full-width rows, sheets |
-| `rounded.sm` | 2px | Subtle rounding for dense inline elements |
-| `rounded.md` | 4px | Small tags, compact inputs |
-| `rounded.lg` | 6px | Buttons, inputs, chips, cards, modals, modal line items, badges |
-| `rounded.xl` | 8px | Large cards, prominent containers |
-| `rounded.2xl` | 12px | Large surface elements |
-| `rounded.pill` | 20px | Pill-shaped status indicators |
-| `rounded.full` | 9999px | Avatar circles |
+- **4px — Operational.** Precision-driven, high-frequency interaction. Buttons, inputs, checkboxes, filter bars, right-rail cards (locked), small data cards, alert banners and alert cards, status chips, modal inline list items.
+- **8px — Structural.** Primary content containers. Detail cards (locked), order cards, the outer container of tables (not the cells), accordions, page-level containers, modals.
+- **100px — Expressive.** Emphasis and intentional discoverability. **Pill buttons** and **selectable button chips** only.
 
-Interactive controls (buttons, inputs, chips, modals) use **`rounded.lg` (6px)**. Structural containers (tables, accordions, sheets, page sections) use **`rounded.none` (0px)**. Never use radii between `lg` and `pill` — stay on the defined scale.
+**Hard rules.**
+
+- No other radii are allowed without design-system approval.
+- Radius **does not change across interaction states** — never alter radius on hover, focus, active, disabled, or error. Signal state through color, outline, or scale instead.
+- Radius **does not scale across breakpoints** — the same 4/8/100 values apply to desktop, tablet, and mobile.
+- **Nested components** may not visually exceed the softness of their container: an 8px container can hold a 4px child (allowed), but a 4px container cannot hold an 8px child (disallowed). 100px children inside 8px containers are rare and must be intentional.
+- **Adjacency.** When a 4px surface touches an 8px surface (e.g., filter bar attached to card), align the shared edge via inset to prevent corner collision.
+
+**Status chip vs. selectable button chip.** Status chips are informational (4px); selectable button chips are interactive filters (100px). The radius difference is how a scanning user distinguishes passive labels from tappable controls — do not swap them.
 
 ## Components
 
 ### Buttons
 
-**Primary** — PS Blue (`#005BA7`) background, white text, `rounded.lg`, `button-md` type. The single most important CTA per screen. Hover darkens to `primaryHover` (`#004884`). Disabled state uses `grey4` background.
+Four interactive variants: **primary**, **secondary**, **link** (tertiary), and **destructive**. Plus a **segmented** control for mutually exclusive view/mode toggles, a **pill** variant for expressive emphasis, and size modifiers (large / medium / small) controlled by horizontal padding.
 
-**Secondary** — Soft grey (`softFill`) background, black text. Same shape as primary. Use alongside primary for alternative actions. Never use as a sole CTA.
+- **Primary** uses the Orange CTA ramp. One primary action per screen or page section, reserved for the highest-value action. The default state is `action-default`; hover shifts to `action-hover`; pressed to `action-pressed`; focus adds a 2px PS Blue outline; disabled collapses to `grey-4` background with `grey-2` text.
+- **Secondary** is a PS Blue outline on white. Used alongside or instead of primary for lower-emphasis actions; must never compete with the primary.
+- **Link** is inline textual PS Blue with no background or padding. Used inside running copy for navigation-style actions.
+- **Destructive** is red-outlined on white — reject, remove, decline, delete. Destructive CTAs must never be icon-only and must be visually separated from primary CTAs.
+- **Pill** is expressive emphasis only — uses `radii.expressive` (100px). Reserve for intentionally high-discoverability CTAs.
+- **Segmented** is a connected group of mutually exclusive toggles; the active segment uses PS Blue.
 
-**Outline** — White background, PS Blue border and text. For tertiary actions or contexts where the grey fill would disappear into the background.
+**Labeling** follows Verb–Subject strictly (see Do's and Don'ts below). Industry-standard short labels — Submit, Save, Done, Edit, Back, Cancel, Print, View Details — are approved exceptions.
 
-### Input Fields
+### Inputs
 
-White background, `inputOutline` border at rest, `primary` border on focus, `rounded.lg`, `body-sm` type. Disabled state uses `grey6` background and `grey2` text. Always pair with a visible label — never rely on placeholder text alone.
+**Text input** is the base form control: white background, 4px corner radius, 1px `border-input` (grey-4), 12px horizontal × 8px vertical padding, 40px minimum height, 14px Source Sans Pro Regular. Focus state replaces the border with PS Blue and adds a 2px Azure Blue outline. Error state replaces the border with red. Disabled state uses `grey-6` background and `grey-3` text.
 
-### Data Table
-
-- **Header row** — `grey6` background, `body-sm-emphasized`, left-aligned, `rounded.none`
-- **Body rows** — white background, `body-sm`, bottom border in `grey5`
-- **Hover** — `grey6` row highlight, no border change, no shadow
-- **Footer** — row count (e.g., "1–32 of 48"), page number pills, rows-per-page selector
-- **Search** — inline search input above the table, paired with action buttons
-
-### Tabs
-
-Active tab: `primary` background, white `body-sm-emphasized` text, `rounded.lg`. Inactive: white/transparent, `textSecondary`, `body-sm`. Count badges appear inline in the tab label (e.g., "In Progress 48").
-
-### Accordion
-
-61px header, white background, left drag handle icon, right chevron for expand/collapse. Title in `body-sm-emphasized`. Content expands below with left indentation. Groups related data panels (e.g., "Parts And Service Events").
+**Search input, filter dropdown, and filter chip** extend this base pattern. Filter chips are the **selectable** chip variant (100px expressive radius), distinct from the 4px **status chip**.
 
 ### Chips
 
-Idle state: `lightBlue` (`#D0EEFC`) background, `primary` text, `rounded.lg`. Active state: `primary` background, white text. Used for filter tags, status indicators, and category labels.
+Two strict categories, non-interchangeable:
 
-### Badges / Status
+- **Status chip** (informational, non-selectable): 4px radius, grey-6 background for neutral, paired semantic background + foreground for success / warning / error / info.
+- **Filter chip / button chip** (interactive, selectable): 100px radius, white with grey-4 outline in default; PS Blue in selected.
 
-Four badge variants — `badge-positive`, `badge-negative`, `badge-warning`, `badge-neutral`. All use `button-sm` type, `rounded.lg`, and tight padding. Badges use a **light background + `grey1` text** pattern to ensure WCAG AA compliance — the mid-luminance status colors (`positive`, `negative`, `warning`) cannot be used as badge backgrounds with legible text.
+### Cards
 
-| Variant | Background | Text |
-|---|---|---|
-| `badge-positive` | `positiveLight` `#DCFAEF` | `grey1` `#4A4A4A` |
-| `badge-negative` | `negativeLight` `#FCC8C8` | `grey1` `#4A4A4A` |
-| `badge-warning` | `warningLight` `#FFF4D0` | `grey1` `#4A4A4A` |
-| `badge-neutral` | `grey5` `#DCDCDC` | `grey1` `#4A4A4A` |
+Three tiers:
 
-Use to reflect order status (Ordered, Backordered, Returned, etc.). Never repurpose semantic badge colors for non-semantic decoration.
+- **Detail card** (8px structural, locked) — primary reading surfaces such as order detail, asset detail, quote detail.
+- **Right-rail card** (4px operational, locked) — dense, supportive content in the right sidebar.
+- **Small data / KPI card** (4px operational) — summary modules, tiles, and actionable small cards.
 
-### Status Dots
+Card headers use the desktop-header-04 style (24/28 SemiBold); content uses desktop-body-01 (16/22 Regular). Header has 16px bottom margin; content has 24px bottom margin before actions.
 
-`status-dot-positive`, `status-dot-negative`, `status-dot-warning` — 8px filled circles (`rounded.full`) using the mid-luminance status colors directly. Use in table rows, list items, and data displays where a small solid color indicator is needed without a text label. Because these have no text, WCAG contrast requirements for text do not apply.
+### Alerts
 
-### Modal
+Alert cards and banners use **4px operational** radius and pair semantic foreground + background: info (azure on light blue), success (green-1 on green-2), warning (orange on orange-5), error (red on light-red). Every alert must include an icon from Lucide React (`AlertTriangle`, `CheckCircle`, `Info`, `X`) and a Verb–Subject dismiss or remedial action where applicable.
 
-Modals interrupt the current flow to demand focused attention. Use them for critical decisions, quick data entry, confirmations, and information display. Avoid for complex multi-step workflows or large forms — use sheets instead.
+### Modals and Sheets
 
-**Structure:**
-- **Container** — white background (`#FFFFFF`), `rounded.lg` (6px), `shadow-md` elevation, semi-transparent overlay backdrop
-- **Max widths** — 850px absolute max; 600px desktop/tablet default; 375px mobile
-- **Padding** — 32px horizontal, 24px vertical
-- **Header** — `h1` type (Source Sans Pro Light 30px), close button (X) top-right, minimum 44×44px touch target
-- **Subtitle** — `body-sm` type, `grey1` (`#4A4A4A`) color, placed directly below title
-- **Divider** — full-width `grey6` (`#F1F1F1`) line separating header from body content
-- **Content area** — `modalFill` (`#FAFAFA`) background; 32px gap from divider to first content element
+- **Modal** — a **focused** interruption for critical decisions, quick confirmations, 2–5 field forms, and single-choice selections. 8px structural radius. Max width 850px desktop, 600px tablet, 375px mobile. 32px horizontal / 24px vertical padding. Header divider is 1px `grey-6`. Header title is desktop-header-01 (30/34 Light); subtitle is 14px `text-body`. Line items are 785px wide, 62px minimum height, 18px gap, 4px radius; selected line items get `#EFF9FE` background and `#6AC7FC` border. Focus is trapped inside; ESC closes; backdrop click closes unless the action is critical.
+- **Sheet / drawer** — for **context-retained** workflows: multi-step forms, detailed editing, complex filters, settings panels, content previews, and shopping carts. 8px structural radius. Desktop slides in from the right (480px default, 640px wide, 320px narrow). Mobile uses a **bottom sheet** with a 4×32px drag handle and 50% / 90% / full-screen snap points. Fixed 64–72px header, sticky 72–80px footer (when needed), scrollable body. Sheets may stack (offset by 24px); modals may not. Close by X, ESC, backdrop, or swipe on mobile.
 
-**Modal types:**
-- **Confirmation** — Destructive or irreversible actions (delete, remove, reject). Require explicit user consent. Use `negative` color cues for destructive primary CTAs.
-- **Form** — Quick data entry without leaving context (add item, edit details, enter PO number). 2–5 fields maximum; larger forms belong in a sheet.
-- **Information** — Display details, help text, onboarding flows, feature announcements, asset detail previews. Body content uses `body` or `body-sm` type with standard paragraph spacing.
-- **Selection** — Choose from lists, multi-select items (e.g., nudge approver selection, quote option selection). Uses line-item rows with selectable states.
-- **Media** — Image galleries, document previews, focused views. Content fills the modal body.
-- **Warning** — Alert users to errors, system status, required actions, or time-sensitive issues.
+**Choosing between them.** Modals demand focus; sheets preserve context. Confirmations, critical alerts, and single-choice selections are modals. Multi-step forms, detailed editing, filter panels, navigation menus, and previews that reference the main content are sheets.
 
-**Line items (data modals):**
-- Width: 785px within the modal container
-- Height: 62px per row, 18px gap between rows
-- Background: `modalFill` (`#FAFAFA`), `rounded.lg`
-- Layout: flex with `justify-between`
-- Field typography: `body-sm` (14px Regular); button labels: `button-sm` (12px SemiBold)
-- Hover state: `grey6` background
-- Selected state: `selectedFill` (`#EFF9FE`) background, `selectedBorder` (`#6AC7FC`) border
-- Divider between rows: `grey6` (`#F1F1F1`)
+### Tables and Accordions
 
-**Informational / content modals:**
-- Body text: `body` (16px) for primary content, `body-sm` for supporting details
-- Max 2–3 short paragraphs; if more content is needed, link to a dedicated page
-- Use `grey6` dividers between sections when grouping multiple content blocks
-- Images and media fill the modal body edge-to-edge (no padding)
+Both use **8px structural** radius on the outer container. Table cells themselves are flat (no radius); hover on a table row uses `surface-subtle` background. Accordion bodies use `paddingX: 24px` / `paddingY: 16px` and can contain nested cards at 4px or 8px radius per the nesting rules in the Shapes section above.
 
-**CTA footer:**
-- Sticky to the bottom of the modal
-- Button order (right to left): Primary action → Secondary action → Cancel/Close
-- Never place Cancel visually equal to the primary CTA
-- Primary: filled `button-primary`; Cancel/Close: text link or `button-secondary`
+### Navigation
 
-**Accessibility:**
-- `role="dialog"`, `aria-modal="true"`, `aria-labelledby` pointing to title
-- Focus trap within modal; auto-focus first interactive element on open
-- ESC to close; TAB to cycle; ENTER to submit
-- Backdrop click closes (unless critical confirmation)
-- Lock body scroll; return focus to trigger element on close
-- Z-index: 1000+
+The top header is **56px high** with a **navy `blue-3`** background — the one place navy is used as a dominant surface. The left sidebar is **199px** and collapsible; the right rail is **281px**. Across breakpoints, the desktop header carries full chrome (contact, help, search, categories, cart, facility context, account); at tablet it condenses; on mobile the primary nav collapses behind a hamburger.
 
-### Sheet / Drawer
+### Iconography
 
-Sheets slide in from the right (desktop) or bottom (mobile) and overlay the page without fully blocking it. Use for complex workflows, multi-step forms, detailed editing, filter panels, and content previews where the user may need to reference the underlying page.
+All icons come from **Lucide React**. Do not introduce icons from other libraries. Do not alter stroke, geometry, or proportions. Sizes: 16px inline with text, 20px in buttons, 24px in headers. Maintain at least 8px clear space. Every icon must carry an accessible label; never rely on an icon alone to convey meaning.
 
-**Structure:**
-- **Container** — white background, `rounded.none`, full viewport height (100vh), fixed right edge
-- **Default width** — 480px (desktop); full-screen on mobile
-- **Wide sheet** — 640px for multi-column forms or detailed content
-- **Narrow sheet** — 320px for simple lists, filters, or navigation menus
-- **Padding** — 32px horizontal, 24px vertical (consistent with modals)
-- **Overlay** — semi-transparent backdrop `rgba(0,0,0,0.4–0.6)`, click to close
+### Formulary Rating Badges
 
-**Internal structure:**
-- **Header (fixed)** — 64–72px height; `h3` title (20px SemiBold); optional subtitle/breadcrumb; X close button top-right
-- **Subheader (optional)** — tabs, progress indicator, or status badge below title; separated by `grey6` divider
-- **Body (scrollable)** — forms, lists, content sections; 24px between major sections, 16px between form fields
-- **Footer (sticky)** — 72–80px height; primary action right, secondary/cancel left; separated by `grey6` divider
-
-**Animations:**
-- Entry: slide in from right (desktop), slide up from bottom (mobile); 300–400ms cubic-bezier easing
-- Exit: slide out to right/down; 250–300ms; fade overlay simultaneously
-- Mobile drag handle: 4×32px rounded bar at top; swipe-to-dismiss
-
-**When to use sheets vs modals:**
-
-| Use Modals For | Use Sheets For |
-|---|---|
-| Quick confirmations | Multi-step forms or detailed editing |
-| Simple forms (2–5 fields) | Complex filter panels, settings panels |
-| Critical alerts | Content previews (documents, profiles) |
-| Single-choice selections | Workflows that reference main content |
-| Short information displays | Navigation menus, progressive disclosure |
-
-**Accessibility:**
-- `role="dialog"` or `role="complementary"` for navigation sheets
-- Focus trap within sheet; ESC to close; TAB/SHIFT+TAB to navigate
-- Touch targets: minimum 44×44px; color contrast: 4.5:1 text, 3:1 UI components
-- Z-index: 1100–1200 (above modals if stacking is required)
+Five-stop Best → Poor scale. Use only on formulary coverage scoring; do not overload for other status systems.
 
 ## Do's and Don'ts
 
-**Do:**
-- Use `primary` (`#005BA7`) for all interactive affordances — links, buttons, active states, focused borders
-- Use `body-sm` (14px/Regular) for table and form content — optimized for data density
-- Use `grey6` to group and separate content sections visually
-- Use `rounded.none` for structural containers and `rounded.lg` for interactive controls
-- Use Light (300) for H1/H2 and SemiBold (600) for H3 to maintain clear visual hierarchy
-- Apply the hover shadow only on lift interactions, never statically on layout
-- Use Verb–Subject labels for all CTAs; signal risk level in label copy for destructive actions
-- Provide visible X close button (min 44×44px) on all modals and sheets; always support ESC to dismiss
-- Use sheets for complex workflows that need context retention; use modals for focused, single-task interactions
-- Show 2–3 action buttons maximum per modal footer; enforce primary → secondary → cancel hierarchy
+### Copy
 
-**Don't:**
-- Don't use PS Blue as a large background fill — it overwhelms data-dense interfaces
-- Don't use font weights outside 300–600 — extremes fail at clinical screen densities
-- Don't use `positive`, `negative`, or `warning` as text or badge background colors — they fail WCAG AA contrast at all standard text sizes; use the `*Light` variants with `grey1` text instead
-- Don't use border radii outside the defined `rounded` scale — stay on `none`, `sm`, `md`, `lg`, `xl`, `2xl`, `pill`, or `full`
-- Don't stack multiple primary buttons — enforce hierarchy: primary + secondary or primary + outline
-- Don't omit visible labels on form fields — placeholder text disappears on input and fails accessibility
-- Don't apply shadows to static containers — shadow signals interactivity and elevation only
-- Don't use Data Visualization, Formulary, or Plus+ Rewards palettes outside their designated contexts
-- Don't use nested modals — never stack a modal on a modal; redesign the flow
-- Don't use verb-only CTAs for high-risk actions — "Purchase" and "Reject" alone lack consequence clarity
-- Don't make destructive CTAs icon-only — always include visible label text
-- Don't open modals or sheets on page load without user action (except critical system alerts)
+- **Do** use Verb–Subject labels for every CTA: "Submit Order", "View Details", "Approve Event", "Print Label", "Add to Cart".
+- **Do** describe what will happen before the user commits — "Delete Order", not "OK".
+- **Do** explain errors in three beats: what happened, why, what to do next. Example: "We couldn't submit your order because the part number is missing. Add a part number and try again."
+- **Do** default to the industry-standard short exceptions where appropriate: **Submit, Save, Done, Edit, Back, Cancel, Print, View Details**.
+- **Don't** use noun-only labels like "Report", "Form", "Dashboard".
+- **Don't** use vague actions like "Click here", "Continue", "Get started", "Learn more" (without a concrete object).
+- **Don't** use marketing-first verbs like "Discover", "Explore", "Unlock" for functional actions.
+- **Don't** use urgency language that pressures the user — "Fix this now!", "Don't miss out!". Maintain calm operational tone even when urgent: "Address Overdue Repairs".
+- **Don't** overload a CTA with multiple implied actions.
+- **Don't** create new labels for existing features. Default to the term used in the platform UI.
 
-## CTA Language Standards
+### Color
 
-All call-to-action labels across PartsSource follow a **Verb–Subject** format (e.g., "View Details", "Submit Work Order", "Add to Cart"). This reduces cognitive load, aligns with user mental models, and ensures scannability in dense operational interfaces.
+- **Do** reference semantic aliases (`{colors.action-default}`, `{colors.error}`) in components. Raw palette tokens belong in the palette, not in component definitions.
+- **Do** maintain a minimum **4.5:1 contrast ratio** for text against background and **3.0:1** for graphical and UI components.
+- **Do** pair notification foreground and background tokens as specified (green-1 on green-2, red on light-red, etc.) — these pairs were chosen for contrast.
+- **Don't** introduce new orange values for interactive state beyond the three-step CTA ramp.
+- **Don't** repurpose the PS Plus+ Rewards tokens (`plus-teal`, `plus-blue`) for general UI.
+- **Don't** use the formulary rating ramp for any other status system.
+- **Don't** convey status with color alone — always pair with icon, label, or shape.
 
-**Standard patterns:**
-- `"View Details"` — opens a single record or item (card → detail view)
-- `"View All [Object]"` — navigates to a full list or collection (section → list)
-- `"[Verb] [Object]"` — for workflow or task-based actions (e.g., "Submit Work Order", "Approve Event", "Print Label")
+### Typography
 
-**Approved verb taxonomy:**
+- **Do** use **Source Sans Pro** everywhere. Do not introduce a second typeface.
+- **Do** switch from desktop to mobile type scale at the tablet breakpoint.
+- **Do** reserve 700 (Bold) and 900 (Black) for emphasis and display numerics.
+- **Don't** hardcode font sizes outside the documented scale.
+- **Don't** use title case for body copy or sentence case for button labels — match the established convention in the UI.
 
-| Intent | Approved Verbs | When to Use | Avoid |
-|---|---|---|---|
-| Navigate / Explore | View, Open, Explore | Dashboards, cards, tables | See, Show, More |
-| Review / Evaluate | Review, Compare, Inspect | Quotes, approvals, analytics | Info |
-| Take Action | Add, Enter, Submit, Schedule | Forms, carts, service requests | Continue, Proceed |
-| Commit / Purchase | Purchase, Place Order, Checkout | Final steps only | Add (when committing) |
-| Destructive | Remove, Decline, Delete | Must signal risk | Icon-only |
+### Shape and spacing
 
-**Risk signaling:**
+- **Do** limit corner radius to the three approved values: **4px**, **8px**, **100px**.
+- **Do** keep radius constant across interaction states and breakpoints.
+- **Do** follow the nesting rule: an 8px container can hold a 4px child; a 4px container may not hold an 8px child.
+- **Do** use the 8-step spacing scale exclusively. 2 / 4 / 8 / 16 / 24 / 32 / 48 / 64.
+- **Don't** introduce new radius values without design-system approval.
+- **Don't** change radius on hover, focus, active, disabled, or error — use color, outline, or scale instead.
 
-| Risk Level | CTA Requirement |
-|---|---|
-| Low | Standard Verb + Object ("View Asset") |
-| Medium | Verb + outcome clarity ("Review Quote") |
-| High | Verb + consequence cue ("Delete List – Cannot Undo") |
+### Components
 
-**Approved exceptions** (do not flag as non-compliant):
-- `Edit` — inline utility affordance
-- `Back` — navigation utility
-- `Cancel` — escape/abort action
-- `Submit`, `Save`, `Print` — industry-standard short forms
-- `View Details` — approved navigation affordance
+- **Do** use **one primary CTA per screen or section**, reserved for the highest-value action.
+- **Do** separate destructive CTAs from primary CTAs visually and in language. Destructive CTAs must never be icon-only.
+- **Do** use modals for focused decisions and sheets for context-retained workflows.
+- **Do** provide three ways to dismiss a modal or sheet: X button, ESC key, backdrop click (unless critical).
+- **Do** provide 44×44px minimum touch targets on mobile.
+- **Don't** stack modals on modals. Redesign the flow instead.
+- **Don't** open a modal on page load without an explicit user action (except for critical alerts).
+- **Don't** auto-open sheets on page load.
 
-**Modal CTA ordering** (right to left in the footer):
-1. Primary action (Save, Purchase, Confirm, Approve)
-2. Secondary action (Print, Download)
-3. Escape action (Cancel, Close)
+### Accessibility
 
-Never place Cancel or Close visually equal to the primary CTA. Never use destructive CTAs as icon-only — always include a visible text label.
+- **Do** trap focus inside modals and sheets when open; auto-focus the first interactive element; return focus to the trigger on close.
+- **Do** provide `role="dialog"` and `aria-modal="true"` (or `role="complementary"` for navigation sheets), with `aria-labelledby` pointing at the title.
+- **Do** support full keyboard navigation — TAB to cycle, ENTER to submit, ESC to close.
+- **Don't** rely on color alone to convey state — pair with icon, label, or structural signal.
+- **Don't** use tiny close buttons — 44×44px minimum, visible contrast.
 
-**Anti-patterns to eliminate:**
-- Verb-only CTAs: "Purchase", "Reject", "Continue"
-- Noun-only CTAs: "Options", "More", "Details" (except "View Details")
-- Slang or internal terms: "Nudge" (use "Send Reminder")
-- Symbol-reliant labels: "Enter PO#" (use "Enter PO Number"), "Enter Tracking #" (use "Enter Return Tracking")
-- Generic step labels: "See More", "Show All" (use "View All [Object]")
+---
+
+## Known gaps
+
+The following areas are not yet codified. Components that need these primitives should note the dependency until the gaps are filled with design sign-off.
+
+- **Elevation / shadow scale.** No formal `shadow-1 / 2 / 3` tokens exist; only z-index layering and overlay scrim are authored. Until a shadow scale is published, components imply elevation via background contrast and z-index.
+- **Motion system.** Modal and sheet entry/exit durations are captured; a general motion token scale (easings, durations for micro-interactions) is not yet codified.
+- **Dark mode mappings.** No authored dark-mode tokens exist.
+- **Logo, clearspace, exclusion zones, lockups.** Not yet codified.
+- **Status-badge → color-token bindings.** Badge variants (Service Completed, Service Scheduled, Priority on Hold, Contracted) are known but not yet bound to specific tokens. The semantic mappings elsewhere in this file are recommended; verify with design before codifying.
+- **Token values under review.** The following token values were selected from conflicting candidates and are subject to a follow-up design sign-off pass: `orange-3` (`#D27200`), `grey-1` (`#4A4A4A`), `light-blue` (`#D0EDFC`), `blue-3` (`#003763`), `plus-blue` (`#005499`), and the full formulary rating ramp (`#29A10F / #03C700 / #E9E022 / #F58B00 / #DE3700`).
