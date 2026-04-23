@@ -3,7 +3,7 @@
 > A machine-readable design reference for PartsSource — structured so coding agents understand and apply the visual identity consistently without guesswork.
 
 [![design.md](https://img.shields.io/badge/format-design.md-005BA6?style=flat-square)](./design.md)
-[![version](https://img.shields.io/badge/version-1.1-005BA6?style=flat-square)](./design.md)
+[![version](https://img.shields.io/badge/version-1.2-005BA6?style=flat-square)](./design.md)
 [![Figma](https://img.shields.io/badge/Figma-Design%20System-F24E1E?style=flat-square&logo=figma&logoColor=white)](https://www.figma.com/design/pyZ5wKN9KGBUfgi47UwQ0q/Design-System---Component-library)
 
 ---
@@ -42,11 +42,13 @@ PartsSource is an enterprise B2B platform for healthcare equipment parts procure
 
 | Token | Value | Usage |
 |---|---|---|
-| `primary` | `#005BA6` | CTAs, links, active tabs, focused borders |
+| `primary` | `#005BA7` | CTAs, links, active tabs, focused borders |
+| `primaryHover` | `#004884` | Button hover / active pressed state |
 | `black` | `#000000` | Primary text |
 | `white` | `#FFFFFF` | Page and card backgrounds |
 | `grey1` | `#4A4A4A` | Subheadings, emphasized secondary text, modal subtitle |
 | `grey2` | `#777777` | Muted text, metadata |
+| `grey3` | `#949494` | De-emphasized icons, placeholder text |
 | `grey4` | `#CCCCCC` | Borders, dividers |
 | `grey5` | `#DCDCDC` | Light borders, row separators |
 | `grey6` | `#F1F1F1` | Section backgrounds, row hover, modal dividers |
@@ -56,9 +58,13 @@ PartsSource is an enterprise B2B platform for healthcare equipment parts procure
 | `modalFill` | `#FAFAFA` | Modal content area background |
 | `selectedFill` | `#EFF9FE` | Selected row highlight in modals |
 | `selectedBorder` | `#6AC7FC` | Border on selected modal rows |
-| `positive` | `#2E7D32` | Success states, positive indicators |
-| `negative` | `#C62828` | Errors, destructive actions |
-| `lightBlue` | `#E3F2FD` | Chip idle background |
+| `positive` | `#17AB78` | Success states, positive indicators (Signal Green) |
+| `positiveLight` | `#DCFAEF` | Positive surface tint |
+| `negative` | `#FF0000` | Errors, destructive actions (Alert Red) |
+| `negativeLight` | `#FCC8C8` | Negative surface tint |
+| `warning` | `#E3A92D` | Caution states, time-sensitive alerts |
+| `lightBlue` | `#D0EEFC` | Chip idle background |
+| `cyan` | `#009CF4` | Transactional interactions, notifications |
 
 ### Typography
 
@@ -77,21 +83,26 @@ Font family: **Source Sans Pro**
 
 ### Spacing
 
-| Token | Value | Usage |
-|---|---|---|
-| `xs` | 5px | Icon padding, badge padding |
-| `sm` | 10px | Inline gaps |
-| `md` | 15px | Component padding, row gaps |
-| `lg` | 24px | Section padding, modal/sheet section gaps |
-| `xl` | 40px | Major page section separation |
+| Token | Value | Token Studio | Usage |
+|---|---|---|---|
+| `xs` | 4px | `spacing.1` | Icon padding, badge padding |
+| `sm` | 8px | `spacing.2` | Inline gaps |
+| `md` | 16px | `spacing.4` | Component padding, row gaps |
+| `lg` | 24px | `spacing.6` | Section padding, modal/sheet section gaps |
+| `xl` | 40px | `spacing.10` | Major page section separation |
 
 ### Border Radius
 
 | Token | Value | Usage |
 |---|---|---|
-| `rounded-none` | 0px | Tables, accordions, page sections, sheets |
-| `rounded-sm` | 5px | Buttons, inputs, badges, chips, modals, modal line items |
-| `rounded-full` | 9999px | Avatars, pill indicators |
+| `borderRadius.none` | 0 | Tables, accordions, page sections, sheets |
+| `borderRadius.sm` | 2px | Dense inline elements |
+| `borderRadius.md` | 4px | Small tags, compact inputs |
+| `borderRadius.lg` | 6px | Buttons, inputs, chips, modals, badges |
+| `borderRadius.xl` | 8px | Large cards |
+| `borderRadius.2xl` | 12px | Large surface elements |
+| `borderRadius.pill` | 20px | Pill-shaped status indicators |
+| `borderRadius.full` | 9999px | Avatars |
 
 ### Elevation
 
@@ -106,22 +117,22 @@ Font family: **Source Sans Pro**
 
 | Component | Background | Text | Radius | Notes |
 |---|---|---|---|---|
-| Button Primary | `#005BA6` | White | 5px | Hover: `#004A8C` |
-| Button Secondary | `#F0F0F0` | Black | 5px | — |
-| Button Outline | White | `#005BA6` | 5px | Border: `#005BA6` |
-| Input Field (rest) | White | Black | 5px | Border: `#D2D2D2` |
-| Input Field (focus) | White | Black | 5px | Border: `#005BA6` |
+| Button Primary | `#005BA7` | White | 6px | Hover: `#004884` |
+| Button Secondary | `#F0F0F0` | Black | 6px | — |
+| Button Outline | White | `#005BA7` | 6px | Border: `#005BA7` |
+| Input Field (rest) | White | Black | 6px | Border: `#D2D2D2` |
+| Input Field (focus) | White | Black | 6px | Border: `#005BA7` |
 | Table Header | `#F1F1F1` | Black 600 | 0px | — |
 | Table Row | White | Black 400 | 0px | — |
 | Table Row Hover | `#F1F1F1` | Black | 0px | — |
-| Tab Active | `#005BA6` | White | 5px | — |
-| Tab Inactive | Transparent | `#5C5C5C` | 5px | — |
+| Tab Active | `#005BA7` | White | 6px | — |
+| Tab Inactive | Transparent | `#5C5C5C` | 6px | — |
 | Accordion Header | White | Black 600 | 0px | 61px height |
-| Chip | `#E3F2FD` | `#005BA6` | 5px | — |
-| Chip Active | `#005BA6` | White | 5px | — |
-| Modal | White | Black | 5px | 600px desktop, 32px padding |
-| Modal Line Item | `#FAFAFA` | `#4A4A4A` | 5px | 62px height |
-| Modal Line Item (selected) | `#EFF9FE` | `#4A4A4A` | 5px | Border: `#6AC7FC` |
+| Chip | `#D0EEFC` | `#005BA7` | 6px | — |
+| Chip Active | `#005BA7` | White | 6px | — |
+| Modal | White | Black | 6px | 600px desktop, 32px padding |
+| Modal Line Item | `#FAFAFA` | `#4A4A4A` | 6px | 62px height |
+| Modal Line Item (selected) | `#EFF9FE` | `#4A4A4A` | 6px | Border: `#6AC7FC` |
 | Sheet | White | Black | 0px | 480px default, 100vh height |
 | Sheet Header | White | Black | — | 72px height, h3 title |
 | Sheet Footer | White | Black | — | 80px height, sticky |
