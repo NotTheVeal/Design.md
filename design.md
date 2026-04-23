@@ -1,63 +1,33 @@
 ---
 name: PartsSource Design System
-version: "1.2"
+version: "1.3"
 description: Design tokens and visual language for PartsSource — an enterprise B2B platform for healthcare equipment parts procurement and service management.
 
 colors:
-  # Primitive scale (Token Studio source of truth)
-  blue-50: "#D0EEFC"       # Light Blue
-  blue-100: "#DCEAED"      # Airway
-  blue-200: "#009CF4"      # Cyan
-  blue-500: "#005BA7"      # PS Blue — primary brand
-  blue-700: "#004884"      # Blue 2 — hover / active pressed
-  blue-800: "#003763"      # Blue 3
-  blue-900: "#002F48"      # Midnight
-  teal-400: "#03D0BF"      # Teal
-  teal-500: "#87AFB8"      # Jetstream
-  green-100: "#DCFAEF"     # Light Green
-  green-300: "#8BD5BC"     # Green 2
-  green-500: "#17AB78"     # Signal Green
-  red-100: "#FCC8C8"       # Light Red
-  red-500: "#FF0000"       # Alert Red
-  amber-100: "#FFF4D0"     # Light Amber
-  amber-400: "#E3A92D"     # Amber
-  amber-500: "#FF9505"     # Orange
-  neutral-0: "#FFFFFF"     # White
-  neutral-50: "#FAFAFA"    # Grey 7
-  neutral-100: "#F1F1F1"   # Grey 6
-  neutral-200: "#DCDCDC"   # Grey 5
-  neutral-300: "#CCCCCC"   # Grey 4
-  neutral-400: "#949494"   # Grey 3
-  neutral-500: "#777777"   # Grey 2
-  neutral-700: "#4A4A4A"   # Grey 1
-  neutral-1000: "#000000"  # Black
-  # Semantic aliases
+  # Brand
   primary: "#005BA7"
   primaryHover: "#004884"
   white: "#FFFFFF"
   black: "#000000"
+  # Neutrals
   grey1: "#4A4A4A"
   grey2: "#777777"
-  grey3: "#949494"
   grey4: "#CCCCCC"
   grey5: "#DCDCDC"
   grey6: "#F1F1F1"
   textSecondary: "#5C5C5C"
-  iconDefault: "#09121F"
-  inputOutline: "#D2D2D2"
   softFill: "#F0F0F0"
+  # Surfaces
   modalFill: "#FAFAFA"
   selectedFill: "#EFF9FE"
-  selectedBorder: "#6AC7FC"
+  lightBlue: "#D0EEFC"
+  # Semantic status
   positive: "#17AB78"
   positiveLight: "#DCFAEF"
   negative: "#FF0000"
   negativeLight: "#FCC8C8"
   warning: "#E3A92D"
   warningLight: "#FFF4D0"
-  orange: "#FF9505"
-  lightBlue: "#D0EEFC"
-  cyan: "#009CF4"
 
 typography:
   h1:
@@ -276,14 +246,20 @@ components:
     rounded: "{rounded.lg}"
     padding: "2px {spacing.sm}"
   badge-positive:
-    backgroundColor: "{colors.positive}"
-    textColor: "{colors.white}"
+    backgroundColor: "{colors.positiveLight}"
+    textColor: "{colors.grey1}"
     typography: "{typography.button-sm}"
     rounded: "{rounded.lg}"
     padding: "{spacing.1} {spacing.2}"
   badge-negative:
-    backgroundColor: "{colors.negative}"
-    textColor: "{colors.white}"
+    backgroundColor: "{colors.negativeLight}"
+    textColor: "{colors.grey1}"
+    typography: "{typography.button-sm}"
+    rounded: "{rounded.lg}"
+    padding: "{spacing.1} {spacing.2}"
+  badge-warning:
+    backgroundColor: "{colors.warningLight}"
+    textColor: "{colors.grey1}"
     typography: "{typography.button-sm}"
     rounded: "{rounded.lg}"
     padding: "{spacing.1} {spacing.2}"
@@ -293,6 +269,18 @@ components:
     typography: "{typography.button-sm}"
     rounded: "{rounded.lg}"
     padding: "{spacing.1} {spacing.2}"
+  status-dot-positive:
+    backgroundColor: "{colors.positive}"
+    size: "8px"
+    rounded: "{rounded.full}"
+  status-dot-negative:
+    backgroundColor: "{colors.negative}"
+    size: "8px"
+    rounded: "{rounded.full}"
+  status-dot-warning:
+    backgroundColor: "{colors.warning}"
+    size: "8px"
+    rounded: "{rounded.full}"
   modal:
     backgroundColor: "{colors.white}"
     textColor: "{colors.black}"
@@ -357,39 +345,72 @@ The visual identity centers on **PS Blue (#005BA7)**, a reliable, authoritative 
 **Neutrals** form the scaffolding of every screen:
 - `grey6` (`#F1F1F1`) and `grey5` (`#DCDCDC`) — backgrounds and subtle separators
 - `grey4` (`#CCCCCC`) — borders and dividers
-- `grey3` (`#949494`) — de-emphasized icons and placeholder text
 - `grey2` (`#777777`) and `textSecondary` (`#5C5C5C`) — supporting text and metadata
-- `grey1` (`#4A4A4A`) — subheadings and emphasized secondary text
+- `grey1` (`#4A4A4A`) — subheadings, emphasized secondary text, badge labels
 - `black` (`#000000`) — primary text
 - `white` (`#FFFFFF`) — page and card backgrounds
 
 **Surface colors:**
 - `modalFill` (`#FAFAFA`) — modal content area background
 - `selectedFill` (`#EFF9FE`) — selected row highlight in modals and selection lists
-- `selectedBorder` (`#6AC7FC`) — border on selected rows in modals and selection lists
-
-**Semantic colors:**
-- `positive` (`#17AB78`) — success states, confirmations, positive data indicators
-- `positiveLight` (`#DCFAEF`) — positive surface tint
-- `negative` (`#FF0000`) — errors, destructive actions, negative data indicators
-- `negativeLight` (`#FCC8C8`) — negative surface tint
-- `warning` (`#E3A92D`) — caution states, time-sensitive alerts
-- `warningLight` (`#FFF4D0`) — warning surface tint
 - `lightBlue` (`#D0EEFC`) — chip idle background; tint complementary to PS Blue
 
-**Extended palette** (use only in designated contexts):
-- `cyan` (`#009CF4`) — transactional interactions, notifications
-- `orange` (`#FF9505`) — high-urgency status indicators
-- `teal-400` (`#03D0BF`) / `teal-500` (`#87AFB8`) — Jetstream/brand complementary contexts
-- `blue-800` (`#003763`) / `blue-900` (`#002F48`) — deep blue for data visualization or dark surface contexts only
-- Data Visualization, Formulary, and PS Plus+ Rewards colors — do not use outside their designated workflows
+**Semantic status colors:**
+
+| Token | Value | Usage |
+|---|---|---|
+| `positive` | `#17AB78` | Status dots, filled indicators — Signal Green |
+| `positiveLight` | `#DCFAEF` | Badge background for success states |
+| `negative` | `#FF0000` | Status dots, filled indicators — Alert Red |
+| `negativeLight` | `#FCC8C8` | Badge background for error/destructive states |
+| `warning` | `#E3A92D` | Status dots, filled indicators — Amber |
+| `warningLight` | `#FFF4D0` | Badge background for caution states |
+
+> **WCAG note:** `positive`, `negative`, and `warning` are mid-luminance colors. Use them as solid fills (status dots, icons, charts) only — never as text colors or as badge backgrounds with white text. Badges use the corresponding `*Light` background with `grey1` text to meet WCAG AA (4.5:1).
+
+**Border-only tokens** (cannot be expressed as component sub-tokens in this format — apply directly in CSS):
+- `inputOutline` `#D2D2D2` — input border at rest
+- `selectedBorder` `#6AC7FC` — selected row border in modals
+- `grey3` `#949494` — de-emphasized icon and placeholder color
+
+**Primitive color scale** (Token Studio source of truth — for reference and data visualization use):
+
+| Token | Value | Name |
+|---|---|---|
+| `blue-50` | `#D0EEFC` | Light Blue |
+| `blue-100` | `#DCEAED` | Airway |
+| `blue-200` | `#009CF4` | Cyan |
+| `blue-500` | `#005BA7` | PS Blue |
+| `blue-700` | `#004884` | Blue 2 |
+| `blue-800` | `#003763` | Blue 3 |
+| `blue-900` | `#002F48` | Midnight |
+| `teal-400` | `#03D0BF` | Teal |
+| `teal-500` | `#87AFB8` | Jetstream |
+| `green-100` | `#DCFAEF` | Light Green |
+| `green-300` | `#8BD5BC` | Green 2 |
+| `green-500` | `#17AB78` | Signal Green |
+| `red-100` | `#FCC8C8` | Light Red |
+| `red-500` | `#FF0000` | Alert Red |
+| `amber-100` | `#FFF4D0` | Light Amber |
+| `amber-400` | `#E3A92D` | Amber |
+| `amber-500` | `#FF9505` | Orange |
+| `neutral-0` | `#FFFFFF` | White |
+| `neutral-50` | `#FAFAFA` | Grey 7 |
+| `neutral-100` | `#F1F1F1` | Grey 6 |
+| `neutral-200` | `#DCDCDC` | Grey 5 |
+| `neutral-300` | `#CCCCCC` | Grey 4 |
+| `neutral-400` | `#949494` | Grey 3 |
+| `neutral-500` | `#777777` | Grey 2 |
+| `neutral-700` | `#4A4A4A` | Grey 1 |
+| `neutral-1000` | `#000000` | Black |
 
 **Color rules:**
 - Blue on white for all primary interactive elements and links
 - Dark grey on white for body copy; secondary grey for metadata
 - `grey6` backgrounds to group and separate content sections
 - Never use blue as a large background fill — it is an accent, not a surface color
-- Never repurpose semantic colors (positive/negative/warning) for decoration
+- Never use `positive`, `negative`, or `warning` as text colors — they do not meet WCAG AA at any standard UI text size
+- Never repurpose Data Visualization, Formulary, or Plus+ Rewards palette colors outside their designated contexts
 
 ## Typography
 
@@ -516,7 +537,20 @@ Idle state: `lightBlue` (`#D0EEFC`) background, `primary` text, `rounded.lg`. Ac
 
 ### Badges / Status
 
-Three semantic variants — `badge-positive` (Signal Green), `badge-negative` (Alert Red), `badge-neutral` (grey). All use `button-sm` type, `rounded.lg`, tight padding. Use to reflect order status (Ordered, Backordered, Returned, etc.). Never repurpose semantic badge colors for non-semantic decoration.
+Four badge variants — `badge-positive`, `badge-negative`, `badge-warning`, `badge-neutral`. All use `button-sm` type, `rounded.lg`, and tight padding. Badges use a **light background + `grey1` text** pattern to ensure WCAG AA compliance — the mid-luminance status colors (`positive`, `negative`, `warning`) cannot be used as badge backgrounds with legible text.
+
+| Variant | Background | Text |
+|---|---|---|
+| `badge-positive` | `positiveLight` `#DCFAEF` | `grey1` `#4A4A4A` |
+| `badge-negative` | `negativeLight` `#FCC8C8` | `grey1` `#4A4A4A` |
+| `badge-warning` | `warningLight` `#FFF4D0` | `grey1` `#4A4A4A` |
+| `badge-neutral` | `grey5` `#DCDCDC` | `grey1` `#4A4A4A` |
+
+Use to reflect order status (Ordered, Backordered, Returned, etc.). Never repurpose semantic badge colors for non-semantic decoration.
+
+### Status Dots
+
+`status-dot-positive`, `status-dot-negative`, `status-dot-warning` — 8px filled circles (`rounded.full`) using the mid-luminance status colors directly. Use in table rows, list items, and data displays where a small solid color indicator is needed without a text label. Because these have no text, WCAG contrast requirements for text do not apply.
 
 ### Modal
 
@@ -625,6 +659,7 @@ Sheets slide in from the right (desktop) or bottom (mobile) and overlay the page
 **Don't:**
 - Don't use PS Blue as a large background fill — it overwhelms data-dense interfaces
 - Don't use font weights outside 300–600 — extremes fail at clinical screen densities
+- Don't use `positive`, `negative`, or `warning` as text or badge background colors — they fail WCAG AA contrast at all standard text sizes; use the `*Light` variants with `grey1` text instead
 - Don't use border radii outside the defined `rounded` scale — stay on `none`, `sm`, `md`, `lg`, `xl`, `2xl`, `pill`, or `full`
 - Don't stack multiple primary buttons — enforce hierarchy: primary + secondary or primary + outline
 - Don't omit visible labels on form fields — placeholder text disappears on input and fails accessibility
