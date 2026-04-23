@@ -1350,6 +1350,479 @@ select.input {
   color: var(--text-primary);
 }
 
+/* =====================================================
+   BREADCRUMBS (brandgovern)
+   ===================================================== */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+}
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+.breadcrumb li + li::before {
+  content: '>';
+  margin: 0 var(--s-2);
+  color: var(--text-assistive);
+  font-size: 11px;
+}
+.breadcrumb a {
+  color: var(--ps-blue);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+.breadcrumb a:hover { color: var(--orange-2); text-decoration: underline; }
+.breadcrumb li:last-child a { color: var(--text-body); pointer-events: none; }
+
+/* =====================================================
+   CHIPS (brandgovern)
+   ===================================================== */
+.chip-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  padding: 4px 12px;
+  background: #EAF3FB;
+  border: 1px solid #B3D3EE;
+  border-radius: var(--r-ex);
+  font-size: 13px;
+  color: var(--ps-blue);
+  font-weight: 500;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+.chip:hover { background: #d4e9f7; }
+.chip__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--ps-blue);
+  border-radius: 50%;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1;
+  transition: background var(--dur-fast) var(--ease);
+}
+.chip__remove:hover { background: rgba(0,91,166,0.15); }
+
+/* =====================================================
+   TOOLTIP (brandgovern)
+   ===================================================== */
+.tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+.tooltip-trigger {
+  cursor: default;
+}
+.tooltip-bubble {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--grey-1);
+  color: var(--white);
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 6px 10px;
+  border-radius: var(--r-op);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease);
+  z-index: 100;
+}
+.tooltip-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--grey-1);
+}
+.tooltip-wrapper:hover .tooltip-bubble { opacity: 1; }
+.tooltip-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ps-blue);
+  color: var(--ps-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: default;
+}
+
+/* =====================================================
+   SWITCH (brandgovern) — orange ON, grey OFF
+   ===================================================== */
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  cursor: pointer;
+  user-select: none;
+}
+.switch__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch__track {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: var(--r-ex);
+  background: var(--grey-6);
+  border: 1.5px solid var(--grey-4);
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  flex-shrink: 0;
+}
+.switch__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--grey-2);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transition: left var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.switch__input:checked + .switch__track {
+  background: var(--orange-5);
+  border-color: var(--orange-4);
+}
+.switch__input:checked + .switch__track .switch__thumb {
+  left: 22px;
+  background: var(--orange-1);
+}
+.switch__input:hover + .switch__track .switch__thumb { background: var(--grey-1); }
+.switch__input:checked:hover + .switch__track .switch__thumb { background: var(--orange-2); }
+.switch__input:disabled + .switch__track {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.switch__label { font-size: 14px; color: var(--text-body); }
+
+/* =====================================================
+   CHECKBOX & RADIO — orange brand style (brandgovern)
+   ===================================================== */
+.check-group, .radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+.check-item, .radio-item {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-body);
+}
+.check-item__input,
+.radio-item__input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--grey-1);
+  border-radius: 3px;
+  background: var(--white);
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.radio-item__input {
+  border-radius: 50%;
+}
+.check-item__input:hover,
+.radio-item__input:hover {
+  border-color: var(--orange-2);
+}
+.check-item__input:checked {
+  background: var(--orange-1);
+  border-color: var(--orange-1);
+}
+.check-item__input:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 10px;
+  border: 2px solid var(--white);
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+.radio-item__input:checked {
+  background: var(--white);
+  border-color: var(--orange-1);
+  border-width: 5px;
+}
+.check-item__input:disabled,
+.radio-item__input:disabled {
+  border-color: var(--grey-4);
+  background: var(--grey-6);
+  cursor: not-allowed;
+}
+.check-item__input:focus-visible,
+.radio-item__input:focus-visible {
+  outline: 2px solid var(--azure-blue);
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   QUANTITY SELECTOR (brandgovern)
+   ===================================================== */
+.qty-selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--grey-3);
+  border-radius: var(--r-op);
+  overflow: hidden;
+  background: var(--white);
+}
+.qty-selector__btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grey-6);
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text-body);
+  transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  user-select: none;
+  flex-shrink: 0;
+}
+.qty-selector__btn:hover { background: var(--ps-blue); color: var(--white); }
+.qty-selector__btn:disabled { color: var(--grey-4); cursor: not-allowed; }
+.qty-selector__btn:disabled:hover { background: var(--grey-6); color: var(--grey-4); }
+.qty-selector__input {
+  width: 56px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid var(--grey-5);
+  border-right: 1px solid var(--grey-5);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-body);
+  padding: 0 var(--s-2);
+  height: 40px;
+  background: var(--white);
+  font-family: inherit;
+}
+.qty-selector__input:focus { outline: none; background: var(--grey-7); }
+
+/* =====================================================
+   DIVIDERS (brandgovern)
+   ===================================================== */
+.divider {
+  border: none;
+  border-top: 1px solid var(--grey-4);
+  margin: var(--s-4) 0;
+}
+.divider--subtle { border-top-color: var(--grey-5); }
+.divider--strong { border-top-color: var(--grey-3); }
+.divider--label {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-assistive);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.divider--label::before,
+.divider--label::after {
+  content: '';
+  flex: 1;
+  border-top: 1px solid var(--grey-4);
+}
+
+/* =====================================================
+   FILTERS & FACETS PANEL (brandgovern)
+   ===================================================== */
+.filter-panel {
+  background: var(--white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--r-st);
+  overflow: hidden;
+}
+.filter-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s-3) var(--s-4);
+  background: var(--grey-6);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-body);
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: pointer;
+  user-select: none;
+}
+.filter-panel__toggle {
+  font-size: 16px;
+  color: var(--text-assistive);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.filter-panel__header.is-open .filter-panel__toggle { transform: rotate(180deg); }
+.filter-panel__body {
+  padding: var(--s-3) var(--s-4);
+}
+.filter-panel__search {
+  position: relative;
+  margin-bottom: var(--s-3);
+}
+.filter-panel__search-input {
+  width: 100%;
+  height: 36px;
+  border: 1.5px solid var(--grey-4);
+  border-radius: var(--r-op);
+  padding: 0 var(--s-3) 0 32px;
+  font-size: 13px;
+  color: var(--text-body);
+  background: var(--white);
+  font-family: inherit;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.filter-panel__search-input:focus {
+  outline: none;
+  border-color: var(--ps-blue);
+}
+.filter-panel__search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-assistive);
+  pointer-events: none;
+}
+.filter-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.filter-panel__item {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: 4px 0;
+  font-size: 13px;
+  color: var(--text-body);
+  cursor: pointer;
+}
+.filter-panel__item input[type="checkbox"],
+.filter-panel__item input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--grey-1);
+  border-radius: 2px;
+  background: var(--white);
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.filter-panel__item input[type="radio"] { border-radius: 50%; }
+.filter-panel__item input[type="checkbox"]:hover,
+.filter-panel__item input[type="radio"]:hover { border-color: var(--orange-2); }
+.filter-panel__item input[type="checkbox"]:checked {
+  background: var(--orange-1);
+  border-color: var(--orange-1);
+}
+.filter-panel__item input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid var(--white);
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+.filter-panel__item input[type="radio"]:checked {
+  background: var(--white);
+  border-color: var(--orange-1);
+  border-width: 4px;
+}
+.filter-panel__count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-assistive);
+}
+.filter-panel__show-more {
+  margin-top: var(--s-2);
+  font-size: 12px;
+  color: var(--ps-blue);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+.filter-panel__show-more:hover { text-decoration: underline; }
+.filter-active-chips {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  padding: var(--s-2) 0;
+}
+.filter-active-chips__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: var(--s-1);
+}
+.filter-clear-all {
+  font-size: 12px;
+  color: var(--ps-blue);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  margin-left: auto;
+}
+.filter-clear-all:hover { text-decoration: underline; }
+
 /* Page-load stagger */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(6px); }

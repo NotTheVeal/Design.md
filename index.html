@@ -663,6 +663,373 @@
           </div>
         </div>
 
+        <!-- ── Breadcrumbs ── -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Breadcrumbs</h3>
+            <div class="card-detail__subtitle">Position-based hierarchy. Blue links separated by ›. Current page is non-linked.</div>
+          </header>
+          <div class="card-detail__content stack">
+            <div>
+              <div class="note mb-2">Product detail page path</div>
+              <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Imaging</a></li>
+                  <li><a href="#">X-Ray Tubes</a></li>
+                  <li><a href="#">CT Tubes</a></li>
+                  <li><a href="#">Welch Allyn DS100A</a></li>
+                </ol>
+              </nav>
+            </div>
+            <div>
+              <div class="note mb-2">Category breadcrumb</div>
+              <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                  <li><a href="#">Category</a></li>
+                  <li><a href="#">Subcategory (Level 1)</a></li>
+                  <li><a href="#">Subcategory (Level 2)</a></li>
+                  <li><a href="#">Product Results</a></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Chips ── -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Chips</h3>
+            <div class="card-detail__subtitle">Contact info tags and dismissible input chips. Light blue pill style.</div>
+          </header>
+          <div class="card-detail__content stack">
+            <div>
+              <div class="note mb-2">Read-only chips</div>
+              <div class="chip-group">
+                <span class="chip">janedoeson@partssource.com</span>
+                <span class="chip">Radiology</span>
+                <span class="chip">Cleveland Clinic</span>
+              </div>
+            </div>
+            <div>
+              <div class="note mb-2">Removable input chips</div>
+              <div class="chip-group">
+                <span class="chip">Erie Medical Hospital<button class="chip__remove" aria-label="Remove Erie Medical Hospital" onclick="this.closest('.chip').remove()">×</button></span>
+                <span class="chip">Baxter OEM<button class="chip__remove" aria-label="Remove Baxter OEM" onclick="this.closest('.chip').remove()">×</button></span>
+                <span class="chip">CT Tubes<button class="chip__remove" aria-label="Remove CT Tubes" onclick="this.closest('.chip').remove()">×</button></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Tooltips ── -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Tooltips</h3>
+            <div class="card-detail__subtitle">Display text label on hover. Circle icon variant and inline text variant.</div>
+          </header>
+          <div class="card-detail__content">
+            <div class="ref__row" style="gap:var(--s-6); flex-wrap:wrap; align-items:center;">
+              <div class="tooltip-wrapper">
+                <span class="tooltip-icon">i</span>
+                <div class="tooltip-bubble">OEM parts meet original manufacturer specs</div>
+              </div>
+              <div class="tooltip-wrapper">
+                <span class="tooltip-icon">?</span>
+                <div class="tooltip-bubble">Formulary coverage score based on contracted vendors</div>
+              </div>
+              <div class="tooltip-wrapper">
+                <span style="font-size:13px; color:var(--ps-blue); border-bottom:1px dashed var(--ps-blue); cursor:default;">Unit price</span>
+                <div class="tooltip-bubble">Price per unit before any quantity discounts apply</div>
+              </div>
+              <div class="tooltip-wrapper">
+                <button class="btn btn--secondary btn--sm" style="font-size:12px; padding: 4px 10px;">Add to List</button>
+                <div class="tooltip-bubble">Save to a custom purchasing list</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Switches ── -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Switches</h3>
+            <div class="card-detail__subtitle">Toggle a single setting on/off. Orange track + thumb when ON; grey when OFF.</div>
+          </header>
+          <div class="card-detail__content">
+            <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-5); align-items:center;">
+              <label class="switch">
+                <input type="checkbox" class="switch__input">
+                <span class="switch__track"><span class="switch__thumb"></span></span>
+                <span class="switch__label">Notifications off</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" class="switch__input" checked>
+                <span class="switch__track"><span class="switch__thumb"></span></span>
+                <span class="switch__label">Notifications on</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" class="switch__input" checked>
+                <span class="switch__track"><span class="switch__thumb"></span></span>
+                <span class="switch__label">Email alerts</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" class="switch__input" disabled>
+                <span class="switch__track"><span class="switch__thumb"></span></span>
+                <span class="switch__label" style="color:var(--grey-4)">Disabled</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Checkboxes & Radio Buttons ── -->
+        <div class="ref__grid cols-2 mb-4">
+          <div class="card-detail">
+            <header class="card-detail__header">
+              <h3 class="card-detail__title">Checkboxes</h3>
+              <div class="card-detail__subtitle">Orange fill when checked. Grey border idle. Orange border on hover.</div>
+            </header>
+            <div class="card-detail__content stack">
+              <fieldset style="border:none;padding:0;margin:0;">
+                <div class="check-group">
+                  <label class="check-item"><input type="checkbox" class="check-item__input" checked><span>OEM Original</span></label>
+                  <label class="check-item"><input type="checkbox" class="check-item__input" checked><span>Refurbished</span></label>
+                  <label class="check-item"><input type="checkbox" class="check-item__input"><span>Aftermarket</span></label>
+                  <label class="check-item"><input type="checkbox" class="check-item__input"><span>Pre-owned</span></label>
+                  <label class="check-item"><input type="checkbox" class="check-item__input" disabled><span style="color:var(--grey-4)">Discontinued (disabled)</span></label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="card-detail">
+            <header class="card-detail__header">
+              <h3 class="card-detail__title">Radio Buttons</h3>
+              <div class="card-detail__subtitle">Orange thick border ring when selected. Same hover pattern as checkbox.</div>
+            </header>
+            <div class="card-detail__content stack">
+              <fieldset style="border:none;padding:0;margin:0;">
+                <div class="radio-group">
+                  <label class="radio-item"><input type="radio" class="radio-item__input" name="demo-radio" checked><span>Standard shipping (3–5 days)</span></label>
+                  <label class="radio-item"><input type="radio" class="radio-item__input" name="demo-radio"><span>Expedited (1–2 days)</span></label>
+                  <label class="radio-item"><input type="radio" class="radio-item__input" name="demo-radio"><span>Critical overnight</span></label>
+                  <label class="radio-item"><input type="radio" class="radio-item__input" name="demo-radio" disabled><span style="color:var(--grey-4)">Pickup only (disabled)</span></label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Quantity Selector ── -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Quantity Selector</h3>
+            <div class="card-detail__subtitle">Stepper with −/+ controls. Blue hover on buttons. Supports keyboard entry.</div>
+          </header>
+          <div class="card-detail__content">
+            <div class="ref__row" style="gap:var(--s-6); flex-wrap:wrap; align-items:center;">
+              <div>
+                <div class="note mb-2">Default</div>
+                <div class="qty-selector">
+                  <button class="qty-selector__btn" onclick="const i=this.nextElementSibling.nextElementSibling;i.value=Math.max(1,+i.value-1)" aria-label="Decrease">−</button>
+                  <div style="width:1px;height:40px;background:var(--grey-5)"></div>
+                  <input class="qty-selector__input" type="number" value="1" min="1" max="99" aria-label="Quantity">
+                  <div style="width:1px;height:40px;background:var(--grey-5)"></div>
+                  <button class="qty-selector__btn" onclick="const i=this.previousElementSibling.previousElementSibling;i.value=Math.min(99,+i.value+1)" aria-label="Increase">+</button>
+                </div>
+              </div>
+              <div>
+                <div class="note mb-2">With label</div>
+                <label class="field" style="margin:0">
+                  <span class="field__label">Quantity</span>
+                  <div class="qty-selector" style="width:100%">
+                    <button class="qty-selector__btn" onclick="const i=this.nextElementSibling.nextElementSibling;i.value=Math.max(1,+i.value-1)" aria-label="Decrease">−</button>
+                    <div style="width:1px;height:40px;background:var(--grey-5)"></div>
+                    <input class="qty-selector__input" type="number" value="5" min="1" max="99" style="flex:1" aria-label="Quantity">
+                    <div style="width:1px;height:40px;background:var(--grey-5)"></div>
+                    <button class="qty-selector__btn" onclick="const i=this.previousElementSibling.previousElementSibling;i.value=Math.min(99,+i.value+1)" aria-label="Increase">+</button>
+                  </div>
+                </label>
+              </div>
+              <div>
+                <div class="note mb-2">Minimum reached (−&nbsp;disabled)</div>
+                <div class="qty-selector">
+                  <button class="qty-selector__btn" disabled aria-label="Decrease">−</button>
+                  <div style="width:1px;height:40px;background:var(--grey-5)"></div>
+                  <input class="qty-selector__input" type="number" value="1" min="1" max="99" aria-label="Quantity">
+                  <div style="width:1px;height:40px;background:var(--grey-5)"></div>
+                  <button class="qty-selector__btn" onclick="const i=this.previousElementSibling.previousElementSibling;i.value=Math.min(99,+i.value+1)" aria-label="Increase">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Dividers ── -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Dividers</h3>
+            <div class="card-detail__subtitle">Grey 3 (#949494) or Grey 4 (#CCCCCC). Thin line to group content in lists and layouts.</div>
+          </header>
+          <div class="card-detail__content stack">
+            <div>
+              <div class="note mb-2">Strong (Grey 3)</div>
+              <hr class="divider divider--strong">
+            </div>
+            <div>
+              <div class="note mb-2">Default (Grey 4)</div>
+              <hr class="divider">
+            </div>
+            <div>
+              <div class="note mb-2">Subtle (Grey 5)</div>
+              <hr class="divider divider--subtle">
+            </div>
+            <div>
+              <div class="note mb-2">With label</div>
+              <div class="divider--label">Section</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Filter Variants (Checkmark, Radio, Type-Ahead) ── -->
+        <div class="ref__grid cols-2 mb-4">
+          <div class="card-detail">
+            <header class="card-detail__header">
+              <h3 class="card-detail__title">Checkmark Variant</h3>
+              <div class="card-detail__subtitle">Filter panel with orange checkbox selections. Best for multi-select facets.</div>
+            </header>
+            <div class="card-detail__content">
+              <div class="filter-panel">
+                <div class="filter-panel__header is-open">
+                  Condition <span class="filter-panel__toggle">▾</span>
+                </div>
+                <div class="filter-panel__body">
+                  <div class="filter-panel__list">
+                    <label class="filter-panel__item"><input type="checkbox" checked><span>OEM Original</span><span class="filter-panel__count">142</span></label>
+                    <label class="filter-panel__item"><input type="checkbox" checked><span>Refurbished</span><span class="filter-panel__count">89</span></label>
+                    <label class="filter-panel__item"><input type="checkbox"><span>Aftermarket</span><span class="filter-panel__count">67</span></label>
+                    <label class="filter-panel__item"><input type="checkbox"><span>Pre-owned</span><span class="filter-panel__count">23</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="filter-panel" style="margin-top:var(--s-2)">
+                <div class="filter-panel__header is-open">
+                  Brand <span class="filter-panel__toggle">▾</span>
+                </div>
+                <div class="filter-panel__body">
+                  <div class="filter-panel__list">
+                    <label class="filter-panel__item"><input type="checkbox" checked><span>Baxter</span><span class="filter-panel__count">58</span></label>
+                    <label class="filter-panel__item"><input type="checkbox"><span>Welch Allyn</span><span class="filter-panel__count">34</span></label>
+                    <label class="filter-panel__item"><input type="checkbox"><span>Philips</span><span class="filter-panel__count">29</span></label>
+                  </div>
+                  <button class="filter-panel__show-more">+ Show 4 more</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-detail">
+            <header class="card-detail__header">
+              <h3 class="card-detail__title">Radio Variant & Type Ahead</h3>
+              <div class="card-detail__subtitle">Single-select filter with radio buttons. Type-ahead search narrows options.</div>
+            </header>
+            <div class="card-detail__content stack">
+              <div class="filter-panel">
+                <div class="filter-panel__header is-open">
+                  Ship Method <span class="filter-panel__toggle">▾</span>
+                </div>
+                <div class="filter-panel__body">
+                  <div class="filter-panel__list">
+                    <label class="filter-panel__item"><input type="radio" name="fp-ship" checked><span>Any</span></label>
+                    <label class="filter-panel__item"><input type="radio" name="fp-ship"><span>Standard (3–5 days)</span></label>
+                    <label class="filter-panel__item"><input type="radio" name="fp-ship"><span>Expedited (1–2 days)</span></label>
+                    <label class="filter-panel__item"><input type="radio" name="fp-ship"><span>Overnight</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="filter-panel">
+                <div class="filter-panel__header is-open">
+                  Manufacturer <span class="filter-panel__toggle">▾</span>
+                </div>
+                <div class="filter-panel__body">
+                  <div class="filter-panel__search">
+                    <i class="filter-panel__search-icon" data-lucide="search" width="14" height="14"></i>
+                    <input class="filter-panel__search-input" type="text" placeholder="Search manufacturers…" aria-label="Search manufacturers">
+                  </div>
+                  <div class="filter-panel__list">
+                    <label class="filter-panel__item"><input type="checkbox" checked><span>Baxter Healthcare</span><span class="filter-panel__count">58</span></label>
+                    <label class="filter-panel__item"><input type="checkbox"><span>GE Healthcare</span><span class="filter-panel__count">41</span></label>
+                    <label class="filter-panel__item"><input type="checkbox"><span>Philips Medical</span><span class="filter-panel__count">29</span></label>
+                    <label class="filter-panel__item"><input type="checkbox"><span>Siemens Healthineers</span><span class="filter-panel__count">18</span></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Filters & Facets — Active State ── -->
+        <div class="card-detail mb-4">
+          <header class="card-detail__header">
+            <h3 class="card-detail__title">Filters &amp; Facets</h3>
+            <div class="card-detail__subtitle">Active filter chips with clear-all. Filtering helps view a subset of products based on criteria.</div>
+          </header>
+          <div class="card-detail__content stack">
+            <div>
+              <div class="note mb-2">Active filter state — selected filters shown as removable chips</div>
+              <div class="filter-active-chips">
+                <span class="filter-active-chips__label">Filters:</span>
+                <span class="chip">OEM Original<button class="chip__remove" aria-label="Remove OEM Original" onclick="this.closest('.chip').remove()">×</button></span>
+                <span class="chip">Refurbished<button class="chip__remove" aria-label="Remove Refurbished" onclick="this.closest('.chip').remove()">×</button></span>
+                <span class="chip">Baxter<button class="chip__remove" aria-label="Remove Baxter" onclick="this.closest('.chip').remove()">×</button></span>
+                <span class="chip">Ships in 1–2 days<button class="chip__remove" aria-label="Remove Ships in 1-2 days" onclick="this.closest('.chip').remove()">×</button></span>
+                <button class="filter-clear-all">Clear all</button>
+              </div>
+            </div>
+            <div style="display:flex; gap:var(--s-4); flex-wrap:wrap;">
+              <div style="flex:0 0 200px;">
+                <div class="filter-panel">
+                  <div class="filter-panel__header is-open">Condition <span class="filter-panel__toggle">▾</span></div>
+                  <div class="filter-panel__body">
+                    <div class="filter-panel__list">
+                      <label class="filter-panel__item"><input type="checkbox" checked><span>OEM Original</span><span class="filter-panel__count">142</span></label>
+                      <label class="filter-panel__item"><input type="checkbox" checked><span>Refurbished</span><span class="filter-panel__count">89</span></label>
+                      <label class="filter-panel__item"><input type="checkbox"><span>Aftermarket</span><span class="filter-panel__count">67</span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="flex:0 0 200px;">
+                <div class="filter-panel">
+                  <div class="filter-panel__header is-open">Brand <span class="filter-panel__toggle">▾</span></div>
+                  <div class="filter-panel__body">
+                    <div class="filter-panel__search">
+                      <i class="filter-panel__search-icon" data-lucide="search" width="14" height="14"></i>
+                      <input class="filter-panel__search-input" type="text" placeholder="Search brands…" aria-label="Search brands">
+                    </div>
+                    <div class="filter-panel__list">
+                      <label class="filter-panel__item"><input type="checkbox" checked><span>Baxter</span><span class="filter-panel__count">58</span></label>
+                      <label class="filter-panel__item"><input type="checkbox"><span>Welch Allyn</span><span class="filter-panel__count">34</span></label>
+                      <label class="filter-panel__item"><input type="checkbox"><span>Philips</span><span class="filter-panel__count">29</span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="flex:0 0 200px;">
+                <div class="filter-panel">
+                  <div class="filter-panel__header is-open">Ship Method <span class="filter-panel__toggle">▾</span></div>
+                  <div class="filter-panel__body">
+                    <div class="filter-panel__list">
+                      <label class="filter-panel__item"><input type="radio" name="fp2-ship" checked><span>Any</span></label>
+                      <label class="filter-panel__item"><input type="radio" name="fp2-ship"><span>Expedited</span></label>
+                      <label class="filter-panel__item"><input type="radio" name="fp2-ship"><span>Overnight</span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="ref__grid cols-2 mb-4">
           <div class="card-detail">
             <header class="card-detail__header">
