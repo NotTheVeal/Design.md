@@ -305,10 +305,11 @@ img, svg { display: block; max-width: 100%; }
   outline: 3px solid rgba(176,198,211,0.91);
   outline-offset: 2px;
 }
-.btn--primary:disabled {
+.btn--primary:disabled,
+.btn--primary.is-disabled {
   background: var(--grey-5);
   color: var(--grey-2);
-  border: 2px solid var(--grey-5);
+  border: 2px solid var(--grey-2);
   cursor: not-allowed;
   box-shadow: none;
 }
@@ -361,22 +362,30 @@ img, svg { display: block; max-width: 100%; }
 .btn--link:active { color: var(--blue-3); }
 
 .btn--destructive {
-  background: var(--surface-base);
-  color: var(--red);
-  border: 1px solid var(--red);
+  background: var(--white);
+  color: var(--red-1);
+  border: 1px solid var(--red-1);
 }
-.btn--destructive:hover { background: var(--light-red); }
+.btn--destructive:hover { background: var(--alert-error-bg); border-color: var(--red-1); }
+.btn--destructive:active { background: var(--light-red); }
+.btn--destructive:disabled,
+.btn--destructive.is-disabled { background: var(--grey-5); color: var(--grey-3); border-color: var(--grey-4); cursor: not-allowed; }
 
-/* removed duplicate .btn--pill definition */
-.btn--pill-legacy-stub {
-  background: var(--action-default);
-  color: var(--white);
-  font-weight: 600;
-  min-height: 40px;
-  padding: var(--s-3) var(--s-5);
-  border-radius: var(--r-ex);
-}
-.btn--pill:hover { background: var(--action-hover); }
+/* Demo state helpers — only used in reference cards to show interaction states statically */
+.btn.is-hover-primary  { background: var(--ps-blue); color: var(--white); border-color: var(--azure-blue); }
+.btn.is-pressed-primary { background: var(--blue-2); color: var(--white); border-color: var(--blue-2); box-shadow: 0 4px 0 rgba(0,0,0,.25); }
+.btn.is-focus-primary  { outline: 3px solid rgba(176,198,211,0.91); outline-offset: 2px; }
+.btn.is-hover-secondary  { background: var(--ps-blue); color: var(--white); border-color: var(--ps-blue); }
+.btn.is-pressed-secondary { background: var(--blue-2); color: var(--white); border-color: var(--blue-2); }
+.btn.is-hover-tertiary  { background: var(--grey-5); }
+.btn.is-pressed-tertiary { background: var(--grey-4); box-shadow: 0 4px 0 rgba(0,0,0,.25); }
+.btn.is-hover-pill  { background: var(--orange-2); }
+.btn.is-hover-destructive { background: var(--alert-error-bg); }
+
+/* State-row layout for button reference */
+.btn-state-grid { display: grid; grid-template-columns: 80px 1fr 1fr; gap: var(--s-2) var(--s-4); align-items: center; }
+.btn-state-grid .state-label { font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--grey-3); }
+.btn-state-grid .state-note  { font-size: 12px; color: var(--grey-2); }
 
 .icon-btn {
   width: 44px; height: 44px;
@@ -418,16 +427,27 @@ img, svg { display: block; max-width: 100%; }
    ===================================================== */
 .chip-status {
   display: inline-flex; align-items: center; gap: var(--s-2);
-  background: var(--grey-6); color: var(--text-body);
-  font-size: 12px; font-weight: 600; line-height: 16px;
-  padding: var(--s-1) var(--s-3);
+  background: #E5E5E5; color: #525252;
+  font-size: 12px; font-weight: 600; line-height: 12px;
+  padding: 4px 8px;
   border-radius: var(--r-op);
   white-space: nowrap;
 }
-.chip-status--success { background: var(--green-2); color: var(--green-1); }
-.chip-status--warning { background: var(--orange-5); color: var(--orange-2); }
-.chip-status--error   { background: var(--light-red); color: var(--red); }
-.chip-status--info    { background: var(--light-blue); color: var(--blue-2); }
+/* Green — Delivered, Approved, Received, Completed */
+.chip-status--success,
+.chip-status--delivered,
+.chip-status--approved   { background: #BBF7D0; color: #15803D; }
+/* Orange — Urgent */
+.chip-status--warning,
+.chip-status--urgent     { background: #FED7AA; color: #C2410C; }
+/* Red — Critical, Delayed */
+.chip-status--error,
+.chip-status--critical   { background: #FECACA; color: #B91C1C; }
+/* Blue — In Transit, Shipped, Pending, Under Contract */
+.chip-status--info,
+.chip-status--in-transit,
+.chip-status--pending,
+.chip-status--under-contract { background: #BFDBFE; color: #1D4ED8; }
 .chip-status__dot {
   width: 6px; height: 6px;
   border-radius: var(--r-ex);

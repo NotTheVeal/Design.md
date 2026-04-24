@@ -167,7 +167,7 @@
                 <td class="po">PO-24831</td>
                 <td><div class="device">GE Carescape B650</div><div class="sub">Monitor module · SN 4482-11C</div></td>
                 <td class="sub">GE Healthcare</td>
-                <td><span class="chip-status chip-status--success"><span class="chip-status__dot"></span>Approved</span></td>
+                <td><span class="chip-status chip-status--approved"><span class="chip-status__dot"></span>Approved</span></td>
                 <td class="num">Apr 28, 2026</td>
                 <td class="right num">$4,825.00</td>
                 <td class="right"><button class="btn btn--link">View Details</button></td>
@@ -176,7 +176,7 @@
                 <td class="po">PO-24829</td>
                 <td><div class="device">Philips IntelliVue MX450</div><div class="sub">Battery pack · Qty 4</div></td>
                 <td class="sub">Philips OEM</td>
-                <td><span class="chip-status chip-status--info"><span class="chip-status__dot"></span>Shipped</span></td>
+                <td><span class="chip-status chip-status--in-transit"><span class="chip-status__dot"></span>Shipped</span></td>
                 <td class="num">Apr 26, 2026</td>
                 <td class="right num">$612.00</td>
                 <td class="right"><button class="btn btn--link">Track Shipment</button></td>
@@ -185,7 +185,7 @@
                 <td class="po">PO-24825</td>
                 <td><div class="device">Baxter Spectrum IQ</div><div class="sub">Pole clamp assembly</div></td>
                 <td class="sub">MedEquip Supply</td>
-                <td><span class="chip-status chip-status--warning"><span class="chip-status__dot"></span>Pending Approval</span></td>
+                <td><span class="chip-status chip-status--pending"><span class="chip-status__dot"></span>Pending Approval</span></td>
                 <td class="num muted">—</td>
                 <td class="right num">$148.00</td>
                 <td class="right"><button class="btn btn--primary btn--small" id="btn-approve">Approve Order</button></td>
@@ -194,7 +194,7 @@
                 <td class="po">PO-24822</td>
                 <td><div class="device">Dräger Fabius GS</div><div class="sub">Flow sensor · Replacement</div></td>
                 <td class="sub">Dräger Direct</td>
-                <td><span class="chip-status chip-status--success"><span class="chip-status__dot"></span>Received</span></td>
+                <td><span class="chip-status chip-status--delivered"><span class="chip-status__dot"></span>Received</span></td>
                 <td class="num">Apr 21, 2026</td>
                 <td class="right num">$1,240.00</td>
                 <td class="right"><button class="btn btn--link">View Details</button></td>
@@ -203,7 +203,7 @@
                 <td class="po">PO-24820</td>
                 <td><div class="device">Stryker 1688 AIM</div><div class="sub">Camera light source</div></td>
                 <td class="sub">Stryker Endoscopy</td>
-                <td><span class="chip-status chip-status--info"><span class="chip-status__dot"></span>In Transit</span></td>
+                <td><span class="chip-status chip-status--in-transit"><span class="chip-status__dot"></span>In Transit</span></td>
                 <td class="num">Apr 24, 2026</td>
                 <td class="right num">$6,980.00</td>
                 <td class="right"><button class="btn btn--link">Track Shipment</button></td>
@@ -212,7 +212,7 @@
                 <td class="po">PO-24817</td>
                 <td><div class="device">PB 840 Ventilator</div><div class="sub">Expiratory valve · Qty 2</div></td>
                 <td class="sub">Medtronic Service</td>
-                <td><span class="chip-status chip-status--error"><span class="chip-status__dot"></span>Delayed</span></td>
+                <td><span class="chip-status chip-status--critical"><span class="chip-status__dot"></span>Delayed</span></td>
                 <td class="num">Apr 30, 2026</td>
                 <td class="right num">$2,115.00</td>
                 <td class="right"><button class="btn btn--link">Review Delay</button></td>
@@ -233,31 +233,82 @@
             <h3 class="card-detail__title">Buttons</h3>
             <div class="card-detail__subtitle">Verb–Subject labels. One primary per screen or section. Orange retired from CTAs — fails ADA contrast.</div>
           </header>
+          <!-- PRIMARY -->
           <div class="card-detail__content">
-            <div class="ref__group-title">Primary — 50px · White fill + PS Blue border; fills blue on hover</div>
-            <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-3); align-items:center;">
+            <div class="ref__group-title">Primary — Large · 50px · White fill + PS Blue border; fills blue on hover</div>
+            <div class="btn-state-grid">
+              <span class="state-label">Default</span>
               <button class="btn btn--primary btn--large">Buy Now</button>
-              <button class="btn btn--primary btn--large">Submit Order</button>
-              <button class="btn btn--primary btn--large" disabled>Disabled</button>
+              <span class="state-note">White fill · PS Blue border + text</span>
+              <span class="state-label">Hover</span>
+              <button class="btn btn--primary btn--large is-hover-primary">Buy Now</button>
+              <span class="state-note">PS Blue fill · Azure Blue border · white text</span>
+              <span class="state-label">Pressed</span>
+              <button class="btn btn--primary btn--large is-pressed-primary">Buy Now</button>
+              <span class="state-note">Midnight #004A84 · 4px drop shadow</span>
+              <span class="state-label">Focus</span>
+              <button class="btn btn--primary btn--large is-focus-primary">Buy Now</button>
+              <span class="state-note">Default state + 3px #B0C6D3 focus ring</span>
+              <span class="state-label">Disabled</span>
+              <button class="btn btn--primary btn--large is-disabled" disabled>Buy Now</button>
+              <span class="state-note">Grey fill #DCDCDC · Grey 2 border + label #777777</span>
             </div>
           </div>
+          <!-- SECONDARY -->
           <div class="card-detail__content">
-            <div class="ref__group-title">Secondary — 32px · White + grey border; fills PS Blue on hover</div>
-            <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-3); align-items:center;">
+            <div class="ref__group-title">Secondary — Small · 32px · White + grey border; fills PS Blue on hover</div>
+            <div class="btn-state-grid">
+              <span class="state-label">Default</span>
               <button class="btn btn--secondary">Apply Filter</button>
-              <button class="btn btn--secondary"><i data-lucide="download" width="14" height="14"></i> Export</button>
-              <button class="btn btn--secondary">View Details</button>
+              <span class="state-note">White bg · 1px Grey 4 border · Grey 1 label</span>
+              <span class="state-label">Hover</span>
+              <button class="btn btn--secondary is-hover-secondary">Apply Filter</button>
+              <span class="state-note">PS Blue fill · white text · PS Blue border</span>
+              <span class="state-label">Pressed</span>
+              <button class="btn btn--secondary is-pressed-secondary">Apply Filter</button>
+              <span class="state-note">Darkens to #004A84</span>
+              <span class="state-label">With icon</span>
+              <button class="btn btn--secondary"><i data-lucide="download" width="13" height="13"></i> Export</button>
+              <span class="state-note">Trailing icon — color matches label</span>
+              <span class="state-label">Disabled</span>
               <button class="btn btn--secondary" disabled>Deactivated</button>
+              <span class="state-note">Grey 4 fill · Grey 3 border + label</span>
             </div>
           </div>
+          <!-- TERTIARY -->
           <div class="card-detail__content">
-            <div class="ref__group-title">Tertiary — 40px pill · Grey fill; never competes with Primary</div>
-            <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-3); align-items:center;">
+            <div class="ref__group-title">Tertiary — Large · 40px pill · Grey fill; never competes with Primary</div>
+            <div class="btn-state-grid">
+              <span class="state-label">Default</span>
               <button class="btn btn--tertiary">Save for Later</button>
-              <button class="btn btn--tertiary">Add to List</button>
-              <button class="btn btn--tertiary" disabled>Disabled</button>
+              <span class="state-note">Grey 5 fill #F1F1F1 · Grey 1 label · pill radius</span>
+              <span class="state-label">Hover</span>
+              <button class="btn btn--tertiary is-hover-tertiary">Save for Later</button>
+              <span class="state-note">Deepens to Grey 4 #DCDCDC</span>
+              <span class="state-label">Pressed</span>
+              <button class="btn btn--tertiary is-pressed-tertiary">Save for Later</button>
+              <span class="state-note">#CCCCCC + 4px drop shadow</span>
+              <span class="state-label">Disabled</span>
+              <button class="btn btn--tertiary" disabled>Save for Later</button>
+              <span class="state-note">Same grey fill · Grey 3 label</span>
             </div>
           </div>
+          <!-- DESTRUCTIVE -->
+          <div class="card-detail__content">
+            <div class="ref__group-title">Destructive · Red outline</div>
+            <div class="btn-state-grid">
+              <span class="state-label">Default</span>
+              <button class="btn btn--destructive">Reject Request</button>
+              <span class="state-note">White bg · #E00000 border + text</span>
+              <span class="state-label">Hover</span>
+              <button class="btn btn--destructive is-hover-destructive">Reject Request</button>
+              <span class="state-note">Light red surface fill</span>
+              <span class="state-label">Disabled</span>
+              <button class="btn btn--destructive is-disabled" disabled>Reject Request</button>
+              <span class="state-note">Grey fill · Grey 3 border + label</span>
+            </div>
+          </div>
+          <!-- INLINE -->
           <div class="card-detail__content">
             <div class="ref__group-title">Inline — Link &amp; Ghost actions</div>
             <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-4); align-items:center;">
@@ -265,20 +316,22 @@
               <button class="btn btn--link"><i data-lucide="external-link" width="14" height="14"></i> Open Work Order</button>
             </div>
           </div>
+          <!-- PILL (DEPRECATED) -->
           <div class="card-detail__content">
-            <div class="ref__group-title">Pill — 48px orange (⚠ Deprecated — do not use for new CTAs)</div>
-            <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-3); align-items:center;">
+            <div class="ref__group-title">Pill — Large · 48px · <span style="color:var(--amber);font-weight:600">⚠ Deprecated — do not use for new CTAs</span></div>
+            <div class="btn-state-grid">
+              <span class="state-label">Default</span>
               <button class="btn btn--pill">Propose Quote</button>
-              <button class="btn btn--pill" disabled>Disabled</button>
+              <span class="state-note">Orange 1 fill #FF9505 · fully rounded · white text</span>
+              <span class="state-label">Hover</span>
+              <button class="btn btn--pill is-hover-pill">Propose Quote</button>
+              <span class="state-note">Darkens to Orange 2 #EC8000</span>
+              <span class="state-label">Disabled</span>
+              <button class="btn btn--pill" disabled>Propose Quote</button>
+              <span class="state-note">Tinted Orange 4 #FFCA82</span>
             </div>
           </div>
-          <div class="card-detail__content">
-            <div class="ref__group-title">Destructive · Red outline</div>
-            <div class="ref__row">
-              <button class="btn btn--destructive">Reject Request</button>
-              <button class="btn btn--destructive">Delete Draft</button>
-            </div>
-          </div>
+          <!-- SEGMENTED -->
           <div class="card-detail__content">
             <div class="ref__group-title">Segmented</div>
             <div class="segmented" data-segmented>
@@ -296,12 +349,15 @@
               <div class="card-detail__subtitle">Informational · 4px operational radius.</div>
             </header>
             <div class="card-detail__content">
-              <div class="ref__row">
-                <span class="chip-status">Neutral</span>
-                <span class="chip-status chip-status--success">Completed</span>
-                <span class="chip-status chip-status--warning">Pending</span>
-                <span class="chip-status chip-status--error">Delayed</span>
-                <span class="chip-status chip-status--info">In Transit</span>
+              <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-2);">
+                <span class="chip-status">Not Shipped</span>
+                <span class="chip-status chip-status--in-transit">In Transit</span>
+                <span class="chip-status chip-status--delivered">Delivered</span>
+                <span class="chip-status chip-status--urgent">Urgent</span>
+                <span class="chip-status chip-status--critical">Critical</span>
+                <span class="chip-status chip-status--approved">Approved</span>
+                <span class="chip-status chip-status--pending">Pending</span>
+                <span class="chip-status chip-status--under-contract">Under Contract</span>
               </div>
             </div>
           </div>
