@@ -231,31 +231,45 @@
         <div class="card-detail mb-4">
           <header class="card-detail__header">
             <h3 class="card-detail__title">Buttons</h3>
-            <div class="card-detail__subtitle">Verb–Subject labels. One primary per screen or section.</div>
+            <div class="card-detail__subtitle">Verb–Subject labels. One primary per screen or section. Orange retired from CTAs — fails ADA contrast.</div>
           </header>
           <div class="card-detail__content">
-            <div class="ref__group-title">Primary · Orange CTA ramp</div>
-            <div class="ref__row">
-              <button class="btn btn--primary">Submit Order</button>
-              <button class="btn btn--primary btn--large">Approve Request</button>
-              <button class="btn btn--primary btn--small">Add Line</button>
-              <button class="btn btn--primary" disabled>Submit Order</button>
-              <button class="btn btn--pill"><i data-lucide="sparkles" width="14" height="14"></i> Join PS Plus+</button>
+            <div class="ref__group-title">Primary — 50px · White fill + PS Blue border; fills blue on hover</div>
+            <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-3); align-items:center;">
+              <button class="btn btn--primary btn--large">Buy Now</button>
+              <button class="btn btn--primary btn--large">Submit Order</button>
+              <button class="btn btn--primary btn--large" disabled>Disabled</button>
             </div>
           </div>
           <div class="card-detail__content">
-            <div class="ref__group-title">Secondary · PS Blue outline</div>
-            <div class="ref__row">
+            <div class="ref__group-title">Secondary — 32px · White + grey border; fills PS Blue on hover</div>
+            <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-3); align-items:center;">
+              <button class="btn btn--secondary">Apply Filter</button>
+              <button class="btn btn--secondary"><i data-lucide="download" width="14" height="14"></i> Export</button>
               <button class="btn btn--secondary">View Details</button>
-              <button class="btn btn--secondary btn--small">Edit Draft</button>
-              <button class="btn btn--secondary" disabled>View Details</button>
+              <button class="btn btn--secondary" disabled>Deactivated</button>
             </div>
           </div>
           <div class="card-detail__content">
-            <div class="ref__group-title">Tertiary · Inline link</div>
-            <div class="ref__row">
+            <div class="ref__group-title">Tertiary — 40px pill · Grey fill; never competes with Primary</div>
+            <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-3); align-items:center;">
+              <button class="btn btn--tertiary">Save for Later</button>
+              <button class="btn btn--tertiary">Add to List</button>
+              <button class="btn btn--tertiary" disabled>Disabled</button>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Inline — Link &amp; Ghost actions</div>
+            <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-4); align-items:center;">
               <button class="btn btn--link">Clear Filters</button>
               <button class="btn btn--link"><i data-lucide="external-link" width="14" height="14"></i> Open Work Order</button>
+            </div>
+          </div>
+          <div class="card-detail__content">
+            <div class="ref__group-title">Pill — 48px orange (⚠ Deprecated — do not use for new CTAs)</div>
+            <div class="ref__row" style="flex-wrap:wrap; gap:var(--s-3); align-items:center;">
+              <button class="btn btn--pill">Propose Quote</button>
+              <button class="btn btn--pill" disabled>Disabled</button>
             </div>
           </div>
           <div class="card-detail__content">
@@ -311,13 +325,27 @@
         <div class="card-detail mb-4">
           <header class="card-detail__header">
             <h3 class="card-detail__title">Alerts</h3>
-            <div class="card-detail__subtitle">Semantic pairs. Always include an icon and a remedial action.</div>
+            <div class="card-detail__subtitle">Core variants from Figma. Success/Fail/Info pulled directly; Warning follows brand palette. Always include icon + label.</div>
           </header>
           <div class="card-detail__content stack">
-            <div class="alert alert--info"><i class="alert__icon" data-lucide="info" width="18" height="18"></i><div class="alert__body"><div class="alert__title">Formulary review available</div>Your Q2 formulary coverage report is ready. <a href="#" class="inline-link inline-link--info">Open Report</a></div></div>
-            <div class="alert alert--success"><i class="alert__icon" data-lucide="check-circle-2" width="18" height="18"></i><div class="alert__body"><div class="alert__title">Order approved</div>PO-24831 was approved and routed to GE Healthcare. ETA Apr 28.</div></div>
-            <div class="alert alert--warning"><i class="alert__icon" data-lucide="alert-triangle" width="18" height="18"></i><div class="alert__body"><div class="alert__title">Approval required</div>3 orders have been pending more than 48 hours.</div></div>
-            <div class="alert alert--error"><i class="alert__icon" data-lucide="x-circle" width="18" height="18"></i><div class="alert__body"><div class="alert__title">We couldn't submit your order</div>The part number is missing on line 2. Add a part number and try again.</div></div>
+            <!-- Success: bg #E2F5EE, text+icon Green 3 #0E7C55 -->
+            <div class="alert alert--success"><i class="alert__icon" data-lucide="check-circle-2" width="18" height="18"></i><div class="alert__body"><strong>Requester has been nudged for Part Order #: 64434335</strong></div></div>
+            <!-- Error: bg #FEF0F0, text+icon Red 1 #E00000 -->
+            <div class="alert alert--error"><i class="alert__icon" data-lucide="x-circle" width="18" height="18"></i><div class="alert__body"><strong>Part Order #: 64434335 has been Rejected.</strong></div></div>
+            <!-- Info: bg #EFF9FE, text+icon PS Blue #005BA6 -->
+            <div class="alert alert--info"><i class="alert__icon" data-lucide="info" width="18" height="18"></i><div class="alert__body"><strong>You have a new PM for Asset 343433.</strong></div></div>
+            <!-- Warning: bg #FFF4E5, text+icon amber #B45309 -->
+            <div class="alert alert--warning"><i class="alert__icon" data-lucide="alert-triangle" width="18" height="18"></i><div class="alert__body"><strong>Your session will expire in 5 minutes. Save your work.</strong></div></div>
+          </div>
+          <div class="card-detail__content stack" style="margin-top:var(--s-2)">
+            <div class="ref__group-title">Dismissible alerts</div>
+            <div class="alert alert--info"><i class="alert__icon" data-lucide="info" width="18" height="18"></i><div class="alert__body">New features are now available. Check out the latest updates.</div><button class="alert__close" aria-label="Dismiss"><i data-lucide="x" width="16" height="16"></i></button></div>
+            <div class="alert alert--success"><i class="alert__icon" data-lucide="check-circle-2" width="18" height="18"></i><div class="alert__body">Your preferences have been saved successfully.</div><button class="alert__close" aria-label="Dismiss"><i data-lucide="x" width="16" height="16"></i></button></div>
+          </div>
+          <div class="card-detail__content stack" style="margin-top:var(--s-2)">
+            <div class="ref__group-title">Alerts with actions (Secondary SM button style)</div>
+            <div class="alert alert--error"><i class="alert__icon" data-lucide="x-circle" width="18" height="18"></i><div class="alert__body">Payment failed. Please update your billing information.</div><button class="btn btn--secondary" style="white-space:nowrap">Update</button></div>
+            <div class="alert alert--warning"><i class="alert__icon" data-lucide="alert-triangle" width="18" height="18"></i><div class="alert__body">This action cannot be undone. Are you sure?</div><div style="display:flex;gap:var(--s-2)"><button class="btn btn--secondary">Cancel</button><button class="btn btn--secondary">Continue</button></div></div>
           </div>
         </div>
 
