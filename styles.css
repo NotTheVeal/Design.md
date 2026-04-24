@@ -5,22 +5,35 @@
   /* Primary brand */
   --ps-blue: #005BA6;
   --blue-2: #004A84;
-  --blue-3: #003763;
+  --blue-3: #002F48;
   --azure-blue: #009CF4;
+  --light-blue: #B0C6D3;
 
-  /* CTA ramp */
+  /* CTA ramp — orange (deprecated for primary CTAs per brand direction) */
   --orange-1: #FF9505;
   --orange-2: #EC8000;
   --orange-3: #D27200;
-
-  /* Secondary / notification */
   --orange-4: #FFCA82;
   --orange-5: #FFE4C0;
+
+  /* Success / positive */
   --green-1: #17AB78;
   --green-2: #8BD5BC;
+  --green-3: #0E7C55;
+
+  /* Error / negative */
   --red: #FF0000;
+  --red-1: #E00000;
   --light-red: #FACBCB;
-  --light-blue: #D0EDFC;
+
+  /* Warning */
+  --amber: #B45309;
+
+  /* Alert surface tokens */
+  --alert-success-bg: #E2F5EE;
+  --alert-error-bg: #FEF0F0;
+  --alert-info-bg: #EFF9FE;
+  --alert-warning-bg: #FFF4E5;
 
   /* Grayscale */
   --black: #000000;
@@ -270,20 +283,74 @@ img, svg { display: block; max-width: 100%; }
 .btn--small  { padding: 0 12px; min-height: 32px; font-size: 13px; }
 .btn--block  { width: 100%; }
 
-.btn--primary { background: var(--action-default); color: var(--white); }
-.btn--primary:hover { background: var(--action-hover); }
-.btn--primary:active { background: var(--action-pressed); }
-.btn--primary:focus-visible { outline: 2px solid var(--ps-blue); outline-offset: 2px; }
-.btn--primary:disabled { background: var(--grey-4); color: var(--grey-2); cursor: not-allowed; }
-
-.btn--secondary {
-  background: var(--surface-base);
+/* Primary — 50px, white fill + PS Blue border/text; fills blue on hover */
+.btn--primary {
+  background: var(--white);
   color: var(--ps-blue);
-  border: 1px solid var(--ps-blue);
+  border: 2px solid var(--ps-blue);
+  min-height: 50px;
 }
-.btn--secondary:hover { background: var(--light-blue); }
-.btn--secondary:active { background: var(--grey-6); color: var(--blue-2); border-color: var(--blue-2); }
-.btn--secondary:disabled { color: var(--grey-3); border-color: var(--grey-4); cursor: not-allowed; background: var(--surface-base); }
+.btn--primary:hover {
+  background: var(--ps-blue);
+  color: var(--white);
+  border-color: var(--azure-blue);
+}
+.btn--primary:active {
+  background: var(--blue-2);
+  color: var(--white);
+  border-color: var(--blue-2);
+  box-shadow: 0 4px 0 rgba(0,0,0,.25);
+}
+.btn--primary:focus-visible {
+  outline: 3px solid rgba(176,198,211,0.91);
+  outline-offset: 2px;
+}
+.btn--primary:disabled {
+  background: var(--grey-5);
+  color: var(--grey-2);
+  border: 2px solid var(--grey-5);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Secondary — 32px compact, white + grey border; fills PS Blue on hover */
+.btn--secondary {
+  background: var(--white);
+  color: var(--grey-1);
+  border: 1px solid var(--grey-5);
+  min-height: 32px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+.btn--secondary:hover { background: var(--ps-blue); color: var(--white); border-color: var(--ps-blue); }
+.btn--secondary:active { background: var(--blue-2); color: var(--white); border-color: var(--blue-2); }
+.btn--secondary:disabled { background: var(--grey-5); color: var(--grey-3); border-color: var(--grey-4); cursor: not-allowed; }
+
+/* Tertiary — 40px pill, grey fill; stays neutral, never competes with primary */
+.btn--tertiary {
+  background: var(--grey-6);
+  color: var(--grey-1);
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  min-height: 40px;
+  font-size: 14px;
+}
+.btn--tertiary:hover { background: var(--grey-5); }
+.btn--tertiary:active { background: var(--grey-4); box-shadow: 0 4px 0 rgba(0,0,0,.25); }
+.btn--tertiary:focus-visible { border-color: var(--ps-blue); outline: 3px solid rgba(176,198,211,0.91); outline-offset: 2px; }
+.btn--tertiary:disabled { color: var(--grey-3); cursor: not-allowed; }
+
+/* Pill — 48px orange (DEPRECATED — use Primary instead for new work) */
+.btn--pill {
+  background: var(--orange-1);
+  color: var(--white);
+  border-radius: 9999px;
+  min-height: 48px;
+  border: none;
+}
+.btn--pill:hover { background: var(--orange-2); }
+.btn--pill:active { background: var(--orange-3); }
+.btn--pill:disabled { background: var(--orange-4); cursor: not-allowed; }
 
 .btn--link {
   min-height: auto; padding: 0;
@@ -300,7 +367,8 @@ img, svg { display: block; max-width: 100%; }
 }
 .btn--destructive:hover { background: var(--light-red); }
 
-.btn--pill {
+/* removed duplicate .btn--pill definition */
+.btn--pill-legacy-stub {
   background: var(--action-default);
   color: var(--white);
   font-weight: 600;
@@ -493,10 +561,10 @@ img, svg { display: block; max-width: 100%; }
 }
 .alert__close:hover { opacity: 1; }
 
-.alert--info    { background: var(--light-blue); color: var(--blue-2); border-color: var(--azure-blue); }
-.alert--success { background: var(--green-2); color: var(--green-1); border-color: var(--green-1); }
-.alert--warning { background: var(--orange-5); color: var(--orange-3); border-color: var(--orange-2); }
-.alert--error   { background: var(--light-red); color: var(--red); border-color: var(--red); }
+.alert--info    { background: var(--alert-info-bg);    color: var(--ps-blue);  border-color: var(--ps-blue); }
+.alert--success { background: var(--alert-success-bg); color: var(--green-3);  border-color: var(--green-3); }
+.alert--warning { background: var(--alert-warning-bg); color: var(--amber);    border-color: var(--amber); }
+.alert--error   { background: var(--alert-error-bg);   color: var(--red-1);    border-color: var(--red-1); }
 
 .inline-link {
   font-weight: 600; text-decoration: underline;
